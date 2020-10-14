@@ -1,6 +1,7 @@
 package shipment;
 
 public class History {
+	
 	/*time convention used : 
 	 * 24 hours system
 	 * {hour,min} eg: {1,30} = 1:30

@@ -6,7 +6,7 @@ import shipment.Shipment;
 
 public abstract class Receiver {
 	
-	private ArrayList<Shipment> shipments;
+	private ArrayList<Shipment> shipments;         //Shipment associated with this receiver
 	private int[] preferredDeliveryTime;
 	
 	
@@ -14,6 +14,7 @@ public abstract class Receiver {
 		shipments = new ArrayList<Shipment>();
 		this.preferredDeliveryTime=preferredDeliveryTime;
 	}
+	
 	public boolean Recieve(Shipment shipment) {
 		return true;
 	}
@@ -34,13 +35,5 @@ public abstract class Receiver {
 	
 }
 
-
-/*TODO
- * get familiar with Git basic commands 
- * fields must be private
- * discuss the import from other packages
- * the commenting methods
- * no objects created from abstract classes
- */
 
 

@@ -12,7 +12,7 @@ public abstract class  Shipment {
 	private int[] prefferedDeliveryTime;
 	private int[] registeredDeliveryTime; // length = 2 {column,row} indices in the array of the AssignedShipment of its carrier 
 	private Status status;
-	// common methods are not abstract 
+	
 	
 	public void setCarrier() {
 		
@@ -29,7 +29,6 @@ public abstract class  Shipment {
 	
 	public int[] getRegisteredDeliveryTime() {
 		return prefferedDeliveryTime;
-		
 	}
 	
 	public Status getStatus() {

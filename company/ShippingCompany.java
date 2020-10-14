@@ -20,16 +20,13 @@ public class ShippingCompany {
 	}
 	
 	private static void simulatePhase1() {
-		/*
+		/*TODO
 		 * loop to generate carriers ,loop shipments,assign to carriers directly
-		 * 
-		 */
-		
-		
+		 */	
 	}
 	
 	private static void simulatePhase2() {
-		/*
+		/*TODO
 		 * generate carriers through the method generateCarriers()
 		 * generateShipments  
 		 * startDelivering
@@ -41,13 +38,11 @@ public class ShippingCompany {
 		
 	}
 	private static boolean receive(Shipment shipment , Sender sender,Receiver reciever) {
-		
-		/*
-		 * 
+		 
+		/*TODO
 		 * Receives the shipment from the sender
 		 * will pass the shipment to assignToCarrier 
 		 * if succeed -> add to arrays otherwise->false
-		 * 
 		 */
 		return false;
 	}
@@ -55,7 +50,7 @@ public class ShippingCompany {
 	
 	private static boolean assignToCarrier(Shipment shipment) {
 		
-		/*
+		/*TODO
 		 * loops through all the carriers call carrier.assignShipment see if accepted
 		 * returns true if carrier accepts shipment
 		 * if undelayable hasn't been assigned call forceAssign 
@@ -67,7 +62,7 @@ public class ShippingCompany {
 	private static boolean forceAssignToCarrier(Undelayable shipment) {
 		
 		
-		/*
+		/*TODO
 		 * loop through the shipments array to find a normal shipment at the preferred time of the undelayable shipment
 		 * then access its carrier + registeredDeliveryTime 
 		 * remove it from shipment array , carrier assignedShipment 
@@ -77,25 +72,33 @@ public class ShippingCompany {
 	}
 
 	private static boolean generateCarries(int numberOfCarriers) {
-		
-		//loop to generate carrier
+		/*TODO
+		*loop to generate carrier
+		*/
 		return false;
 	}
 	
 	private static boolean generateShipments(int numberOfShipments) {
-		
-		//loop to receive( new shipment , new sender,new receiver)
+		/*TODO
+		*loop to receive(  shipment ,  sender, receiver)
+		*/
 		return false;
 	}
 	
 	private static void startDelivering() {
-		//loop calls deliver(hour)
+		
+		/*TODO
+		*loop calls deliver(hour)
+		*/
+		
 	}
 	
 	private static void deliver(int hour) {
-		/*loop through all the carriers array and call method deliver(hour) from carrier class
-		 * 
-		 */
+		
+		/*TODO
+		*loop through all the carriers array and call method deliver(hour) from carrier class
+		*/
+		
 	}
 	
 	
@@ -104,11 +107,6 @@ public class ShippingCompany {
 	
 	
 }
-
-//TODO
-//1.create constructors
-//2.create getter & setters ( we may remove non-useful ones )
-
 
 
 
