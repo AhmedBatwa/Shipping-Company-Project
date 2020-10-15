@@ -6,7 +6,7 @@ import sender.Sender;
 public abstract class  Shipment {
 	
 	private Sender sender;
-	private Receiver reciever;
+	private Receiver receiver;
 	private History history;
 	private Carrier carrier;
 	private int[] prefferedDeliveryTime;
@@ -17,8 +17,10 @@ public abstract class  Shipment {
 	public void setCarrier() {
 		
 	}
-	public Shipment(int[] prefferedDeliveryTime) {
+	public Shipment(int[] prefferedDeliveryTime ,Sender sender,Receiver receiver) {
 		this.prefferedDeliveryTime = prefferedDeliveryTime;
+		this.receiver=receiver;
+		this.sender=sender;
 	}
 	public void setStatus(Status status) {
 		
@@ -42,10 +44,10 @@ public abstract class  Shipment {
 		this.sender = sender;
 	}
 	public Receiver getReciever() {
-		return reciever;
+		return receiver;
 	}
 	public void setReciever(Receiver reciever) {
-		this.reciever = reciever;
+		this.receiver = reciever;
 	}
 	public History getHistory() {
 		return history;
