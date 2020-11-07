@@ -2,6 +2,7 @@ package company;
 
 import java.util.ArrayList;
 import java.util.Random;
+import java.util.Scanner;
 
 import company.Carrier.Shift;
 import receiver.*;
@@ -26,14 +27,27 @@ public class ShippingCompany {
 	public static void main(String args[]) {
 		//simulation of the two phases
 
-		
+		System.out.println("Shipping Company");
+
 //		ask number of shipments , employee
-//		simulatePhase1();
-//		simulatePhase2();
+		Scanner scanner = new Scanner(System.in);
+		System.out.println("Enter Number of Carriers : ");
+		int numberOfCarriers= scanner.nextInt();
+		System.out.println("Enter Number of Shipments to Be Delivered Today : ");
+		int numberOfShipments= scanner.nextInt();
 		
 		
+		System.out.println("===================================================[Phase#1]======================================================= ");
+		simulatePhase1(numberOfCarriers,numberOfShipments);
+		System.out.println("=====================================================[End]========================================================= ");
+		System.out.println("===================================================[Phase#2]======================================================= ");
+		simulatePhase2(numberOfCarriers,numberOfShipments);
+		System.out.println("=====================================================[End]========================================================= ");
+
+			
 		
-		/**TODO
+		
+		/*
 		 * ask the user for number of shipmments , employee
 		 * simulate phase1();
 		 * simulate phase2();
@@ -60,7 +74,7 @@ public class ShippingCompany {
  	 */
 	
 	
-	private static void simulatePhase1() {
+	private static void simulatePhase1(int numberOfCarriers,int numberOfShipments) {
 		/*
 		 * generate carriers , shipments,assign to carriers
 		 * and start delivering process
@@ -68,17 +82,19 @@ public class ShippingCompany {
 		
 		
 		
-		
-		generateCarries(100);
-		generateShipments(1000,1);
+		init();
+		generateCarries(numberOfCarriers);
+		generateShipments(numberOfShipments,1);
+		printSummary();                           //will include what shipments is in the depository and what has beem assigned to a carrier
 		startDelivering();
+		printSummary(); 							//include what is delivered,indepository,failed delivery 
 	}
 	
 	
 	
 	
 	
-	private static void simulatePhase2() {
+	private static void simulatePhase2(int numberOfCarriers,int numberOfShipments) {
 		/*
 		 * generate carriers through the method generateCarriers()
 		 * generateShipments  
@@ -86,14 +102,43 @@ public class ShippingCompany {
 		 */
 		
 		
-		
-		generateCarries(100);   //same number of carriers
-		generateShipments(1000,2);    //same number of shipments in phase 1
+		init();
+		generateCarries(numberOfCarriers);   //same number of carriers
+		generateShipments(numberOfShipments,2);    //same number of shipments in phase 1
+		printSummary();
 		startDelivering();
+		printSummary();
 		
 		
 	}
 	
+	
+	
+	private static void init() {
+		/*
+		 * initialize to start simulating another phase
+		 * clear all data related to previously simulated phase
+		 */
+		carriers.clear();
+		senders.clear();
+		shipments.clear();
+		receivers.clear();
+	}
+	
+	private static void printSummary() {
+		/*
+		 * TODO :
+		 * 	[] loop through all the shippments in shpiments and print its history  (shipment.getHistory().printHistory())
+		 * 	[] inserts speratiors with labels 
+		 *  [] ask for adding a History.printHistory()
+		 *  [] ask initailly to comment the RecievedTime, and other times except the deiveryTime in History class 
+		 */
+		
+		/*
+		 * TODO : 
+		 *  []implement the 24 recieving deliviring at same time 
+		 */
+	}
 	
 	//================================================================[Receiving processing]=========================================================================
 		/** in this stage : 
