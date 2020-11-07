@@ -22,7 +22,7 @@ public abstract class  Shipment {
 		this.receiver=receiver;
 		this.sender=sender;
 	}
-	public void setStatus(Status status) {
+	public void setStatus(Status status,int hour) {
 		
 	}
 	public void deliver(int Hour,int min) {

@@ -1,5 +1,7 @@
 package company;
 
+import java.util.ArrayList;
+
 import shipment.Shipment;
 
 public class Carrier {
@@ -54,7 +56,7 @@ public int[] getWorkingHours() {
 
 
 
-public void deliver(int hour) {
+public ArrayList<Shipment> deliver(int hour) {
 	
 	/*
 	 * loops over the assigned shipments and calls .deliver method
@@ -65,10 +67,18 @@ public void deliver(int hour) {
 	 * a carrier can deliver 3 shipments per hour thus each shipment require(20 min) as average
      */
 	
+	ArrayList<Shipment> updatedShipments = new ArrayList<>();
+	
 	for(int i=0; i<assignedShipments[hour].length;i++) {
-		assignedShipments[hour][i].deliver(hour, i*20);       
+		
+		if(assignedShipments[hour][i]!=null) {
+		assignedShipments[hour][i].deliver(hour, i*20); 
+		updatedShipments.add(assignedShipments[hour][i]);
+		}
+		
 	}
 	
+	return updatedShipments;
 	
 	
 }
@@ -78,7 +88,7 @@ public void deliver(int hour) {
 
 
 
-public boolean assignShipment(Shipment shipment,int simulatedPhase) {
+public boolean assignShipment(Shipment shipment,int currentHour,int simulatedPhase) {
 	
 	
 	
@@ -98,7 +108,7 @@ public boolean assignShipment(Shipment shipment,int simulatedPhase) {
 	
 	
 	if(simulatedPhase==1) {
-		for(int hour = 0;hour<workingHours.length;hour++) {
+		for(int hour = currentHour;hour<workingHours.length;hour++) {
 			if(workingHours[hour]==1) {         
 				for(int min=0;min<assignedShipments[hour].length;min++) {
 					if(assignedShipments[hour][min]==null) {       //find avalible time slot in the carrier's assigned shipments 
@@ -126,7 +136,7 @@ public boolean assignShipment(Shipment shipment,int simulatedPhase) {
 		int[] receiverPrefferedTime= shipment.getPrefferedDeliveryTime();
 		
 		
-		for(int hour = 0;hour<workingHours.length;hour++) {
+		for(int hour = currentHour;hour<workingHours.length;hour++) {
 			
 			//finds the intersection between the shipment & reciever preffered times & the Working hours of the carrier
 			if(workingHours[hour]==1 && shipmentPrefferedTime[hour]==1  && receiverPrefferedTime[hour]==1) {         
