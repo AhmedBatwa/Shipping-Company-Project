@@ -39,7 +39,15 @@ public abstract class  Shipment {
 
 	public void setRegisteredDeliveryTime(int[] registeredDeliveryTime) {this.registeredDeliveryTime = registeredDeliveryTime;}
 
-	public void setStatus(Status status,int hour) {this.status = status;}
+	public void setStatus(Status status,int hour) {this.status = status;
+	
+	/** TODO:
+	 * [] decide what is the status , and store the time in it's history correctly ... how? figure it out (:
+	 */
+	
+	
+	
+	}
 	
 	// Getters
 	public Sender getSender() {return sender;}
