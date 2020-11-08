@@ -15,7 +15,7 @@ public abstract class Receiver {
 	}
 	public boolean Receive(Shipment shipment) {
 		boolean bool=false;
-		for (int i:getPreferredDeliveryTime()) {
+		for (int i=0;i<=getPreferredDeliveryTime().length;i++) {
 			if(shipment.getPrefferedDeliveryTime()[i]==getPreferredDeliveryTime()[i]) {
 				shipment.setStatus(Status.DELIVERED);
 				bool=true;
