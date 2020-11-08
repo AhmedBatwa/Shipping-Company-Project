@@ -33,12 +33,14 @@ enum Shift {
 
 
 public Carrier(Shift shift) {
-	
+	assignedShipments=new Shipment[24][3];
 	initWorkingHours(shift);
 	
 }
 
-
+public void dailyCleanUp() {
+	assignedShipments=new Shipment[24][3];
+}
 
 
 public Shipment[][] getAssignedShipments() {
