@@ -33,7 +33,7 @@ enum Shift {
 
 
 public Carrier(Shift shift) {
-	
+	assignedShipments = new Shipment[24][3];
 	initWorkingHours(shift);
 	
 }
