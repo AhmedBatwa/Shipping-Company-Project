@@ -44,15 +44,15 @@ public class ShippingCompany {
 		Scanner scanner = new Scanner(System.in);
 		System.out.println("Enter Number of Carriers : ");
 		int numberOfCarriers= scanner.nextInt();
-		System.out.println("Enter Number of Shipments to Be Delivered Today : ");
-		int numberOfShipments= scanner.nextInt();
+		System.out.println("Enter limit of Shipments the company's may recieve per hour : ");
+		int hourLimit= scanner.nextInt();
 		
 		
 		System.out.println("===================================================[Phase#1]======================================================= ");
-		simulatePhase1(numberOfCarriers);
+		simulatePhase1(numberOfCarriers,hourLimit);
 		System.out.println("=====================================================[End]========================================================= ");
 		System.out.println("===================================================[Phase#2]======================================================= ");
-		simulatePhase2(numberOfCarriers);
+		simulatePhase2(numberOfCarriers,hourLimit);
 		System.out.println("=====================================================[End]========================================================= ");
 
 			
@@ -92,7 +92,7 @@ public class ShippingCompany {
  	 */
 	
 	
-	private static void simulatePhase1(int numberOfCarriers) {
+	private static void simulatePhase1(int numberOfCarriers,int hourLimit) {
 		/*
 		 * generate carriers , shipments,assign to carriers
 		 * and start delivering process
@@ -106,7 +106,7 @@ public class ShippingCompany {
 		for (int hour=0;hour<24;hour++) {
 			
 			if(rnd.nextBoolean()) {
-				generateShipments(rnd.nextInt(),hour,1);     //recieve random number of shipments at random hour
+				generateShipments(rnd.nextInt(hourLimit),hour,1);     //recieve random number of shipments at random hour
 			}
 			
 		deliver(hour);          
@@ -120,7 +120,7 @@ public class ShippingCompany {
 	
 	
 	
-	private static void simulatePhase2(int numberOfCarriers) {
+	private static void simulatePhase2(int numberOfCarriers,int hourLimit) {
 		/*
 		 * generate carriers through the method generateCarriers()
 		 * generateShipments  
@@ -133,7 +133,7 @@ public class ShippingCompany {
 		for (int hour=0;hour<24;hour++) {
 			
 			if(rnd.nextBoolean()) {
-				generateShipments(rnd.nextInt(),hour,2);     //recieve random number of shipments at random hour
+				generateShipments(rnd.nextInt(hourLimit),hour,2);     //recieve random number of shipments at random hour
 			}
 			
 		deliver(hour);          
@@ -179,7 +179,7 @@ public class ShippingCompany {
 	
 	private static void printUpdates() {      
 		while(!updatedShipments.isEmpty()) {
-		System.out.print(updatedShipments.poll());
+		System.out.println(updatedShipments.poll());
 		}
 	}
 	

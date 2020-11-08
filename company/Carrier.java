@@ -113,6 +113,7 @@ public boolean assignShipment(Shipment shipment,int currentHour,int simulatedPha
 				for(int min=0;min<assignedShipments[hour].length;min++) {
 					if(assignedShipments[hour][min]==null) {       //find avalible time slot in the carrier's assigned shipments 
 						assignedShipments[hour][min]=shipment;
+						shipment.setRegisteredDeliveryTime(new int[] {hour,min});
 						return true;
 					}
 				}

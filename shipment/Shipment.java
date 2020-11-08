@@ -19,11 +19,13 @@ public abstract class  Shipment {
 		this.sender=sender;
 		this.prefferedDeliveryTime = new int[24];
 		for(int i : prefferedDeliveryTime) {i= 1;} // Default preferred time
+		this.history=new History();
 	}
 	public Shipment(Sender sender,Receiver receiver,int[] prefferedDeliveryTime) {
 		this.prefferedDeliveryTime = prefferedDeliveryTime;
 		this.receiver=receiver;
 		this.sender=sender;
+		
 	}
 	
 	// Setters
@@ -39,7 +41,7 @@ public abstract class  Shipment {
 
 	public void setRegisteredDeliveryTime(int[] registeredDeliveryTime) {this.registeredDeliveryTime = registeredDeliveryTime;}
 
-	public void setStatus(Status status) {this.status = status;}
+	public void setStatus(Status status,int hour) {this.status = status;}
 	
 	// Getters
 	public Sender getSender() {return sender;}
