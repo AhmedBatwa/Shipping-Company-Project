@@ -17,12 +17,10 @@ public abstract class Receiver {
 		boolean bool=false;
 		for (int i=0;i<=getPreferredDeliveryTime().length;i++) {
 			if(shipment.getPrefferedDeliveryTime()[i]==getPreferredDeliveryTime()[i]) {
-				shipment.setStatus(Status.DELIVERED);
 				bool=true;
 				break;
 			}
 			else{
-				shipment.setStatus(Status.DELIVERY_FAILED);
 				bool=false;
 			}	
 			}
