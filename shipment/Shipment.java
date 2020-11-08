@@ -43,6 +43,7 @@ public abstract class  Shipment {
 	
 	/** TODO:
 	 * [] decide what is the status , and store the time in it's history correctly ... how? figure it out (:
+	 * [] implement a toString() method to print the whole details of the shipment history-reciver-sender...
 	 */
 	
 	

@@ -231,7 +231,7 @@ public class ShippingCompany {
 	private static void printDailyReport() {
 		/*
 		 * TODO :
-		 * 	[] loop through all the shippments in shpiments and print its history  (shipment.getHistory().printHistory())
+		 * 	[] loop through all the shippments in shpiments and print its history  (shipment.getHistory().printHistory())  or simply ( shipment )  -> toString
 		 * 	[] inserts speratiors with labels 
 		 *  [] ask for adding a History.printHistory()
 		 *  [] ask initailly to comment the RecievedTime, and other times except the deiveryTime in History class 
