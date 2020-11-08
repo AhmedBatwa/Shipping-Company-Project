@@ -122,7 +122,7 @@ public class ShippingCompany {
 		deliver(hour);          
 		printUpdates();		             //print hourly updates	
 		}
-		printDailyReport(); 			//print the Daily Report
+		printDailyReport(day); 			//print the Daily Report
 		dailyCleanUp();
 		}
 		
@@ -165,7 +165,7 @@ public class ShippingCompany {
 		deliver(hour);          
 		printUpdates();		             //print hourly updates	
 		}
-		printDailyReport(); 			//print the Daily Report
+		printDailyReport(day); 			//print the Daily Report
 		dailyCleanUp();
 		}
 	}
@@ -236,7 +236,7 @@ public class ShippingCompany {
 	
 	
 	
-	private static void printDailyReport() {
+	private static void printDailyReport(int day) {
 		/*
 		 * TODO :
 		 * 	[] loop through all the shippments in shpiments and print its history  (shipment.getHistory().printHistory())  or simply ( shipment )  -> toString
@@ -244,6 +244,20 @@ public class ShippingCompany {
 		 *  [] ask for adding a History.printHistory()
 		 *  [] ask initailly to comment the RecievedTime, and other times except the deiveryTime in History class 
 		 */
+		
+		
+		System.out.printf("===================================================[Day#%d Report]=======================================================\n",day);
+		System.out.printf("Total Recieved Shipments :");
+		System.out.printf("Total Delivered Shipments :");
+		System.out.printf("Total Delivered Shipments :");
+		
+
+		for(Shipment shipment:shipments) {
+			System.out.println(shipment.getStatus());
+		}
+
+		System.out.println("==================================================[End of Report]======================================================= ");
+
 		
 		/*
 		 * TODO : 
