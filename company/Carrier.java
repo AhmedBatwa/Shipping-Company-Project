@@ -159,7 +159,9 @@ public boolean assignShipment(Shipment shipment,int currentHour,int simulatedPha
 
 }
 
-
+public void dailyCleanUp() {
+	assignedShipments=new Shipment[24][3];
+}
 
 
 //drop normal through force assignment
