@@ -40,19 +40,19 @@ public class ShippingCompany {
 
 		System.out.println("Shipping Company");
 
-//		ask number of shipments , employee
+//		ask number of shipments , days
 		Scanner scanner = new Scanner(System.in);
 		System.out.println("Enter Number of Carriers : ");
 		int numberOfCarriers= scanner.nextInt();
-		System.out.println("Enter Number of Shipments to Be Delivered Today : ");
-		int numberOfShipments= scanner.nextInt();
+		System.out.println("Enter Number of Days : ");
+		int numberOfDays= scanner.nextInt();
 		
 		
 		System.out.println("===================================================[Phase#1]======================================================= ");
-		simulatePhase1(numberOfCarriers);
+		simulatePhase1(numberOfCarriers,numberOfDays);
 		System.out.println("=====================================================[End]========================================================= ");
 		System.out.println("===================================================[Phase#2]======================================================= ");
-		simulatePhase2(numberOfCarriers);
+		simulatePhase2(numberOfCarriers,numberOfDays);
 		System.out.println("=====================================================[End]========================================================= ");
 
 			
@@ -92,7 +92,11 @@ public class ShippingCompany {
  	 */
 	
 	
-	private static void simulatePhase1(int numberOfCarriers) {
+	
+	
+	
+	
+	private static void simulatePhase1(int numberOfCarriers,int numberOfDays) {
 		/*
 		 * generate carriers , shipments,assign to carriers
 		 * and start delivering process
@@ -103,6 +107,10 @@ public class ShippingCompany {
 		init();
 		generateCarries(numberOfCarriers);
 		Random rnd=new Random();
+		
+		
+		for(int day=0;day<numberOfDays;day++) {
+			assignToCarrier(1);						   //this will assign the shippmets in repo from prev days before start receiving new ones
 		for (int hour=0;hour<24;hour++) {
 			
 			if(rnd.nextBoolean()) {
@@ -113,6 +121,9 @@ public class ShippingCompany {
 		printUpdates();		             //print hourly updates	
 		}
 		printDailyReport(); 			//print the Daily Report
+		dailyCleanUp();
+		}
+		
 		
 	}
 	
@@ -120,29 +131,49 @@ public class ShippingCompany {
 	
 	
 	
-	private static void simulatePhase2(int numberOfCarriers) {
+	
+	
+	
+	
+	
+	
+	
+	
+	private static void simulatePhase2(int numberOfCarriers,int numberOfDays) {
 		/*
 		 * generate carriers through the method generateCarriers()
 		 * generateShipments  
 		 * startDelivering
 		 */
 		
+
 		init();
 		generateCarries(numberOfCarriers);
 		Random rnd=new Random();
+		
+		
+		for(int day=0;day<numberOfDays;day++) {
+			assignToCarrier(2);						   //this will assign the shippmets in repo from prev days before start receiving new ones
 		for (int hour=0;hour<24;hour++) {
 			
 			if(rnd.nextBoolean()) {
-				generateShipments(rnd.nextInt(),hour,2);     //recieve random number of shipments at random hour
+				generateShipments(rnd.nextInt(),hour,1);     //recieve random number of shipments at random hour
 			}
 			
 		deliver(hour);          
-		printUpdates();		             //print hourly updates		 
+		printUpdates();		             //print hourly updates	
 		}
 		printDailyReport(); 			//print the Daily Report
-		
+		dailyCleanUp();
+		}
 		
 	}
+	
+	
+	
+	
+	
+	
 	
 	
 	
@@ -156,6 +187,46 @@ public class ShippingCompany {
 		shipments.clear();
 		receivers.clear();
 	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	/**
+	 * daily clean up the data , it will keep the non-delivered shipments , and will reset the assignedShipment for each carrier
+	 */
+	
+	
+	private static void dailyCleanUp() {
+		for (Shipment shipment:shipments) {
+			if(shipment.getStatus()==Status.DELIVERED) {
+				shipments.remove(shipment);
+			}
+		}
+		
+		for(Carrier carrier: carriers) {
+			carrier.dailyCleanUp();
+		}
+		
+	}
+	
+	
+
+	
+
+	
+	
+	
+	
+	
+	
+	
 	
 	private static void printDailyReport() {
 		/*
@@ -173,6 +244,17 @@ public class ShippingCompany {
 	}
 	
 	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	/**
 	 * hourly updated report of shipments changed their status
 	 */
@@ -182,6 +264,37 @@ public class ShippingCompany {
 		System.out.print(updatedShipments.poll());
 		}
 	}
+	
+	
+	
+	
+	
+	
+	
+
+	/**
+	 * assign the shipments in repository from previous days 
+	 * @param simulatedPhase
+	 */
+	
+	private static void assignToCarrier(int simulatedPhase) {
+		if(shipments.isEmpty()) return;
+		
+		for(Shipment shipment : shipments) {
+		assignToCarrier(shipment,0,simulatedPhase);
+		}
+		
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	//================================================================[Receiving processing]=========================================================================
 		/** in this stage : 
@@ -503,19 +616,7 @@ public class ShippingCompany {
 		 *  This shows that the carrier has the ability to deleiver 3 shipments per hour at best case senario.
 		 */
 	
-//	private static void startDelivering() {
-//		
-//		/*
-//		*loop calls deliver(hour)
-//		*/
-//		
-//		for(int hour=0; hour<24; hour++) {
-//			deliver(hour);
-//		}
-//		
-//	}
-//	
-	
+
 	
 	
 	

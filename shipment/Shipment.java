@@ -39,7 +39,7 @@ public abstract class  Shipment {
 
 	public void setRegisteredDeliveryTime(int[] registeredDeliveryTime) {this.registeredDeliveryTime = registeredDeliveryTime;}
 
-	public void setStatus(Status status) {this.status = status;}
+	public void setStatus(Status status,int hour) {this.status = status;}
 	
 	// Getters
 	public Sender getSender() {return sender;}
