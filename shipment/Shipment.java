@@ -58,11 +58,10 @@ public abstract class  Shipment {
 
 	// Action methods
 	public void deliver(int Hour,int min) {
-		receiver.Recieve(this);
-		status = status.DELIVERED;
-		history.setDeliveredTime(registeredDeliveryTime);
+		if(receiver.Recieve(this) == true) {
+			status = status.DELIVERED;
+			history.setDeliveredTime(registeredDeliveryTime);
+		}
+		else {status = status.DELIVERY_FAILED;}
 	}
-
-	
-	
 }
