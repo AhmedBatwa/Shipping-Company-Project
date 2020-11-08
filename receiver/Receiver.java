@@ -15,6 +15,7 @@ public abstract class Receiver {
 		this.preferredDeliveryTime=preferredDeliveryTime;
 	}
 	public boolean Recieve(Shipment shipment) {
+		
 		return true;
 	}
 
