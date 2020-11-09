@@ -12,6 +12,8 @@ public abstract class  Shipment {
 	private int[] prefferedDeliveryTime;
 	private int[] registeredDeliveryTime; // length = 2 {column,row} indices in the array of the AssignedShipment of its carrier 
 	private Status status;
+	private static int shipmentsCounter;
+	private final int shipment_ID;
 	
 	// Constructors
 	public Shipment(Sender sender,Receiver receiver) {
@@ -20,12 +22,12 @@ public abstract class  Shipment {
 		this.prefferedDeliveryTime = new int[24];
 		for(int i : prefferedDeliveryTime) {i= 1;} // Default preferred time
 		this.history=new History();
+		shipmentsCounter++;
+		shipment_ID = shipmentsCounter;
 	}
 	public Shipment(Sender sender,Receiver receiver,int[] prefferedDeliveryTime) {
+		this(sender, receiver);
 		this.prefferedDeliveryTime = prefferedDeliveryTime;
-		this.receiver=receiver;
-		this.sender=sender;
-		
 	}
 	
 	// Setters
@@ -54,10 +56,13 @@ public abstract class  Shipment {
 	
 	public int[] getPrefferedDeliveryTime() {return prefferedDeliveryTime;}
 
-	public int[] getRegisteredDeliveryTime() {return prefferedDeliveryTime;}
+	public int[] getRegisteredDeliveryTime() {return registeredDeliveryTime;}
 
 	public Status getStatus() {return status;}
 
+	// Print
+	public String toString() {return String.format("Shimpent #%d", shipment_ID);}
+	
 	// Action methods
 	public boolean deliver(int Hour,int min) {
 		if(receiver.receive(this) == true) {

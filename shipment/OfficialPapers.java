@@ -3,28 +3,27 @@ import receiver.Receiver;
 import sender.Sender;
 
 public class OfficialPapers extends Shipment implements Undelayable{
-	
-	private static final int shelfLife=5;
 	/**
 	 * assuption 8 working hours the sender usually will take part of it
 	 * to deliver the shipment to the office thus the time remaining will be reduced
 	 * the effective assumed to be 5 here which is less than a full working shift
 	 *
 	 */
+	private static final int shelfLife=5;
 	
+	// Constructors
 	public OfficialPapers(Sender sender,Receiver receiver,int hour) {
 		super(sender, receiver);
 		init(hour);
 	}
 	
-	
-	
+	// Set preferred delivery time
 	public void init(int hour){
 		int[] PrefferedDeliveryTime= new int[24];
-	for(int i=hour;i<shelfLife ; i++) {
-		PrefferedDeliveryTime[i]=1;
+		for(int i=hour;i<shelfLife ; i++) {PrefferedDeliveryTime[i]=1;}
+		setPrefferedDeliveryTime(PrefferedDeliveryTime);
 	}
-	setPrefferedDeliveryTime(PrefferedDeliveryTime);
 	
-	}
+	// Print
+	public String toString() {return String.format("%s | Shimpent Type: %s | Shipment Status: %s", super.toString(), "Official Papers", getStatus());}
 }
