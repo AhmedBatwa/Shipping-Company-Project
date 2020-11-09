@@ -1,35 +1,17 @@
 package shipment;
-
 public class History {
 	
-	/*time convention used : 
-	 * 24 hours system
-	 * {hour,min} eg: {1,30} = 1:30
-	 */
+	private Status status;
+	private int[] time;
+	private int id;
+	private String type;
+		
+	public History(Status status, int hour, int min) {
+	this.status = status;
+	time = new int[] {hour, min};
+	}
 	
-	
-private int[] recievedTime;
-private int[] LeftDepositoryTime;
-private int[] DeliveredTime;
-
-public int[] getRecievedTime() {
-	return recievedTime;
-}
-public void setRecievedTime(int[] recievedTime) {
-	this.recievedTime = recievedTime;
-}
-public int[] getLeftDepositoryTime() {
-	return LeftDepositoryTime;
-}
-public void setLeftDepositoryTime(int[] leftDepositoryTime) {
-	LeftDepositoryTime = leftDepositoryTime;
-}
-public int[] getDeliveredTime() {
-	return DeliveredTime;
-}
-public void setDeliveredTime(int[] deliveredTime) {
-	DeliveredTime = deliveredTime;
-}
-
-
+	public String toString() {
+		return String.format("Updated: [%02d:%02d] | Status: %-22s", time[0], time[1], status);
+	}
 }
