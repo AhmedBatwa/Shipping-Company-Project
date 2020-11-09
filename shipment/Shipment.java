@@ -13,7 +13,7 @@ public abstract class  Shipment {
 	private int[] registeredDeliveryTime; // length = 2 {column,row} indices in the array of the AssignedShipment of its carrier 
 	private Status status;
 	private static int shipmentsCounter;
-	private final int shipment_ID;
+	private final int ID;
 	
 	// Constructors
 	public Shipment(Sender sender,Receiver receiver) {
@@ -23,7 +23,7 @@ public abstract class  Shipment {
 		for(int i : prefferedDeliveryTime) {i= 1;} // Default preferred time
 		this.history=new History();
 		shipmentsCounter++;
-		shipment_ID = shipmentsCounter;
+		ID = shipmentsCounter;
 	}
 	public Shipment(Sender sender,Receiver receiver,int[] prefferedDeliveryTime) {
 		this(sender, receiver);
@@ -59,9 +59,13 @@ public abstract class  Shipment {
 	public int[] getRegisteredDeliveryTime() {return registeredDeliveryTime;}
 
 	public Status getStatus() {return status;}
+	
+	public int getID() {return ID;}
 
+	public int getCounter() {return shipmentsCounter;}
+	
 	// Print
-	public String toString() {return String.format("Shimpent #%d", shipment_ID);}
+	public String toString() {return String.format("Shimpent #%d", ID);}
 	
 	// Action methods
 	public boolean deliver(int Hour,int min) {
