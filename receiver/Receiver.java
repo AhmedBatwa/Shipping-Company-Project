@@ -9,10 +9,14 @@ public abstract class Receiver {
 	
 	private ArrayList<Shipment> shipments;
 	private int[] preferredDeliveryTime;
+	
+	
 	public Receiver(int[] preferredDeliveryTime) {
 		shipments = new ArrayList<Shipment>();
 		this.preferredDeliveryTime=preferredDeliveryTime;
 	}
+	
+	
 	public boolean receive(Shipment shipment) {
 		
 		boolean isShipmentPrefferedTime=shipment.getPrefferedDeliveryTime()[shipment.getRegisteredDeliveryTime()[0]]==1;

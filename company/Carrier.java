@@ -160,13 +160,14 @@ public boolean assignShipment(Shipment shipment,int currentHour,int simulatedPha
 						assignedShipments[hour][min]=shipment;
 						shipment.setRegisteredDeliveryTime(new int[] {hour,min});
 						shipment.setCarrier(this);
+
+
 						return true;
 					}
 				}
 			}
 		}
 	}
-	
 	
 	
 	
