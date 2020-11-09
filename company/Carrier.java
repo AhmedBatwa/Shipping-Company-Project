@@ -7,7 +7,8 @@ import shipment.Shipment;
 public class Carrier {
 private Shipment[][] assignedShipments;       
 private int[] workingHours;          
-
+private int hourlyDelivered;
+private int hourlyFailed;
 
 
 
@@ -68,13 +69,23 @@ public ArrayList<Shipment> deliver(int hour) {
      */
 	
 	ArrayList<Shipment> updatedShipments = new ArrayList<>();
+	//init counters to start a new hourly report
+	hourlyDelivered=0;
+	hourlyFailed=0;
 	
 	for(int i=0; i<assignedShipments[hour].length;i++) {
 		
 		if(assignedShipments[hour][i]!=null) {
-		assignedShipments[hour][i].deliver(hour, i*20); 
+			
+		if(assignedShipments[hour][i].deliver(hour, i*20)) {
+			hourlyDelivered++;
+		}else {
+			hourlyFailed++;
+		}
 		updatedShipments.add(assignedShipments[hour][i]);
 		}
+		
+		
 		
 	}
 	
@@ -85,7 +96,9 @@ public ArrayList<Shipment> deliver(int hour) {
 
 
 
-
+public int[] getHourlyReport() {
+	return new int[] {hourlyDelivered,hourlyFailed};
+}
 
 
 public boolean assignShipment(Shipment shipment,int currentHour,int simulatedPhase) {
@@ -113,6 +126,8 @@ public boolean assignShipment(Shipment shipment,int currentHour,int simulatedPha
 				for(int min=0;min<assignedShipments[hour].length;min++) {
 					if(assignedShipments[hour][min]==null) {       //find avalible time slot in the carrier's assigned shipments 
 						assignedShipments[hour][min]=shipment;
+						shipment.setRegisteredDeliveryTime(new int[] {hour,min});
+						shipment.setCarrier(this);						
 						return true;
 					}
 				}
@@ -143,6 +158,8 @@ public boolean assignShipment(Shipment shipment,int currentHour,int simulatedPha
 				for(int min=0;min<assignedShipments[hour].length;min++) {
 					if(assignedShipments[hour][min]==null) {       //find avalible time slot in the carrier's assigned shipments 
 						assignedShipments[hour][min]=shipment;
+						shipment.setRegisteredDeliveryTime(new int[] {hour,min});
+						shipment.setCarrier(this);
 						return true;
 					}
 				}
@@ -158,7 +175,9 @@ public boolean assignShipment(Shipment shipment,int currentHour,int simulatedPha
 
 }
 
-
+public void dailyCleanUp() {
+	assignedShipments=new Shipment[24][3];
+}
 
 
 //drop normal through force assignment
