@@ -5,6 +5,6 @@ import sender.Sender;
 public class PersonalDelivery extends Shipment{
 	public PersonalDelivery(Sender sender, Receiver receiver) {
 		super(sender, receiver);
-		super.setPrefferedDeliveryTime(new int[] {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1});
+		super.setPrefferedDeliveryTime(new int[] {0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,0,0,0,0,0,0});
 	}
 }

@@ -21,18 +21,19 @@ public class ShippingCompany {
 	private static Queue<Shipment> updatedShipments = new LinkedList<>();
 	
 	
+	
+	
+	
 	/**TODO
-	 *	[]clean the code
-	 *	[]documnetion
-	 *	[]trace
-	 *	[]for shipment , insert:
-	 *		[]toString() which prints the history and the full details of the shipment
-	 *		[]edit .setStatus(Status status) ===> .setStatus(Status status,int hour)
-	 *		[]add a new enum in Status RETURNED_TO_DEPOSITORY
-	 * 	[]let the simultions 1,2 stops at each iteration to wait for the user to press Enter...
+	 *	toString for shipment to print all the details
+	 *counters to count received,delevered,failed...
+	 *
 	 */
 	
-	
+	private static int totalReceived;
+	private static int totalDelivered;
+	private static int totalFailed;
+
 	
 	
 	public static void main(String args[]) {
@@ -112,6 +113,12 @@ public class ShippingCompany {
 		
 		
 		for(int day=0;day<numberOfDays;day++) {
+			//start new day... start new counters
+			totalDelivered=0;
+			totalFailed=0;
+			totalReceived=0;
+			
+			
 			assignToCarrier(1);						   //this will assign the shippmets in repo from prev days before start receiving new ones
 		for (int hour=0;hour<24;hour++) {
 			
@@ -154,8 +161,16 @@ public class ShippingCompany {
 		Random rnd=new Random();
 		
 		
+		
 		for(int day=0;day<numberOfDays;day++) {
-			assignToCarrier(1);						   //this will assign the shippmets in repo from prev days before start receiving new ones
+			
+			//start new day... start new counters
+			totalDelivered=0;
+			totalFailed=0;
+			totalReceived=0;
+			
+			
+			assignToCarrier(2);						   //this will assign the shippmets in repo from prev days before start receiving new ones
 		for (int hour=0;hour<24;hour++) {
 			
 			if(rnd.nextBoolean()) {
@@ -192,7 +207,10 @@ public class ShippingCompany {
 	
 	
 	
-	
+	/**TODO
+	 * undelayble takes current time + if the time is exeed then it wii set it self to failed
+	 * 
+	 */
 	
 	
 	
@@ -247,9 +265,11 @@ public class ShippingCompany {
 		
 		
 		System.out.printf("===================================================[Day#%d Report]=======================================================\n",day);
-		System.out.printf("Total Recieved Shipments :");
-		System.out.printf("Total Delivered Shipments :");
-		System.out.printf("Total Delivered Shipments :");
+		System.out.println("Total Recieved Shipments :"+totalReceived);
+		System.out.println("Total Delivered Shipments :"+totalDelivered);
+		System.out.println("Total Failed Shipments :"+totalFailed);
+		System.out.printf("_________________________________________________________________________________________________________________________\n",day);
+		
 		
 
 		for(Shipment shipment:shipments) {
@@ -259,10 +279,7 @@ public class ShippingCompany {
 		System.out.println("==================================================[End of Report]======================================================= ");
 
 		
-		/*
-		 * TODO : 
-		 *  []implement the 24 recieving deliviring at same time 
-		 */
+		
 	}
 	
 	
@@ -351,6 +368,7 @@ public class ShippingCompany {
 		//shipment is now received by the depositoray 
 		shipment.setStatus(Status.IN_DEPOSITORY,hour);
 		updatedShipments.add(shipment);
+		totalReceived++;
 		
 		
 		// will try assigning the shipment to a carrier (Out for delivery) on the preffered time
@@ -652,6 +670,8 @@ public class ShippingCompany {
 		
 		for(Carrier carrier : carriers) {
 			updatedShipments.addAll(carrier.deliver(hour));   //add all the shipments updated
+			totalDelivered+=carrier.getHourlyReport()[0];
+			totalFailed+=carrier.getHourlyReport()[1];
 		}
 		
 		

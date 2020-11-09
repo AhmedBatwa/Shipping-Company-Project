@@ -59,11 +59,13 @@ public abstract class  Shipment {
 	public Status getStatus() {return status;}
 
 	// Action methods
-	public void deliver(int Hour,int min) {
-		if(receiver.Recieve(this) == true) {
+	public boolean deliver(int Hour,int min) {
+		if(receiver.receive(this) == true) {
 			status = status.DELIVERED;
 			history.setDeliveredTime(registeredDeliveryTime);
+			return true;
 		}
-		else {status = status.DELIVERY_FAILED;}
+		status = status.DELIVERY_FAILED;
+		return false;
 	}
 }
