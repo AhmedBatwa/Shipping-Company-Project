@@ -1,5 +1,6 @@
 package company;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Queue;
@@ -128,7 +129,19 @@ public class ShippingCompany {
 			
 		deliver(hour);          
 		printUpdates();		             //print hourly updates	
+		
+		
+		
+		try {
+			System.in.read();
+		} catch (IOException e) {
 		}
+		
+		
+		
+		
+		}
+		
 		printDailyReport(day); 			//print the Daily Report
 		dailyCleanUp();
 		}
@@ -179,7 +192,16 @@ public class ShippingCompany {
 			
 		deliver(hour);          
 		printUpdates();		             //print hourly updates	
+		
+		
+		try {
+			System.in.read();
+		} catch (IOException e) {
 		}
+		
+		}
+		
+		
 		printDailyReport(day); 			//print the Daily Report
 		dailyCleanUp();
 		}
@@ -255,19 +277,14 @@ public class ShippingCompany {
 	
 	
 	private static void printDailyReport(int day) {
-		/*
-		 * TODO :
-		 * 	[] loop through all the shippments in shpiments and print its history  (shipment.getHistory().printHistory())  or simply ( shipment )  -> toString
-		 * 	[] inserts speratiors with labels 
-		 *  [] ask for adding a History.printHistory()
-		 *  [] ask initailly to comment the RecievedTime, and other times except the deiveryTime in History class 
-		 */
 		
+	
 		
 		System.out.printf("===================================================[Day#%d Report]=======================================================\n",day);
-		System.out.println("Total Recieved Shipments :"+totalReceived);
-		System.out.println("Total Delivered Shipments :"+totalDelivered);
-		System.out.println("Total Failed Shipments :"+totalFailed);
+		System.out.println("Today's Recieved Shipments :\t"+totalReceived);
+		System.out.println("Today's Delivered Shipments :\t"+totalDelivered);
+		System.out.println("Today's Failed Shipments :\t"+totalFailed);
+		System.out.println("Total Shipments in Depository :\t"+shipments.size());
 		System.out.printf("_________________________________________________________________________________________________________________________\n",day);
 		
 		
