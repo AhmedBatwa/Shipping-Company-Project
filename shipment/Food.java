@@ -27,6 +27,8 @@ public class Food extends Shipment implements Undelayable{
 	}
 	
 	// Print
-	public String toString() {return String.format("%s | Shimpent Type: %s | Shipment Status: %s", super.toString(), "Food", getStatus());}
+	public String toString() {return String.format("%-15s | Shimpent Type: %-22s | Shipment Status: %-27s | [%-5s]",
+			super.toString(), "Food", getStatus(), getLastUpdateTime());}
+
 }
 	

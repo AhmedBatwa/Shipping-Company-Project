@@ -25,11 +25,6 @@ public class ShippingCompany {
 	
 	
 	
-	/**TODO
-	 *	toString for shipment to print all the details
-	 *counters to count received,delevered,failed...
-	 *
-	 */
 	
 	private static int totalReceived;
 	private static int totalDelivered;
@@ -37,12 +32,28 @@ public class ShippingCompany {
 
 	
 	
+	
+	
+	
+	
+	
 	public static void main(String args[]) {
-		//simulation of the two phases
+		
+		
+		
+	
+		
+		/* 
+		 * ask the user for number of shipmments , employee
+		 * simulate phase1();
+		 * simulate phase2();
+		 */
 
-		System.out.println("Shipping Company");
+		System.out.println("=====================================================[Shipping Company]========================================================= ");
 
-//		ask number of shipments , days
+		
+		
+//		ask number of shipments , days ,hourlyLimit
 		Scanner scanner = new Scanner(System.in);
 		System.out.println("Enter Number of Carriers : ");
 		int numberOfCarriers= scanner.nextInt();
@@ -54,22 +65,33 @@ public class ShippingCompany {
 		
 		
 		
-		System.out.println("===================================================[Phase#1]======================================================= ");
+		
+		
+		
+		System.out.println("=====================================================[Phase#1]========================================================= ");
 		simulatePhase1(numberOfCarriers,numberOfDays,hourlyLimit);
-		System.out.println("=====================================================[End]========================================================= ");
-		System.out.println("===================================================[Phase#2]======================================================= ");
+		System.out.println("=======================================================[End]=========================================================== ");
+		System.out.println("=====================================================[Phase#2]========================================================= ");
 		simulatePhase2(numberOfCarriers,numberOfDays,hourlyLimit);
-		System.out.println("=====================================================[End]========================================================= ");
+		System.out.println("=======================================================[End]=========================================================== ");
 
 			
 		
 		
-		/*
-		 * ask the user for number of shipmments , employee
-		 * simulate phase1();
-		 * simulate phase2();
-		 */
+		
+		
+		
 	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	
 	
@@ -102,11 +124,29 @@ public class ShippingCompany {
 	
 	
 	
+	
+	
+	
+	
+	
+	
+	
+	
 	private static void simulatePhase1(int numberOfCarriers,int numberOfDays,int hourlyLimit) {
+		
+		
 		/*
 		 * generate carriers , shipments,assign to carriers
 		 * and start delivering process
+		 * printing the life updates is meant to life track the process
+		 * printing the daily Report is meant to show the daily summary & statistics 
 		 */
+		
+		
+		
+		
+		
+		
 		
 		
 		
@@ -124,7 +164,8 @@ public class ShippingCompany {
 			
 			assignToCarrier(1);						   //this will assign the shippmets in repo from prev days before start receiving new ones
 		for (int hour=0;hour<24;hour++) {
-			
+			System.out.printf("______________________________________________________[%02d:00]__________________________________________________________%n",hour);
+
 			if(rnd.nextBoolean()) {
 				generateShipments(rnd.nextInt(hourlyLimit)+1,hour,1);     //recieve random number of shipments at random hour
 			}
@@ -134,6 +175,7 @@ public class ShippingCompany {
 		
 		
 		try {
+			System.out.println("Press Enter to Continue...");
 			System.in.read();
 		} catch (IOException e) {
 		}
@@ -142,7 +184,7 @@ public class ShippingCompany {
 		
 		
 		}
-		
+		printUpdates();		             //print hourly updates	
 		printDailyReport(day); 			//print the Daily Report
 		dailyCleanUp();
 		}
@@ -165,44 +207,81 @@ public class ShippingCompany {
 	private static void simulatePhase2(int numberOfCarriers,int numberOfDays,int hourlyLimit) {
 		/*
 		 * generate carriers through the method generateCarriers()
-		 * generateShipments  
-		 * startDelivering
+		 * generate carriers , shipments,assign to carriers
+		 * and start delivering process
+		 * printing the life updates is meant to life track the process
+		 * printing the daily Report is meant to show the daily summary & statistics 
 		 */
 		
 
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		init();
 		generateCarries(numberOfCarriers);
 		Random rnd=new Random();
 		
 		
 		
+		
+		
 		for(int day=0;day<numberOfDays;day++) {
+			
+			
 			
 			//start new day... start new counters
 			totalDelivered=0;
 			totalFailed=0;
 			totalReceived=0;
-			
-			
 			assignToCarrier(2);						   //this will assign the shippmets in repo from prev days before start receiving new ones
+			
+			
+			
+			
 		for (int hour=0;hour<24;hour++) {
+			
+			System.out.printf("______________________________________________________[%02d:00]__________________________________________________________%n",hour);
+			
 			
 			if(rnd.nextBoolean()) {
 				generateShipments(rnd.nextInt(hourlyLimit)+1,hour,2);     //recieve random number of shipments at random hour
 			}
 			
-		deliver(hour);          		
+			
+			
+			deliver(hour);          		
 		
-		try {
-			System.in.read();
-		} catch (IOException e) {
+			
+			
+			try {
+				System.out.println("Press Enter to Continue...");
+				System.in.read();
+			} catch (IOException e) {
+			}
+			
+			
+			
+			
+			
+		
 		}
 		
-		}
 		
 		
+		
+		
+		
+		printUpdates();		             //print hourly updates	
 		printDailyReport(day); 			//print the Daily Report
 		dailyCleanUp();
+		
+		
 		}
 	}
 	
@@ -228,10 +307,11 @@ public class ShippingCompany {
 	
 	
 	
-	/**TODO
-	 * undelayble takes current time + if the time is exeed then it wii set it self to failed
-	 * 
-	 */
+	
+	
+	
+	
+	
 	
 	
 	
@@ -240,6 +320,9 @@ public class ShippingCompany {
 	
 	/**
 	 * daily clean up the data , it will keep the non-delivered shipments , and will reset the assignedShipment for each carrier
+	 * it meant to remove all delivered shipments from the shipments stored 
+	 * it will clear all the carriers assignedShipments 
+	 * preparing for a new day
 	 */
 	
 	
@@ -266,6 +349,10 @@ public class ShippingCompany {
 	
 
 	
+	
+	
+	
+	
 
 	
 	
@@ -289,7 +376,7 @@ public class ShippingCompany {
 		
 
 		for(Shipment shipment:shipments) {
-			System.out.println(shipment.getStatus());
+			System.out.println(shipment);
 		}
 
 		System.out.println("==================================================[End of Report]======================================================= ");
@@ -299,10 +386,7 @@ public class ShippingCompany {
 	}
 	
 	
-	
-	
-	
-	
+
 	
 	
 	
@@ -312,6 +396,7 @@ public class ShippingCompany {
 	
 	/**
 	 * hourly updated report of shipments changed their status
+	 * meant to life track the whole process 
 	 */
 	
 	private static void printUpdates() {  
@@ -320,6 +405,9 @@ public class ShippingCompany {
 		System.out.println(updatedShipments.poll());
 		}
 	}
+	
+	
+	
 	
 	
 	
@@ -352,6 +440,13 @@ public class ShippingCompany {
 	
 	
 	
+	
+	
+	
+	
+	
+	
+	
 	//================================================================[Receiving processing]=========================================================================
 		/** in this stage : 
 		 * the shipments will be received from the senders starting stored in depository , then will be assigned to carrier based on the phase,
@@ -359,6 +454,22 @@ public class ShippingCompany {
 		 * in the secound phase the carrier will give the undelayble shipments the highest priority and will consider the preffered delivery time
 		 * based on intersection of the preffered times of the shipment and the receiver during his workin hours.
 		 */
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	
 	
@@ -379,8 +490,8 @@ public class ShippingCompany {
 		shipments.add(shipment);
 		receivers.add(receiver);
 		senders.add(sender);
-		
-		
+		receiver.addShipment(shipment);
+		sender.addShipment(shipment);
 		
 		//shipment is now received by the depositoray 
 		shipment.setStatus(Status.IN_DEPOSITORY,hour);
@@ -399,7 +510,23 @@ public class ShippingCompany {
 	
 	
 	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	private static void assignToCarrier(Shipment shipment,int hour,int simulatedPhase) {
+		
+		
+		
+		
 		
 		/*
 		 * loops through all the carriers call carrier.assignShipment see if accepted
@@ -410,8 +537,20 @@ public class ShippingCompany {
 		
 		
 		
+		
+		
+		
 		//================================================================Phase1=========================================================================
 
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		
 		if(simulatedPhase==1) {
 			// as it is on the carrier shift's he will accept it with no priorty
@@ -430,8 +569,23 @@ public class ShippingCompany {
 		
 		
 		
+		
+		
+		
+		
+		
+		
+		
+		
 		//================================================================Phase2=========================================================================
 
+		
+		
+		
+		
+		
+		
+		
 		
 		else if(simulatedPhase==2) {
 			
@@ -440,7 +594,7 @@ public class ShippingCompany {
 			if(carrier.assignShipment(shipment,hour,2)) {
 				shipment.setStatus(Status.OUT_FOR_DELIVERY,hour);
 				updatedShipments.add(shipment);
-				printUpdates();		             //print hourly updates	--> receiving
+				printUpdates();		             //print hourly updates	--> out for delivery
 				return;
 			}
 		}
@@ -461,6 +615,12 @@ public class ShippingCompany {
 
 	
 	
+	
+	
+	
+	
+	
+	
 	private static void forceAssignToCarrier(Undelayable undelayableShipment,int hour) {
 	
 		
@@ -470,6 +630,8 @@ public class ShippingCompany {
 		 * remove it from shipment array , carrier assignedShipment 
 		 * assign this shipment to the carrier, and add it shipments array , sender ,receiver details
 		 */
+		
+		
 		
 		
 		
@@ -500,6 +662,7 @@ public class ShippingCompany {
 					shipment.getCarrier().dropShipment(shipment);
 					shipment.setStatus(Status.RETURNED_TO_DEPOSITORY,hour);
 					updatedShipments.add(shipment);
+					
 
 					
 					//assigning the undelayble shipment to the carrier 
@@ -525,6 +688,11 @@ public class ShippingCompany {
 	
 	
 	
+	
+	
+	
+	
+	
 	//================================================================[Initializing process]=========================================================================
        /** generation of the carriers and shipments based on given number of carriers and shipments
         * in phase two the diffrent recievers and diffrent shipments have diffrent treatment based on either a shipment is 
@@ -532,6 +700,17 @@ public class ShippingCompany {
         * The carriers have three shifts : Morning (08:00-16:00), Evening (16:00-00:00), Night (00:00-08:00) working shifts.
         * 
         */
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	private static void generateCarries(int numberOfCarriers) {
 		/*
@@ -541,11 +720,18 @@ public class ShippingCompany {
 		
 		
 		
+		
+		
+		
 		//distribute the carriers equally to the 3 shifts , considering non-divisible by 3 numberOfCarriers case
 		int morningCarriers=(int) Math.ceil((double)numberOfCarriers/3);
 		int eveningCarriers=(int) Math.floor((double)numberOfCarriers/3);
 		int nightCarriers=(int) numberOfCarriers-(morningCarriers + eveningCarriers);
 
+		
+		
+		
+		
 		
 		
 	

@@ -30,5 +30,7 @@ public class OfficialPapers extends Shipment implements Undelayable{
 	}
 	
 	// Print
-	public String toString() {return String.format("%s | Shimpent Type: %s | Shipment Status: %s", super.toString(), "Official Papers", getStatus());}
+	public String toString() {return String.format("%-15s | Shimpent Type: %-22s | Shipment Status: %-27s | [%-5s]",
+			super.toString(), "Official Papers", getStatus(), getLastUpdateTime());}
+
 }

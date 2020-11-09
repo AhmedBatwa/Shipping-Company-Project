@@ -10,5 +10,7 @@ public class PersonalDelivery extends Shipment{
 	}
 	
 	// Print
-	public String toString() {return String.format("%s | Shimpent Type: %s | Shipment Status: %s", super.toString(), "Personal Shipment", getStatus());}
+	public String toString() {return String.format("%-15s | Shimpent Type: %-22s | Shipment Status: %-27s | [%-5s]",
+			super.toString(), "Personal Shipment", getStatus(), getLastUpdateTime());}
+
 }
