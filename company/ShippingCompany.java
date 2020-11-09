@@ -289,7 +289,7 @@ public class ShippingCompany {
 		
 
 		for(Shipment shipment:shipments) {
-			System.out.println(shipment.getStatus());
+			System.out.println(shipment);
 		}
 
 		System.out.println("==================================================[End of Report]======================================================= ");
@@ -379,8 +379,8 @@ public class ShippingCompany {
 		shipments.add(shipment);
 		receivers.add(receiver);
 		senders.add(sender);
-		
-		
+		receiver.addShipment(shipment);
+		sender.addShipment(shipment);
 		
 		//shipment is now received by the depositoray 
 		shipment.setStatus(Status.IN_DEPOSITORY,hour);
@@ -440,7 +440,7 @@ public class ShippingCompany {
 			if(carrier.assignShipment(shipment,hour,2)) {
 				shipment.setStatus(Status.OUT_FOR_DELIVERY,hour);
 				updatedShipments.add(shipment);
-				printUpdates();		             //print hourly updates	--> receiving
+				printUpdates();		             //print hourly updates	--> out for delivery
 				return;
 			}
 		}
@@ -500,6 +500,7 @@ public class ShippingCompany {
 					shipment.getCarrier().dropShipment(shipment);
 					shipment.setStatus(Status.RETURNED_TO_DEPOSITORY,hour);
 					updatedShipments.add(shipment);
+					
 
 					
 					//assigning the undelayble shipment to the carrier 
