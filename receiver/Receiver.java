@@ -15,8 +15,10 @@ public abstract class Receiver {
 	}
 	public boolean receive(Shipment shipment) {
 		
+		boolean isShipmentPrefferedTime=shipment.getPrefferedDeliveryTime()[shipment.getRegisteredDeliveryTime()[0]]==1;
+		boolean isReceiverPrefferedTime=getPreferredDeliveryTime()[shipment.getRegisteredDeliveryTime()[0]]==1;
 		
-		if(getPreferredDeliveryTime()[(shipment.getRegisteredDeliveryTime()[0])]==1) {
+		if( isShipmentPrefferedTime && isReceiverPrefferedTime ) {
 			return true;
 		}
 		

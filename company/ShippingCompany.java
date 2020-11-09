@@ -618,13 +618,13 @@ public class ShippingCompany {
 		//generate a random shipment
 		switch(rnd.nextInt(4)) {
 		case 0:
-			shipment = new OfficialPapers(sender, receiver);
+			shipment = new OfficialPapers(sender, receiver,hour);
 			break;
 		case 1:
 			shipment = new PersonalDelivery(sender, receiver);
 			break;
 		case 2:
-			shipment = new Food(sender, receiver);
+			shipment = new Food(sender, receiver,hour);
 			break;
 			
 		default:
