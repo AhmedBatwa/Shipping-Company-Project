@@ -25,11 +25,6 @@ public class ShippingCompany {
 	
 	
 	
-	/**TODO
-	 *	toString for shipment to print all the details
-	 *counters to count received,delevered,failed...
-	 *
-	 */
 	
 	private static int totalReceived;
 	private static int totalDelivered;
@@ -142,7 +137,7 @@ public class ShippingCompany {
 		
 		
 		}
-		
+		printUpdates();		             //print hourly updates	
 		printDailyReport(day); 			//print the Daily Report
 		dailyCleanUp();
 		}
@@ -200,7 +195,7 @@ public class ShippingCompany {
 		
 		}
 		
-		
+		printUpdates();		             //print hourly updates	
 		printDailyReport(day); 			//print the Daily Report
 		dailyCleanUp();
 		}
@@ -300,7 +295,10 @@ public class ShippingCompany {
 	
 	
 	
-	
+	/**TODO
+	 * remove the last shipments in uopdatedshipment make sure u print to pop up 
+	 * 
+	 */
 	
 	
 	
