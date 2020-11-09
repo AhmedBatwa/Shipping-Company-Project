@@ -52,6 +52,8 @@ public class ShippingCompany {
 		int hourlyLimit= scanner.nextInt();
 		
 		
+		
+		
 		System.out.println("===================================================[Phase#1]======================================================= ");
 		simulatePhase1(numberOfCarriers,numberOfDays,hourlyLimit);
 		System.out.println("=====================================================[End]========================================================= ");
@@ -128,7 +130,6 @@ public class ShippingCompany {
 			}
 			
 		deliver(hour);          
-		printUpdates();		             //print hourly updates	
 		
 		
 		
@@ -190,9 +191,7 @@ public class ShippingCompany {
 				generateShipments(rnd.nextInt(hourlyLimit)+1,hour,2);     //recieve random number of shipments at random hour
 			}
 			
-		deliver(hour);          
-		printUpdates();		             //print hourly updates	
-		
+		deliver(hour);          		
 		
 		try {
 			System.in.read();
@@ -315,7 +314,8 @@ public class ShippingCompany {
 	 * hourly updated report of shipments changed their status
 	 */
 	
-	private static void printUpdates() {      
+	private static void printUpdates() {  
+		
 		while(!updatedShipments.isEmpty()) {
 		System.out.println(updatedShipments.poll());
 		}
@@ -386,11 +386,12 @@ public class ShippingCompany {
 		shipment.setStatus(Status.IN_DEPOSITORY,hour);
 		updatedShipments.add(shipment);
 		totalReceived++;
-		
-		
+		printUpdates();		             //print hourly updates	--> receiving
+
 		// will try assigning the shipment to a carrier (Out for delivery) on the preffered time
 		assignToCarrier(shipment,hour,simulatedPhase);
 	}
+	
 	
 	
 	
@@ -419,6 +420,7 @@ public class ShippingCompany {
 				if(carrier.assignShipment(shipment,hour,1)) {
 					shipment.setStatus(Status.OUT_FOR_DELIVERY,hour);
 					updatedShipments.add(shipment);
+					printUpdates();		             //print hourly updates	--> Out for delivery
 					return;
 				}
 			}
@@ -438,10 +440,10 @@ public class ShippingCompany {
 			if(carrier.assignShipment(shipment,hour,2)) {
 				shipment.setStatus(Status.OUT_FOR_DELIVERY,hour);
 				updatedShipments.add(shipment);
+				printUpdates();		             //print hourly updates	--> receiving
 				return;
 			}
 		}
-		
 		
 		
 		//force assign undelayable shipments
@@ -491,17 +493,21 @@ public class ShippingCompany {
 				boolean isPrefferedForRecevier = ((Shipment)undelayableShipment).getReciever().getPreferredDeliveryTime()[shipment.getRegisteredDeliveryTime()[0]]==1;
 				
 				
+				
 				if(isPrefferedForShipment && isPrefferedForRecevier ) {
-						
+					System.out.println("inside");
 					//dropping the normal shipment to the depository
 					shipment.getCarrier().dropShipment(shipment);
 					shipment.setStatus(Status.RETURNED_TO_DEPOSITORY,hour);
 					updatedShipments.add(shipment);
+
 					
 					//assigning the undelayble shipment to the carrier 
 					shipment.getCarrier().assignShipment((Shipment)undelayableShipment,hour,2);
 					((Shipment)undelayableShipment).setStatus(Status.OUT_FOR_DELIVERY,hour);
 					updatedShipments.add(shipment);
+					
+					printUpdates();		             //print hourly updates	--> forceAssigning
 					
 					return;
 					

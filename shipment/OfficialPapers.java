@@ -20,7 +20,12 @@ public class OfficialPapers extends Shipment implements Undelayable{
 	// Set preferred delivery time
 	public void init(int hour){
 		int[] PrefferedDeliveryTime= new int[24];
-		for(int i=hour;i<shelfLife ; i++) {PrefferedDeliveryTime[i]=1;}
+		for(int i=hour;i<hour+shelfLife ; i++) {
+			if(i<PrefferedDeliveryTime.length)
+				PrefferedDeliveryTime[i]=1;
+			else
+				PrefferedDeliveryTime[i-PrefferedDeliveryTime.length]=1;
+		}
 		setPrefferedDeliveryTime(PrefferedDeliveryTime);
 	}
 	
