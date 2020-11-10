@@ -2,6 +2,7 @@ package company;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Random;
@@ -51,18 +52,26 @@ public class ShippingCompany {
 
 		System.out.println("=====================================================[Shipping Company]========================================================= ");
 
-		
-		
+		int numberOfCarriers=0;
+		int numberOfDays=0;
+		int hourlyLimit=0;
 //		ask number of shipments , days ,hourlyLimit
+		
 		Scanner scanner = new Scanner(System.in);
+		while(numberOfCarriers<1 || numberOfDays <1 || hourlyLimit<1) {
+			 			 
+			try {
 		System.out.println("Enter Number of Carriers : ");
-		int numberOfCarriers= scanner.nextInt();
+		numberOfCarriers= scanner.nextInt();
 		System.out.println("Enter Number of Days : ");
-		int numberOfDays= scanner.nextInt();
+		numberOfDays= scanner.nextInt();
 		System.out.println("Enter Number of limit of generated shipments per hour : ");
-		int hourlyLimit= scanner.nextInt();
-		
-		
+		hourlyLimit= scanner.nextInt();
+			}catch(InputMismatchException e) {
+				System.out.println("Sorry... You Must Enter Valid Number!");
+				scanner.next();
+			}
+		}
 		
 		
 		
@@ -154,13 +163,14 @@ public class ShippingCompany {
 		generateCarries(numberOfCarriers);
 		Random rnd=new Random();
 		
-		
+
 		for(int day=0;day<numberOfDays;day++) {
 			//start new day... start new counters
 			totalDelivered=0;
 			totalFailed=0;
 			totalReceived=0;
-			
+			System.out.printf("=======================================================[Day#%d]=========================================================%n",day);
+
 			
 			assignToCarrier(1);						   //this will assign the shippmets in repo from prev days before start receiving new ones
 		for (int hour=0;hour<24;hour++) {
@@ -233,7 +243,8 @@ public class ShippingCompany {
 		
 		for(int day=0;day<numberOfDays;day++) {
 			
-			
+			System.out.printf("=======================================================[Day#%d]=========================================================%n",day);
+
 			
 			//start new day... start new counters
 			totalDelivered=0;
@@ -882,6 +893,7 @@ public class ShippingCompany {
 			totalDelivered+=carrier.getHourlyReport()[0];
 			totalFailed+=carrier.getHourlyReport()[1];
 		}
+		printUpdates();		             //print hourly updates	--> receiving
 		
 		
 	}
