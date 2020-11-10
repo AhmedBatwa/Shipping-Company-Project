@@ -49,6 +49,15 @@ public class ShippingCompany {
 		 * simulate phase1();
 		 * simulate phase2();
 		 */
+		
+		
+		
+		
+		//YOU MAY TRACK THE SHIPMENT FULL HISTORY USING shipment.track();		
+		
+		
+		
+		
 
 		System.out.println("=====================================================[Shipping Company]========================================================= ");
 
