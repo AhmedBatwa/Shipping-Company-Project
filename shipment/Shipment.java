@@ -17,13 +17,14 @@ public abstract class  Shipment {
 	private static int shipmentsCounter;
 	private final int ID;
 	private static ArrayList<History> history;
+	public int daysElapsed;
+	
 	
 	// Constructors
 	public Shipment(Sender sender,Receiver receiver) {
 		this.receiver=receiver;
 		this.sender=sender;
 		this.prefferedDeliveryTime = new int[24];
-		for(int i : prefferedDeliveryTime) {i= 1;} // Default preferred time
 		shipmentsCounter++;
 		ID = shipmentsCounter;
 		history = new ArrayList<>();
@@ -44,14 +45,20 @@ public abstract class  Shipment {
 
 	public void setRegisteredDeliveryTime(int[] registeredDeliveryTime) {this.registeredDeliveryTime = registeredDeliveryTime;}
 
-	public void setStatus(Status status,int hour) {setStatus(status, hour, 0);}
+	public void setStatus(Status status,int hour) {setStatus(status, hour, 0,0);}
 	
+	public void setStatus(int day,Status status,int hour) {setStatus(status, hour,0,day);}
+	
+	public void setStatus(Status status,int hour, int min,int day) {
+		this.status = status;
+		setLastUpdateTime(hour, min);
+		history.add(new History(status, hour, min,day));
+		}
 	public void setStatus(Status status,int hour, int min) {
 		this.status = status;
 		setLastUpdateTime(hour, min);
 		history.add(new History(status, hour, min));
 		}
-	
 	public void setLastUpdateTime(int hour, int min) {
 		lastUpdateTime = String.format("%02d:%02d", hour,min);
 	}
@@ -69,7 +76,7 @@ public abstract class  Shipment {
 
 	public Status getStatus() {return status;}
 	
-	public int getID() {return ID;}
+	public int getID() {return this.ID;}
 
 	public int getCounter() {return shipmentsCounter;}
 	
@@ -80,8 +87,10 @@ public abstract class  Shipment {
 	}
 	
 	// Print
-	public String toString() {return String.format("Shimpent #%d", ID);}
-	
+
+	public String toString() {return String.format("#%-15s |  %-22s |  %-27s | [%-5s] | [%03d] | [%1d]",
+					Integer.toString(getID()), getClass().getSimpleName(), getStatus(), getLastUpdateTime(),getHistory().get(0).getDay(),this.getDaysElapsed());}
+
 	// Prints all the actions that the shipment have gone through
 	public void trackShipment() {
 		System.out.println("\n===================================================[SHIPMENT HISTORY]=======================================================\n");
@@ -96,11 +105,15 @@ public abstract class  Shipment {
 	// Action methods
 	public boolean deliver(int hour,int min) {
 		if(receiver.receive(this) == true) {
-			setStatus(Status.DELIVERED, hour, min);
-			//trackShipment();
 			return true;
 		}
 		setStatus(Status.DELIVERY_FAILED, hour, min);
 		return false;
+	}
+	public int getDaysElapsed() {
+		return daysElapsed;
+	}
+	public void incrementDays() {
+		daysElapsed++;
 	}
 }
