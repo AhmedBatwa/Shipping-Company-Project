@@ -408,12 +408,17 @@ public class ShippingCompany {
 		for(Shipment shipment:shipments) {
 			if (shipment.getDaysElapsed()>2) {
 				shipment.setStatus(Status.RETURNED_TO_SENDER,0);
-				totalFailed++;
+				if(shipment.getStatus() != Status.DELIVERY_FAILED) {
+					totalFailed++;
+				}
 				
 		}
 			if (shipment instanceof Food) {
-				shipment.setStatus(Status.EXPIRED,23);
-				totalFailed++;
+				shipment.setStatus(Status.EXPIRED,23);				//setFood as expired, and add it to totalFailed
+				
+					if(shipment.getStatus() == Status.IN_DEPOSITORY) {       //makes sure we don't count the failuire twice ,, as we may already calclate it in falied delivey  
+						totalFailed++;
+					}
 			}
 		}
 	}
