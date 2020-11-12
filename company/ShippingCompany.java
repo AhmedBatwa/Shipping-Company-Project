@@ -31,6 +31,7 @@ public class ShippingCompany {
 	private static int totalReceived;
 	private static int totalDelivered;
 	private static int totalFailed;
+	private static int totalInDepository;
 	private static int morningCarriers;
 	private static int eveningCarriers;
 	private static int nightCarriers;
@@ -185,6 +186,7 @@ public class ShippingCompany {
 			totalDelivered=0;
 			totalFailed=0;
 			totalReceived=0;
+			totalInDepository = 0;
 			System.out.printf("=======================================================[Day#%d]=========================================================%n",day);
 
 			
@@ -226,15 +228,14 @@ public class ShippingCompany {
 		}
 		printUpdates();		             //print hourly updates	
 		cleanDepository();
+		dailyCounters();
 		printDailyReport(day); //print the Daily Report
 		dailyCleanUp();
 		
 		}
 		numberOfFailedPhase1=totalFailed;
-		
+		historyTracking();
 	}
-	
-	
 	
 	
 	
@@ -282,6 +283,7 @@ public class ShippingCompany {
 			totalDelivered=0;
 			totalFailed=0;
 			totalReceived=0;
+			totalInDepository = 0;
 			assignToCarrier(2);						   //this will assign the shippmets in repo from prev days before start receiving new ones
 			
 			
@@ -333,13 +335,14 @@ public class ShippingCompany {
 		
 		printUpdates();		             //print hourly updates	
 		cleanDepository();
+		dailyCounters();
 		printDailyReport(day); //print the Daily Report
 		dailyCleanUp();
 		
 		
 		}
 		 numberOfFailedPhase2=totalFailed;
-		 
+		historyTracking();
 	}
 	
 	
@@ -355,6 +358,7 @@ public class ShippingCompany {
 		 * initialize to start simulating another phase
 		 * clear all data related to previously simulated phase
 		 */
+		Shipment.resetShipmentsCounter();
 		cumulativeShipments.clear();
 		carriers.clear();
 		senders.clear();
@@ -407,20 +411,13 @@ public class ShippingCompany {
 	}
 	
 	public static void cleanDepository() {
+		// Changed here: the inner if statements
 		for(Shipment shipment:shipments) {
 			if (shipment.getDaysElapsed()>2) {
 				shipment.setStatus(Status.RETURNED_TO_SENDER,0);
-				if(shipment.getStatus() != Status.DELIVERY_FAILED) {
-					totalFailed++;
-				}
-				
 		}
 			if (shipment instanceof Food) {
-				shipment.setStatus(Status.EXPIRED,23);				//setFood as expired, and add it to totalFailed
-				
-					if(shipment.getStatus() == Status.IN_DEPOSITORY) {       //makes sure we don't count the failuire twice ,, as we may already calclate it in falied delivey  
-						totalFailed++;
-					}
+					shipment.setStatus(Status.EXPIRED,23);				//setFood as expired, and add it to totalFailed
 			}
 		}
 	}
@@ -432,7 +429,18 @@ public class ShippingCompany {
 	
 
 	
-	
+	private static void dailyCounters() {
+		for (Shipment shipment : shipments) {
+			if(shipment.getStatus() == Status.DELIVERY_FAILED || shipment.getStatus() == Status.EXPIRED || shipment.getStatus() == Status.RETURNED_TO_SENDER) {
+				totalFailed ++;
+			}else if(shipment.getStatus() == Status.DELIVERED) {
+				totalDelivered ++;
+			}
+			if(shipment.getStatus()==Status.IN_DEPOSITORY || shipment.getStatus()==Status.DELIVERY_FAILED ) {
+				totalInDepository++;
+			}
+		}
+	}
 	
 	
 	
@@ -441,14 +449,12 @@ public class ShippingCompany {
 	
 	private static void printDailyReport(int day) {
 		
-	
-		
 		System.out.printf("===================================================[Day#%d Report]=======================================================\n",day);
 		System.out.println("Today's Recieved Shipments :\t"+totalReceived);
 		System.out.println("Today's Delivered Shipments :\t"+totalDelivered);
 		System.out.println("Today's Failed Shipments :\t"+totalFailed);
 		System.out.println("Currently in depository:"+ (shipments.size()-totalDelivered));
-//		System.out.println("Shipments not handled today:"+ (shipments.size()-totalDelivered-totalFailed));
+		System.out.println("Shipments not handled today:"+ (shipments.size()-totalDelivered-totalFailed));
 		System.out.println("cumulative Shipments :\t"+cumulativeShipments.size());
 		System.out.printf("_________________________________________________________________________________________________________________________\n",day);
 		System.out.printf("%-15s  |    %-18s  |  %-25s  | %-5s   | %-3s   | %-12s\n","ID","\tType","\t Status"," Time","Day","Days Elapsed");
@@ -960,14 +966,26 @@ public class ShippingCompany {
 		
 		for(Carrier carrier : carriers) {
 			updatedShipments.addAll(carrier.deliver(hour));   //add all the shipments updated
-			totalDelivered+=carrier.getHourlyReport()[0];
-			totalFailed+=carrier.getHourlyReport()[1];
 		}
 		printUpdates();		             //print hourly updates	--> receiving
 		
 		
 	}
 	
+	
+	public static void historyTracking() {
+		Scanner in = new Scanner(System.in);
+		int input = 0;
+		while(true) {
+			System.out.print("Enter number of shipment to track OR 0 to continue or exit: ");
+			try{input = in.nextInt();}
+			catch(InputMismatchException e) {System.out.println("Please enter a valid value");}
+			if(input == 0) {return;}
+			else {cumulativeShipments.get(input-1).trackShipment();}
+		}
+	}
+	
+
 	
 	//===============================================================================================================================================================
 

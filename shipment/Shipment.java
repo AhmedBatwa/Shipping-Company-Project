@@ -63,6 +63,10 @@ public abstract class  Shipment {
 		lastUpdateTime = String.format("%02d:%02d", hour,min);
 	}
 	
+	public static void resetShipmentsCounter() {
+		shipmentsCounter = 0;
+	}
+	
 	// Getters
 	public Sender getSender() {return sender;}
 	
