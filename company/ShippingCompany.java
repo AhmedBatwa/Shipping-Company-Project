@@ -342,7 +342,7 @@ public class ShippingCompany {
 		historyTracking();
 		}
 		 numberOfFailedPhase2=totalFailed;
-		historyTracking();
+		
 	}
 	
 	
