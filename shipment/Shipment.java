@@ -105,6 +105,7 @@ public abstract class  Shipment {
 	// Action methods
 	public boolean deliver(int hour,int min) {
 		if(receiver.receive(this) == true) {
+			setStatus(Status.DELIVERED, hour, min);
 			return true;
 		}
 		setStatus(Status.DELIVERY_FAILED, hour, min);
