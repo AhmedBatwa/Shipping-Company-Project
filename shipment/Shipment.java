@@ -16,7 +16,7 @@ public abstract class  Shipment {
 	private String lastUpdateTime;
 	private static int shipmentsCounter;
 	private final int ID;
-	private static ArrayList<History> history;
+	private ArrayList<History> history;
 	public int daysElapsed;
 	
 	

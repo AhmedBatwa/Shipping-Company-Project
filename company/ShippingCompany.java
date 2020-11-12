@@ -232,9 +232,9 @@ public class ShippingCompany {
 		printDailyReport(day); //print the Daily Report
 		dailyCleanUp();
 		
+		historyTracking();
 		}
 		numberOfFailedPhase1=totalFailed;
-		historyTracking();
 	}
 	
 	
@@ -339,7 +339,7 @@ public class ShippingCompany {
 		printDailyReport(day); //print the Daily Report
 		dailyCleanUp();
 		
-		
+		historyTracking();
 		}
 		 numberOfFailedPhase2=totalFailed;
 		historyTracking();
