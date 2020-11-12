@@ -408,10 +408,12 @@ public class ShippingCompany {
 		for(Shipment shipment:shipments) {
 			if (shipment.getDaysElapsed()>2) {
 				shipment.setStatus(Status.RETURNED_TO_SENDER,0);
+				totalFailed++;
 				
 		}
 			if (shipment instanceof Food) {
 				shipment.setStatus(Status.EXPIRED,23);
+				totalFailed++;
 			}
 		}
 	}

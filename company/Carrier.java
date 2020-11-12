@@ -148,7 +148,7 @@ public boolean assignShipment(Shipment shipment,int currentHour,int simulatedPha
 		
 		//get shipment preffered Deleivery Time & the reciever preffered time
 		int[] shipmentPrefferedTime= shipment.getPrefferedDeliveryTime();
-		int[] receiverPrefferedTime= shipment.getPrefferedDeliveryTime();
+		int[] receiverPrefferedTime= shipment.getReciever().getPreferredDeliveryTime();
 		
 		
 		for(int hour = currentHour;hour<workingHours.length;hour++) {
