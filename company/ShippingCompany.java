@@ -20,6 +20,7 @@ public class ShippingCompany {
 	private static ArrayList<Shipment> shipments= new ArrayList<>();
 	private static ArrayList<Sender> senders = new ArrayList<>();
 	private static ArrayList<Receiver> receivers= new ArrayList<>();
+	private static ArrayList<Shipment> cumulativeShipments= new ArrayList<>();
 	private static Queue<Shipment> updatedShipments = new LinkedList<>();
 	
 	
@@ -354,6 +355,7 @@ public class ShippingCompany {
 		 * initialize to start simulating another phase
 		 * clear all data related to previously simulated phase
 		 */
+		cumulativeShipments.clear();
 		carriers.clear();
 		senders.clear();
 		shipments.clear();
@@ -445,9 +447,9 @@ public class ShippingCompany {
 		System.out.println("Today's Recieved Shipments :\t"+totalReceived);
 		System.out.println("Today's Delivered Shipments :\t"+totalDelivered);
 		System.out.println("Today's Failed Shipments :\t"+totalFailed);
-		System.out.println("Current amount of shipments:"+ (shipments.size()-totalDelivered));
-		System.out.println("Shipments not handled today:"+ (shipments.size()-totalDelivered-totalFailed));
-		System.out.println("Cumulitave Shipments :\t"+shipments.size());
+		System.out.println("Currently in depository:"+ (shipments.size()-totalDelivered));
+//		System.out.println("Shipments not handled today:"+ (shipments.size()-totalDelivered-totalFailed));
+		System.out.println("cumulative Shipments :\t"+cumulativeShipments.size());
 		System.out.printf("_________________________________________________________________________________________________________________________\n",day);
 		System.out.printf("%-15s  |    %-18s  |  %-25s  | %-5s   | %-3s   | %-12s\n","ID","\tType","\t Status"," Time","Day","Days Elapsed");
 		System.out.printf("_________________________________________________________________________________________________________________________\n",day);
@@ -566,6 +568,7 @@ public class ShippingCompany {
 		
 		
 		shipments.add(shipment);
+		cumulativeShipments.add(shipment);
 		receivers.add(receiver);
 		senders.add(sender);
 		receiver.addShipment(shipment);
