@@ -352,7 +352,7 @@ public class ShippingCompany {
 		
 		}
 		 numberOfFailedPhase2=totalFailed;
-                 phase1Average = cumulativeShipments.size()/count;
+                 phase2Average = cumulativeShipments.size()/count;
 	}
 	
 	protected static void simulatePhase2_DailyHourly(int numberOfCarriers,int numberOfDays,int hourlyLimit, int DAY, int HOUR) {
@@ -420,7 +420,7 @@ public class ShippingCompany {
 		if(day == DAY) break DAY;
 		}
 		 numberOfFailedPhase2=totalFailed;
-                 phase1Average = cumulativeShipments.size()/count;
+                 phase2Average = cumulativeShipments.size()/count;
 	}
 	
 	

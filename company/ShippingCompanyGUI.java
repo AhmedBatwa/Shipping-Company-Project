@@ -13,6 +13,10 @@ import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
+import javax.swing.GroupLayout.Alignment;
+import javax.swing.GroupLayout;
+import javax.swing.LayoutStyle.ComponentPlacement;
+import java.awt.Color;
 
 
 public class ShippingCompanyGUI extends javax.swing.JFrame {
@@ -21,6 +25,7 @@ public class ShippingCompanyGUI extends javax.swing.JFrame {
      * Creates new form ShippingCompanyGUI
      */
     public ShippingCompanyGUI() {
+    	setResizable(false);
         initComponents();
         
         
@@ -60,15 +65,13 @@ public class ShippingCompanyGUI extends javax.swing.JFrame {
         avg_shipment_per_hour = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
         received = new javax.swing.JTextField();
-        in_depo = new javax.swing.JTextField();
         jLabel12 = new javax.swing.JLabel();
         delivered = new javax.swing.JTextField();
+        delivered.setForeground(new Color(154, 205, 50));
         jLabel14 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
         failed = new javax.swing.JTextField();
-        jLabel16 = new javax.swing.JLabel();
-        no_handled = new javax.swing.JTextField();
-        jLabel17 = new javax.swing.JLabel();
+        failed.setForeground(Color.RED);
         cumulative = new javax.swing.JTextField();
         jLabel18 = new javax.swing.JLabel();
         jLabel19 = new javax.swing.JLabel();
@@ -93,15 +96,13 @@ public class ShippingCompanyGUI extends javax.swing.JFrame {
         avg_shipment_per_hour2 = new javax.swing.JTextField();
         jLabel59 = new javax.swing.JLabel();
         received2 = new javax.swing.JTextField();
-        in_depo2 = new javax.swing.JTextField();
         jLabel60 = new javax.swing.JLabel();
         delivered2 = new javax.swing.JTextField();
+        delivered2.setForeground(new Color(154, 205, 50));
         jLabel62 = new javax.swing.JLabel();
         jLabel63 = new javax.swing.JLabel();
         failed2 = new javax.swing.JTextField();
-        jLabel64 = new javax.swing.JLabel();
-        no_handled2 = new javax.swing.JTextField();
-        jLabel65 = new javax.swing.JLabel();
+        failed2.setForeground(Color.RED);
         cumulative2 = new javax.swing.JTextField();
         jLabel66 = new javax.swing.JLabel();
         jLabel67 = new javax.swing.JLabel();
@@ -289,12 +290,10 @@ public class ShippingCompanyGUI extends javax.swing.JFrame {
         jLabel11.setFont(new java.awt.Font("Leelawadee UI", 0, 14)); // NOI18N
         jLabel11.setText("Received:");
 
-        received.setFont(new java.awt.Font("Leelawadee UI", 0, 12)); // NOI18N
-
-        in_depo.setFont(new java.awt.Font("Leelawadee UI", 0, 12)); // NOI18N
+        received.setFont(new java.awt.Font("Leelawadee UI", 0, 12));
 
         jLabel12.setFont(new java.awt.Font("Leelawadee UI", 0, 14)); // NOI18N
-        jLabel12.setText("In Depository:");
+        jLabel12.setText("Cumulative Total Shipments:");
 
         delivered.setFont(new java.awt.Font("Leelawadee UI", 0, 12)); // NOI18N
         delivered.addActionListener(new java.awt.event.ActionListener() {
@@ -309,15 +308,7 @@ public class ShippingCompanyGUI extends javax.swing.JFrame {
         jLabel15.setFont(new java.awt.Font("Leelawadee UI", 0, 14)); // NOI18N
         jLabel15.setText("Failed:");
 
-        failed.setFont(new java.awt.Font("Leelawadee UI", 0, 12)); // NOI18N
-
-        jLabel16.setFont(new java.awt.Font("Leelawadee UI", 0, 14)); // NOI18N
-        jLabel16.setText("Not Handled");
-
-        no_handled.setFont(new java.awt.Font("Leelawadee UI", 0, 12)); // NOI18N
-
-        jLabel17.setFont(new java.awt.Font("Leelawadee UI", 0, 14)); // NOI18N
-        jLabel17.setText("Cumulative:");
+        failed.setFont(new java.awt.Font("Leelawadee UI", 0, 12));
 
         cumulative.setFont(new java.awt.Font("Leelawadee UI", 0, 12)); // NOI18N
 
@@ -360,124 +351,117 @@ public class ShippingCompanyGUI extends javax.swing.JFrame {
         });
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
-        jPanel5.setLayout(jPanel5Layout);
         jPanel5Layout.setHorizontalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel5Layout.createSequentialGroup()
-                .addGap(18, 18, 18)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(jPanel5Layout.createSequentialGroup()
-                                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanel5Layout.createSequentialGroup()
-                                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jLabel12)
-                                            .addComponent(jLabel11))
-                                        .addGap(5, 5, 5)
-                                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addComponent(in_depo, javax.swing.GroupLayout.DEFAULT_SIZE, 60, Short.MAX_VALUE)
-                                            .addComponent(received))
-                                        .addGap(45, 45, 45)
-                                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jLabel14)
-                                            .addComponent(jLabel16)))
-                                    .addComponent(jLabel10))
-                                .addGap(5, 5, 5))
-                            .addGroup(jPanel5Layout.createSequentialGroup()
-                                .addComponent(jLabel19)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(current_day, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
-                                .addComponent(jLabel20)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
-                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(current_hour, javax.swing.GroupLayout.DEFAULT_SIZE, 60, Short.MAX_VALUE)
-                            .addComponent(avg_shipment_per_hour)
-                            .addComponent(delivered)
-                            .addComponent(no_handled))
-                        .addGap(56, 56, 56)
-                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel17)
-                                .addComponent(jLabel15))
-                            .addComponent(jLabel21))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(failed)
-                            .addComponent(cumulative)
-                            .addComponent(working_carrier))
-                        .addGap(21, 21, 21))
-                    .addComponent(jLabel18)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
-                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel5Layout.createSequentialGroup()
-                                .addComponent(jLabel7)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(ph1_type, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(30, 30, 30)
-                                .addComponent(jLabel8)
-                                .addGap(6, 6, 6)
-                                .addComponent(ph1_day, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(jLabel9)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(ph1_hour, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jLabel37))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 53, Short.MAX_VALUE)
-                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(ph1_generate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(ph1_generate1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(19, 19, 19))))
+        	jPanel5Layout.createParallelGroup(Alignment.LEADING)
+        		.addGroup(jPanel5Layout.createSequentialGroup()
+        			.addGap(18)
+        			.addGroup(jPanel5Layout.createParallelGroup(Alignment.TRAILING)
+        				.addGroup(jPanel5Layout.createSequentialGroup()
+        					.addGroup(jPanel5Layout.createParallelGroup(Alignment.LEADING, false)
+        						.addGroup(jPanel5Layout.createSequentialGroup()
+        							.addGroup(jPanel5Layout.createParallelGroup(Alignment.LEADING)
+        								.addComponent(jLabel10)
+        								.addGroup(jPanel5Layout.createSequentialGroup()
+        									.addGroup(jPanel5Layout.createParallelGroup(Alignment.LEADING)
+        										.addGroup(jPanel5Layout.createSequentialGroup()
+        											.addComponent(jLabel11)
+        											.addGap(18)
+        											.addComponent(received, GroupLayout.PREFERRED_SIZE, 56, GroupLayout.PREFERRED_SIZE))
+        										.addComponent(jLabel12))
+        									.addPreferredGap(ComponentPlacement.UNRELATED)
+        									.addGroup(jPanel5Layout.createParallelGroup(Alignment.LEADING)
+        										.addComponent(cumulative, 64, 64, 64)
+        										.addComponent(jLabel14))))
+        							.addGap(23))
+        						.addGroup(jPanel5Layout.createSequentialGroup()
+        							.addComponent(jLabel19)
+        							.addPreferredGap(ComponentPlacement.UNRELATED)
+        							.addComponent(current_day, GroupLayout.PREFERRED_SIZE, 60, GroupLayout.PREFERRED_SIZE)
+        							.addPreferredGap(ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
+        							.addComponent(jLabel20)
+        							.addPreferredGap(ComponentPlacement.RELATED)))
+        					.addGroup(jPanel5Layout.createParallelGroup(Alignment.LEADING, false)
+        						.addComponent(current_hour, GroupLayout.DEFAULT_SIZE, 60, Short.MAX_VALUE)
+        						.addComponent(avg_shipment_per_hour)
+        						.addComponent(delivered))
+        					.addGap(56)
+        					.addGroup(jPanel5Layout.createParallelGroup(Alignment.TRAILING)
+        						.addGroup(jPanel5Layout.createSequentialGroup()
+        							.addComponent(jLabel15)
+        							.addGap(34))
+        						.addComponent(jLabel21))
+        					.addPreferredGap(ComponentPlacement.RELATED)
+        					.addGroup(jPanel5Layout.createParallelGroup(Alignment.LEADING)
+        						.addComponent(failed, 64, 64, 64)
+        						.addComponent(working_carrier, 64, 64, 64))
+        					.addGap(21))
+        				.addComponent(jLabel18)
+        				.addGroup(jPanel5Layout.createSequentialGroup()
+        					.addGroup(jPanel5Layout.createParallelGroup(Alignment.LEADING)
+        						.addGroup(jPanel5Layout.createSequentialGroup()
+        							.addComponent(jLabel7)
+        							.addPreferredGap(ComponentPlacement.UNRELATED)
+        							.addComponent(ph1_type, GroupLayout.PREFERRED_SIZE, 102, GroupLayout.PREFERRED_SIZE)
+        							.addGap(30)
+        							.addComponent(jLabel8)
+        							.addGap(6)
+        							.addComponent(ph1_day, GroupLayout.PREFERRED_SIZE, 69, GroupLayout.PREFERRED_SIZE)
+        							.addGap(18)
+        							.addComponent(jLabel9)
+        							.addPreferredGap(ComponentPlacement.UNRELATED)
+        							.addComponent(ph1_hour, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+        						.addComponent(jLabel37))
+        					.addPreferredGap(ComponentPlacement.RELATED, 53, Short.MAX_VALUE)
+        					.addGroup(jPanel5Layout.createParallelGroup(Alignment.LEADING, false)
+        						.addComponent(ph1_generate, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        						.addComponent(ph1_generate1, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        					.addGap(19))))
         );
         jPanel5Layout.setVerticalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel5Layout.createSequentialGroup()
-                .addGap(10, 10, 10)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel37)
-                    .addComponent(ph1_generate1))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(ph1_type, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel7)
-                    .addComponent(jLabel8)
-                    .addComponent(ph1_hour, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel9)
-                    .addComponent(ph1_generate)
-                    .addComponent(ph1_day, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel10)
-                    .addComponent(avg_shipment_per_hour, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(10, 10, 10)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel11)
-                    .addComponent(received, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel14)
-                    .addComponent(delivered, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel15)
-                    .addComponent(failed, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel12)
-                    .addComponent(in_depo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel16)
-                    .addComponent(no_handled, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel17)
-                    .addComponent(cumulative, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(39, 39, 39)
-                .addComponent(jLabel18)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel19)
-                    .addComponent(current_day, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel20)
-                    .addComponent(current_hour, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel21)
-                    .addComponent(working_carrier, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(22, Short.MAX_VALUE))
+        	jPanel5Layout.createParallelGroup(Alignment.LEADING)
+        		.addGroup(jPanel5Layout.createSequentialGroup()
+        			.addGap(10)
+        			.addGroup(jPanel5Layout.createParallelGroup(Alignment.BASELINE)
+        				.addComponent(jLabel37)
+        				.addComponent(ph1_generate1))
+        			.addGap(18)
+        			.addGroup(jPanel5Layout.createParallelGroup(Alignment.BASELINE)
+        				.addComponent(ph1_type, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+        				.addComponent(jLabel7)
+        				.addComponent(jLabel8)
+        				.addComponent(ph1_hour, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+        				.addComponent(jLabel9)
+        				.addComponent(ph1_generate)
+        				.addComponent(ph1_day, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+        			.addPreferredGap(ComponentPlacement.RELATED)
+        			.addGroup(jPanel5Layout.createParallelGroup(Alignment.BASELINE)
+        				.addComponent(jLabel10)
+        				.addComponent(avg_shipment_per_hour, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+        			.addGap(10)
+        			.addGroup(jPanel5Layout.createParallelGroup(Alignment.BASELINE)
+        				.addComponent(jLabel11)
+        				.addComponent(received, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+        				.addComponent(jLabel14)
+        				.addComponent(delivered, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+        				.addComponent(jLabel15)
+        				.addComponent(failed, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+        			.addPreferredGap(ComponentPlacement.RELATED)
+        			.addGroup(jPanel5Layout.createParallelGroup(Alignment.BASELINE)
+        				.addComponent(jLabel12)
+        				.addComponent(cumulative, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+        			.addGap(39)
+        			.addComponent(jLabel18)
+        			.addPreferredGap(ComponentPlacement.RELATED)
+        			.addGroup(jPanel5Layout.createParallelGroup(Alignment.BASELINE)
+        				.addComponent(jLabel19)
+        				.addComponent(current_day, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+        				.addComponent(jLabel20)
+        				.addComponent(current_hour, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+        				.addComponent(jLabel21)
+        				.addComponent(working_carrier, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+        			.addContainerGap(22, Short.MAX_VALUE))
         );
+        jPanel5.setLayout(jPanel5Layout);
 
         jTextArea_ph2.setEditable(false);
         jTextArea_ph2.setColumns(20);
@@ -527,12 +511,10 @@ public class ShippingCompanyGUI extends javax.swing.JFrame {
         jLabel59.setFont(new java.awt.Font("Leelawadee UI", 0, 14)); // NOI18N
         jLabel59.setText("Received");
 
-        received2.setFont(new java.awt.Font("Leelawadee UI", 0, 12)); // NOI18N
-
-        in_depo2.setFont(new java.awt.Font("Leelawadee UI", 0, 12)); // NOI18N
+        received2.setFont(new java.awt.Font("Leelawadee UI", 0, 12));
 
         jLabel60.setFont(new java.awt.Font("Leelawadee UI", 0, 14)); // NOI18N
-        jLabel60.setText("In Depository:");
+        jLabel60.setText("Cumulative Total Shipments:");
 
         delivered2.setFont(new java.awt.Font("Leelawadee UI", 0, 12)); // NOI18N
         delivered2.addActionListener(new java.awt.event.ActionListener() {
@@ -547,15 +529,7 @@ public class ShippingCompanyGUI extends javax.swing.JFrame {
         jLabel63.setFont(new java.awt.Font("Leelawadee UI", 0, 14)); // NOI18N
         jLabel63.setText("Failed:");
 
-        failed2.setFont(new java.awt.Font("Leelawadee UI", 0, 12)); // NOI18N
-
-        jLabel64.setFont(new java.awt.Font("Leelawadee UI", 0, 14)); // NOI18N
-        jLabel64.setText("Not Handled:");
-
-        no_handled2.setFont(new java.awt.Font("Leelawadee UI", 0, 12)); // NOI18N
-
-        jLabel65.setFont(new java.awt.Font("Leelawadee UI", 0, 14)); // NOI18N
-        jLabel65.setText("Cumulative:");
+        failed2.setFont(new java.awt.Font("Leelawadee UI", 0, 12));
 
         cumulative2.setFont(new java.awt.Font("Leelawadee UI", 0, 12)); // NOI18N
 
@@ -598,124 +572,120 @@ public class ShippingCompanyGUI extends javax.swing.JFrame {
         });
 
         javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
-        jPanel7.setLayout(jPanel7Layout);
         jPanel7Layout.setHorizontalGroup(
-            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel7Layout.createSequentialGroup()
-                .addGap(18, 18, 18)
-                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel7Layout.createSequentialGroup()
-                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(jPanel7Layout.createSequentialGroup()
-                                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanel7Layout.createSequentialGroup()
-                                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jLabel60)
-                                            .addComponent(jLabel59))
-                                        .addGap(5, 5, 5)
-                                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addComponent(in_depo2, javax.swing.GroupLayout.DEFAULT_SIZE, 60, Short.MAX_VALUE)
-                                            .addComponent(received2))
-                                        .addGap(45, 45, 45)
-                                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jLabel62)
-                                            .addComponent(jLabel64)))
-                                    .addComponent(jLabel58))
-                                .addGap(5, 5, 5))
-                            .addGroup(jPanel7Layout.createSequentialGroup()
-                                .addComponent(jLabel67)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(current_day2, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 45, Short.MAX_VALUE)
-                                .addComponent(jLabel68)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
-                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(current_hour2, javax.swing.GroupLayout.DEFAULT_SIZE, 60, Short.MAX_VALUE)
-                            .addComponent(avg_shipment_per_hour2)
-                            .addComponent(delivered2)
-                            .addComponent(no_handled2))
-                        .addGap(56, 56, 56)
-                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel65)
-                                .addComponent(jLabel63))
-                            .addComponent(jLabel69))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(failed2)
-                            .addComponent(cumulative2)
-                            .addComponent(working_carrier2))
-                        .addGap(21, 21, 21))
-                    .addComponent(jLabel66)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
-                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel7Layout.createSequentialGroup()
-                                .addComponent(jLabel55)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(ph2_type, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(30, 30, 30)
-                                .addComponent(jLabel56)
-                                .addGap(6, 6, 6)
-                                .addComponent(ph2_day, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(14, 14, 14)
-                                .addComponent(jLabel57)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(ph2_hour, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jLabel70))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 53, Short.MAX_VALUE)
-                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(ph2_generate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(ph2_generate1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(19, 19, 19))))
+        	jPanel7Layout.createParallelGroup(Alignment.LEADING)
+        		.addGroup(jPanel7Layout.createSequentialGroup()
+        			.addGap(18)
+        			.addGroup(jPanel7Layout.createParallelGroup(Alignment.TRAILING)
+        				.addGroup(jPanel7Layout.createSequentialGroup()
+        					.addGroup(jPanel7Layout.createParallelGroup(Alignment.LEADING, false)
+        						.addGroup(jPanel7Layout.createSequentialGroup()
+        							.addGroup(jPanel7Layout.createParallelGroup(Alignment.LEADING)
+        								.addComponent(jLabel58)
+        								.addGroup(jPanel7Layout.createSequentialGroup()
+        									.addGroup(jPanel7Layout.createParallelGroup(Alignment.LEADING)
+        										.addGroup(jPanel7Layout.createSequentialGroup()
+        											.addComponent(jLabel59)
+        											.addGap(18)
+        											.addComponent(received2, GroupLayout.PREFERRED_SIZE, 53, GroupLayout.PREFERRED_SIZE))
+        										.addComponent(jLabel60))
+        									.addGroup(jPanel7Layout.createParallelGroup(Alignment.LEADING)
+        										.addGroup(jPanel7Layout.createSequentialGroup()
+        											.addGap(18)
+        											.addComponent(jLabel62))
+        										.addGroup(jPanel7Layout.createSequentialGroup()
+        											.addPreferredGap(ComponentPlacement.UNRELATED)
+        											.addComponent(cumulative2, GroupLayout.PREFERRED_SIZE, 74, GroupLayout.PREFERRED_SIZE)))))
+        							.addGap(19))
+        						.addGroup(jPanel7Layout.createSequentialGroup()
+        							.addComponent(jLabel67)
+        							.addPreferredGap(ComponentPlacement.UNRELATED)
+        							.addComponent(current_day2, GroupLayout.PREFERRED_SIZE, 60, GroupLayout.PREFERRED_SIZE)
+        							.addPreferredGap(ComponentPlacement.RELATED, 45, Short.MAX_VALUE)
+        							.addComponent(jLabel68)
+        							.addPreferredGap(ComponentPlacement.RELATED)))
+        					.addGroup(jPanel7Layout.createParallelGroup(Alignment.LEADING, false)
+        						.addComponent(current_hour2, GroupLayout.DEFAULT_SIZE, 60, Short.MAX_VALUE)
+        						.addComponent(avg_shipment_per_hour2)
+        						.addComponent(delivered2))
+        					.addGap(56)
+        					.addGroup(jPanel7Layout.createParallelGroup(Alignment.TRAILING)
+        						.addGroup(jPanel7Layout.createSequentialGroup()
+        							.addComponent(jLabel63)
+        							.addGap(34))
+        						.addComponent(jLabel69))
+        					.addPreferredGap(ComponentPlacement.RELATED)
+        					.addGroup(jPanel7Layout.createParallelGroup(Alignment.LEADING)
+        						.addComponent(failed2, 57, 57, 57)
+        						.addComponent(working_carrier2, 57, 57, 57))
+        					.addGap(21))
+        				.addComponent(jLabel66)
+        				.addGroup(jPanel7Layout.createSequentialGroup()
+        					.addGroup(jPanel7Layout.createParallelGroup(Alignment.LEADING)
+        						.addGroup(jPanel7Layout.createSequentialGroup()
+        							.addComponent(jLabel55)
+        							.addPreferredGap(ComponentPlacement.UNRELATED)
+        							.addComponent(ph2_type, GroupLayout.PREFERRED_SIZE, 102, GroupLayout.PREFERRED_SIZE)
+        							.addGap(30)
+        							.addComponent(jLabel56)
+        							.addGap(6)
+        							.addComponent(ph2_day, GroupLayout.PREFERRED_SIZE, 69, GroupLayout.PREFERRED_SIZE)
+        							.addGap(14)
+        							.addComponent(jLabel57)
+        							.addPreferredGap(ComponentPlacement.UNRELATED)
+        							.addComponent(ph2_hour, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+        						.addComponent(jLabel70))
+        					.addPreferredGap(ComponentPlacement.RELATED, 53, Short.MAX_VALUE)
+        					.addGroup(jPanel7Layout.createParallelGroup(Alignment.LEADING, false)
+        						.addComponent(ph2_generate, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        						.addComponent(ph2_generate1, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        					.addGap(19))))
         );
         jPanel7Layout.setVerticalGroup(
-            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel7Layout.createSequentialGroup()
-                .addGap(10, 10, 10)
-                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel70)
-                    .addComponent(ph2_generate1))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(ph2_type, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel55)
-                    .addComponent(jLabel56)
-                    .addComponent(ph2_hour, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel57)
-                    .addComponent(ph2_generate)
-                    .addComponent(ph2_day, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel58)
-                    .addComponent(avg_shipment_per_hour2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(10, 10, 10)
-                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel59)
-                    .addComponent(received2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel62)
-                    .addComponent(delivered2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel63)
-                    .addComponent(failed2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel60)
-                    .addComponent(in_depo2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel64)
-                    .addComponent(no_handled2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel65)
-                    .addComponent(cumulative2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(39, 39, 39)
-                .addComponent(jLabel66)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel67)
-                    .addComponent(current_day2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel68)
-                    .addComponent(current_hour2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel69)
-                    .addComponent(working_carrier2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(22, Short.MAX_VALUE))
+        	jPanel7Layout.createParallelGroup(Alignment.LEADING)
+        		.addGroup(jPanel7Layout.createSequentialGroup()
+        			.addGap(10)
+        			.addGroup(jPanel7Layout.createParallelGroup(Alignment.BASELINE)
+        				.addComponent(jLabel70)
+        				.addComponent(ph2_generate1))
+        			.addGap(18)
+        			.addGroup(jPanel7Layout.createParallelGroup(Alignment.BASELINE)
+        				.addComponent(ph2_type, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+        				.addComponent(jLabel55)
+        				.addComponent(jLabel56)
+        				.addComponent(ph2_hour, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+        				.addComponent(jLabel57)
+        				.addComponent(ph2_generate)
+        				.addComponent(ph2_day, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+        			.addPreferredGap(ComponentPlacement.RELATED)
+        			.addGroup(jPanel7Layout.createParallelGroup(Alignment.BASELINE)
+        				.addComponent(jLabel58)
+        				.addComponent(avg_shipment_per_hour2, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+        			.addGap(10)
+        			.addGroup(jPanel7Layout.createParallelGroup(Alignment.BASELINE)
+        				.addComponent(jLabel59)
+        				.addComponent(received2, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+        				.addComponent(jLabel62)
+        				.addComponent(delivered2, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+        				.addComponent(jLabel63)
+        				.addComponent(failed2, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+        			.addPreferredGap(ComponentPlacement.UNRELATED)
+        			.addGroup(jPanel7Layout.createParallelGroup(Alignment.BASELINE)
+        				.addComponent(jLabel60)
+        				.addComponent(cumulative2, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+        			.addGap(39)
+        			.addComponent(jLabel66)
+        			.addPreferredGap(ComponentPlacement.RELATED)
+        			.addGroup(jPanel7Layout.createParallelGroup(Alignment.BASELINE)
+        				.addComponent(jLabel67)
+        				.addComponent(current_day2, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+        				.addComponent(jLabel68)
+        				.addComponent(current_hour2, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+        				.addComponent(jLabel69)
+        				.addComponent(working_carrier2, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+        			.addContainerGap(22, Short.MAX_VALUE))
         );
+        jPanel7.setLayout(jPanel7Layout);
 
         jLabel22.setFont(new java.awt.Font("Leelawadee UI", 0, 14)); // NOI18N
         jLabel22.setText("Phase 1 Summary: ");
@@ -1072,16 +1042,12 @@ public class ShippingCompanyGUI extends javax.swing.JFrame {
     private javax.swing.JTextField failed;
     private javax.swing.JTextField failed2;
     private javax.swing.JLabel improved_pec;
-    private javax.swing.JTextField in_depo;
-    private javax.swing.JTextField in_depo2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
-    private javax.swing.JLabel jLabel16;
-    private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
@@ -1102,8 +1068,6 @@ public class ShippingCompanyGUI extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel60;
     private javax.swing.JLabel jLabel62;
     private javax.swing.JLabel jLabel63;
-    private javax.swing.JLabel jLabel64;
-    private javax.swing.JLabel jLabel65;
     private javax.swing.JLabel jLabel66;
     private javax.swing.JLabel jLabel67;
     private javax.swing.JLabel jLabel68;
@@ -1121,8 +1085,6 @@ public class ShippingCompanyGUI extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTextArea jTextArea_ph1;
     private javax.swing.JTextArea jTextArea_ph2;
-    private javax.swing.JTextField no_handled;
-    private javax.swing.JTextField no_handled2;
     private javax.swing.JComboBox<String> ph1_day;
     private javax.swing.JButton ph1_generate;
     private javax.swing.JButton ph1_generate1;
