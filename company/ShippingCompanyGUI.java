@@ -864,12 +864,12 @@ public class ShippingCompanyGUI extends javax.swing.JFrame {
                     hour_ph1 = Integer.parseInt(value);
                 ob.simulatePhase1_DailyHourly(numberOfCarriers,numberOfDays,hourlyLimit, day_ph1, hour_ph1);                    
             }
-            this.received.setText(String.valueOf(ShippingCompany.totalDelivered));
+            this.received.setText(String.valueOf(ShippingCompany.totalReceived));
             this.delivered.setText(String.valueOf(ShippingCompany.totalDelivered));
             this.failed.setText(String.valueOf(ShippingCompany.totalFailed));
-            this.in_depo.setText(String.valueOf(ShippingCompany.shipments.size()-ShippingCompany.totalDelivered));
-            this.cumulative.setText(String.valueOf(ShippingCompany.totalReturnedToSender));
-            this.no_handled.setText(String.valueOf(ShippingCompany.shipments.size()-ShippingCompany.totalDelivered-ShippingCompany.totalFailed));
+//            this.in_depo.setText(String.valueOf(ShippingCompany.shipments.size()+ShippingCompany.totalReceived));
+            this.cumulative.setText(String.valueOf(ShippingCompany.cumulativeShipments.size()));
+//            this.no_handled.setText(String.valueOf(ShippingCompany.shipments.size()));
             this.avg_shipment_per_hour.setText(String.valueOf(ShippingCompany.phase1Average));
             
             this.current_day.setText(String.valueOf(ShippingCompany.curr_day));
@@ -918,12 +918,12 @@ public class ShippingCompanyGUI extends javax.swing.JFrame {
                     hour_ph2 = Integer.parseInt(value);
                 ob.simulatePhase2_DailyHourly(numberOfCarriers,numberOfDays,hourlyLimit, day_ph2, hour_ph2);                    
             }
-            this.received2.setText(String.valueOf(ShippingCompany.totalDelivered));
+            this.received2.setText(String.valueOf(ShippingCompany.totalReceived));
             this.delivered2.setText(String.valueOf(ShippingCompany.totalDelivered));
             this.failed2.setText(String.valueOf(ShippingCompany.totalFailed));
-            this.in_depo2.setText(String.valueOf(ShippingCompany.shipments.size()-ShippingCompany.totalDelivered));
-            this.cumulative2.setText(String.valueOf(ShippingCompany.totalReturnedToSender));
-            this.no_handled2.setText(String.valueOf(ShippingCompany.shipments.size()-ShippingCompany.totalDelivered-ShippingCompany.totalFailed));
+//            this.in_depo2.setText(String.valueOf(ShippingCompany.shipments.size()+ShippingCompany.totalFailed));
+            this.cumulative2.setText(String.valueOf(ShippingCompany.cumulativeShipments.size()));
+//            this.no_handled2.setText(String.valueOf(ShippingCompany.shipments.size()-ShippingCompany.totalDelivered));
             this.avg_shipment_per_hour2.setText(String.valueOf(ShippingCompany.phase2Average));
         
             this.current_day2.setText(String.valueOf(ShippingCompany.curr_day));
