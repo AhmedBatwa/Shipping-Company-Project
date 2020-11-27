@@ -16,99 +16,85 @@ import shipment.*;
 
 public class ShippingCompany {
 	
-	private static ArrayList<Carrier> carriers = new ArrayList<>();
-	private static ArrayList<Shipment> shipments= new ArrayList<>();
-	private static ArrayList<Sender> senders = new ArrayList<>();
-	private static ArrayList<Receiver> receivers= new ArrayList<>();
-	private static ArrayList<Shipment> cumulativeShipments= new ArrayList<>();
-	private static Queue<Shipment> updatedShipments = new LinkedList<>();
+	protected static ArrayList<Carrier> carriers = new ArrayList<>();
+	protected static ArrayList<Shipment> shipments= new ArrayList<>();
+	protected static ArrayList<Sender> senders = new ArrayList<>();
+	protected static ArrayList<Receiver> receivers= new ArrayList<>();
+	protected static ArrayList<Shipment> cumulativeShipments= new ArrayList<>();
+	protected static Queue<Shipment> updatedShipments = new LinkedList<>();
 	
 	
 	
 	
 	
 	
-	private static int totalReceived;
-	private static int totalDelivered;
-	private static int totalFailed;
-	private static int totalInDepository;
-	private static int morningCarriers;
-	private static int eveningCarriers;
-	private static int nightCarriers;
-	private static int numberOfFailedPhase1;
-	private static int numberOfFailedPhase2;
+	protected static int totalReceived;
+	protected static int totalDelivered;
+	protected static int totalFailed;
+	protected static int totalInDepository;
+	protected static int totalExpired;
+	protected static int totalOutForDelivery;
+	protected static int totalReturnedToSender;
+	protected static int morningCarriers;
+	protected static int eveningCarriers;
+	protected static int nightCarriers;
+	protected static int numberOfFailedPhase1;
+	protected static int numberOfFailedPhase2;
 	
+	protected static int curr_day;
+	protected static int curr_hour;
+	protected static int carrierShift;
 	
+        
+        protected static int phase1Average;
+	protected static int phase2Average;
 	
-	
-	
-	
-	
-	public static void main(String args[]) {
-		
-		
-		
-	
-		
-		/* 
-		 * ask the user for number of shipmments , employee
-		 * simulate phase1();
-		 * simulate phase2();
-		 */
-		
-		
-		
-		
-		//YOU MAY TRACK THE SHIPMENT FULL HISTORY USING shipment.track();		
-		
-		
-		
-		
-
-		System.out.println("=====================================================[Shipping Company]========================================================= ");
-
-		int numberOfCarriers=0;
-		int numberOfDays=0;
-		int hourlyLimit=0;
-//		ask number of shipments , days ,hourlyLimit
-		
-		Scanner scanner = new Scanner(System.in);
-		while(numberOfCarriers<1 || numberOfDays <1 || hourlyLimit<1) {
-			 			 
-			try {
-		System.out.println("Enter Number of Carriers : ");
-		numberOfCarriers= scanner.nextInt();
-		System.out.println("Enter Number of Days : ");
-		numberOfDays= scanner.nextInt();
-		System.out.println("Enter Number of limit of generated shipments per hour : ");
-		hourlyLimit= scanner.nextInt();
-			}catch(InputMismatchException e) {
-				System.out.println("Sorry... You Must Enter Valid Number!");
-				scanner.next();
-			}
-		}
-		
-		
-		
-		
-		
-		System.out.println("=====================================================[Phase#1]========================================================= ");
-		simulatePhase1(numberOfCarriers,numberOfDays,hourlyLimit);
-		System.out.println("=======================================================[End]=========================================================== ");
-		System.out.println("=====================================================[Phase#2]========================================================= ");
-		simulatePhase2(numberOfCarriers,numberOfDays,hourlyLimit);
-		System.out.println("=======================================================[End]=========================================================== ");
-		System.out.println(numberOfFailedPhase1);
-		System.out.println(numberOfFailedPhase2);
-		System.out.println("Percentage of Improvement: "+ ((1-(double)numberOfFailedPhase2/(numberOfFailedPhase1+numberOfFailedPhase2)))*100);
-			
-		
-	
-		
-		
-		
-	}
-	
+//	public static void main(String args[]) {
+//		/* 
+//		 * ask the user for number of shipmments , employee
+//		 * simulate phase1();
+//		 * simulate phase2();
+//		 */
+//		//YOU MAY TRACK THE SHIPMENT FULL HISTORY USING shipment.track();		
+//		System.out.println("=====================================================[Shipping Company]========================================================= ");
+//
+//		int numberOfCarriers=0;
+//		int numberOfDays=0;
+//		int hourlyLimit=0;
+////		ask number of shipments , days ,hourlyLimit
+//		
+//		Scanner scanner = new Scanner(System.in);
+//		while(numberOfCarriers<1 || numberOfDays <1 || hourlyLimit<1) {
+//			 			 
+//			try {
+//		System.out.println("Enter Number of Carriers : ");
+//		numberOfCarriers= scanner.nextInt();
+//		System.out.println("Enter Number of Days : ");
+//		numberOfDays= scanner.nextInt();
+//		System.out.println("Enter Number of limit of generated shipments per hour : ");
+//		hourlyLimit= scanner.nextInt();
+//			}catch(InputMismatchException e) {
+//				System.out.println("Sorry... You Must Enter Valid Number!");
+//				scanner.next();
+//			}
+//		}
+//		
+//		
+//		
+//		
+//		
+//		System.out.println("=====================================================[Phase#1]========================================================= ");
+//		simulatePhase1(numberOfCarriers,numberOfDays,hourlyLimit);
+//		System.out.println("=======================================================[End]=========================================================== ");
+//		System.out.println("=====================================================[Phase#2]========================================================= ");
+//		simulatePhase2(numberOfCarriers,numberOfDays,hourlyLimit);
+//		System.out.println("=======================================================[End]=========================================================== ");
+//		System.out.println(numberOfFailedPhase1);
+//		System.out.println(numberOfFailedPhase2);
+//		System.out.println("Percentage of Improvement: "+ ((1-(double)numberOfFailedPhase2/(numberOfFailedPhase1+numberOfFailedPhase2)))*100);
+//			
+//	}
+//	
 	
 	
 	
@@ -158,49 +144,41 @@ public class ShippingCompany {
 	
 	
 	
-	private static void simulatePhase1(int numberOfCarriers,int numberOfDays,int hourlyLimit) {
-		
-		
+	protected static void simulatePhase1(int numberOfCarriers,int numberOfDays,int hourlyLimit) {
 		/*
 		 * generate carriers , shipments,assign to carriers
 		 * and start delivering process
 		 * printing the life updates is meant to life track the process
 		 * printing the daily Report is meant to show the daily summary & statistics 
 		 */
-		
-		
-		
-		
-		
-		
-		
-		
-		
+                int count = 0;
 		init();
 		generateCarries(numberOfCarriers);
 		Random rnd=new Random();
-		
-
 		for(int day=1;day<=numberOfDays;day++) {
+                    curr_day = day;
 			//start new day... start new counters
 			totalDelivered=0;
 			totalFailed=0;
 			totalReceived=0;
 			totalInDepository = 0;
 			System.out.printf("=======================================================[Day#%d]=========================================================%n",day);
-
-			
-			assignToCarrier(1);						   //this will assign the shippmets in repo from prev days before start receiving new ones
+		assignToCarrier(1);						   //this will assign the shippmets in repo from prev days before start receiving new ones
 		for (int hour=0;hour<24;hour++) {
+                    count++;
+                    curr_hour = hour;
 			int carrierAtShift=0;
 			if (hour>=8 && hour <16) {
 				carrierAtShift=morningCarriers;
+                                carrierShift = morningCarriers;
 			}
 			else if (hour>=16&& hour<24) {
 				carrierAtShift=eveningCarriers;
+                                carrierShift = morningCarriers;
 			}
 			else if(hour>=0 && hour<8) {
 				carrierAtShift=nightCarriers;
+                                carrierShift = morningCarriers;
 			}
 			System.out.println();
 			System.out.println();
@@ -211,31 +189,95 @@ public class ShippingCompany {
 			if(rnd.nextBoolean()) {
 				generateShipments(rnd.nextInt(hourlyLimit)+1,hour,day,1);     //recieve random number of shipments at random hour
 			}
-			
 		deliver(hour);          
-		
-		
-		
 	/*	try {
 			System.out.println("Press Enter to Continue...");
 			System.in.read();
 		} catch (IOException e) {
 		}
 		*/
-		
-		
-		
 		}
 		printUpdates();		             //print hourly updates	
 		cleanDepository();
 		dailyCounters();
 		printDailyReport(day); //print the Daily Report
 		dailyCleanUp();
-		
-		historyTracking();
+//		historyTracking();
 		}
 		numberOfFailedPhase1=totalFailed;
+                phase1Average = cumulativeShipments.size()/count;
 	}
+
+        
+ 	protected static void simulatePhase1_DailyHourly(int numberOfCarriers,int numberOfDays,int hourlyLimit, int DAY, int HOUR) {
+		/*
+		 * generate carriers , shipments,assign to carriers
+		 * and start delivering process
+		 * printing the life updates is meant to life track the process
+		 * printing the daily Report is meant to show the daily summary & statistics 
+		 */
+                int count = 0;
+		init();
+		generateCarries(numberOfCarriers);
+		Random rnd=new Random();
+                DAY:
+		for(int day=1;day<=numberOfDays;day++) {
+                    curr_day = day;
+			//start new day... start new counters
+			totalDelivered=0;
+			totalFailed=0;
+			totalReceived=0;
+			totalInDepository = 0;
+			System.out.printf("=======================================================[Day#%d]=========================================================%n",day);
+		assignToCarrier(1);						   //this will assign the shippmets in repo from prev days before start receiving new ones
+                HOUR:
+                for (int hour=0;hour<24;hour++) {
+                    count++;
+                    curr_hour = hour;
+			int carrierAtShift=0;
+			if (hour>=8 && hour <16) {
+				carrierAtShift=morningCarriers;
+                                carrierShift = morningCarriers;
+			}
+			else if (hour>=16&& hour<24) {
+				carrierAtShift=eveningCarriers;
+                                carrierShift = morningCarriers;
+			}
+			else if(hour>=0 && hour<8) {
+				carrierAtShift=nightCarriers;
+                                carrierShift = morningCarriers;
+			}
+			System.out.println();
+			System.out.println();
+			System.out.printf("___________________________________________[Day#%d][%02d:00][%s%03d]_________________________________________________%n",day,hour,"Carriers#:",carrierAtShift);
+			System.out.printf("%-15s  |    %-18s  |  %-25s  | %-5s   | %-3s   | %-12s\n","ID","\tType","\t Status"," Time","Day","Days Elapsed");
+			System.out.printf("_________________________________________________________________________________________________________________________\n",day);
+			
+			if(rnd.nextBoolean()) {
+				generateShipments(rnd.nextInt(hourlyLimit)+1,hour,day,1);     //recieve random number of shipments at random hour
+			}
+		deliver(hour);          
+                if(hour == HOUR) break HOUR;
+	/*	try {
+			System.out.println("Press Enter to Continue...");
+			System.in.read();
+		} catch (IOException e) {
+		}
+		*/
+		}
+		printUpdates();		             //print hourly updates	
+		cleanDepository();
+		dailyCounters();
+		printDailyReport(day); //print the Daily Report
+		dailyCleanUp();
+                if(day == DAY) break DAY;
+//		historyTracking();
+		}
+		numberOfFailedPhase1=totalFailed;
+                phase1Average = cumulativeShipments.size()/count;
+	}
+
+        
 	
 	
 	
@@ -246,8 +288,7 @@ public class ShippingCompany {
 	
 	
 	
-	
-	private static void simulatePhase2(int numberOfCarriers,int numberOfDays,int hourlyLimit) {
+	protected static void simulatePhase2(int numberOfCarriers,int numberOfDays,int hourlyLimit) {
 		/*
 		 * generate carriers through the method generateCarriers()
 		 * generate carriers , shipments,assign to carriers
@@ -255,27 +296,12 @@ public class ShippingCompany {
 		 * printing the life updates is meant to life track the process
 		 * printing the daily Report is meant to show the daily summary & statistics 
 		 */
-		
-
-		
-		
-		
-		
-		
-		
-		
-		
-		
+                int count =0;
 		init();
 		generateCarries(numberOfCarriers);
 		Random rnd=new Random();
-		
-		
-		
-		
-		
 		for(int day=1;day<=numberOfDays;day++) {
-			
+			curr_day = day;
 			System.out.printf("=======================================================[Day#%d]=========================================================%n",day);
 
 			
@@ -285,20 +311,22 @@ public class ShippingCompany {
 			totalReceived=0;
 			totalInDepository = 0;
 			assignToCarrier(2);						   //this will assign the shippmets in repo from prev days before start receiving new ones
-			
-			
-			
-			
 		for (int hour=0;hour<24;hour++) {
+                    count++;
+                    curr_hour = hour;
 			int carrierAtShift=0;
 			if (hour>=8 && hour <16) {
 				carrierAtShift=morningCarriers;
+                                carrierShift = morningCarriers;
+
 			}
 			else if (hour>=16&& hour<24) {
 				carrierAtShift=eveningCarriers;
+                                carrierShift = morningCarriers;
 			}
 			else if(hour>=0 && hour<8) {
 				carrierAtShift=nightCarriers;
+                                carrierShift = morningCarriers;
 			}
 			System.out.println();
 			System.out.println();
@@ -308,43 +336,92 @@ public class ShippingCompany {
 			if(rnd.nextBoolean()) {
 				generateShipments(rnd.nextInt(hourlyLimit)+1,hour,day,2);    //receive random number of shipments at random hour
 			}
-			
-			
-			
 			deliver(hour);          		
-		
-			
-			
 		//	try {
 				//System.out.println("Press Enter to Continue...");
 				//System.in.read();
 		//	} catch (IOException e) {
 		//	}
-			
-			
-			
-			
-			
 		
 		}
-		
-		
-		
-		
-		
-		
 		printUpdates();		             //print hourly updates	
 		cleanDepository();
 		dailyCounters();
 		printDailyReport(day); //print the Daily Report
 		dailyCleanUp();
 		
-		historyTracking();
 		}
 		 numberOfFailedPhase2=totalFailed;
-		
+                 phase1Average = cumulativeShipments.size()/count;
 	}
 	
+	protected static void simulatePhase2_DailyHourly(int numberOfCarriers,int numberOfDays,int hourlyLimit, int DAY, int HOUR) {
+		/*
+		 * generate carriers through the method generateCarriers()
+		 * generate carriers , shipments,assign to carriers
+		 * and start delivering process
+		 * printing the life updates is meant to life track the process
+		 * printing the daily Report is meant to show the daily summary & statistics 
+		 */
+                int count =0;
+		init();
+		generateCarries(numberOfCarriers);
+		Random rnd=new Random();
+                DAY:
+		for(int day=1;day<=numberOfDays;day++) {
+                    curr_day = day;
+			System.out.printf("=======================================================[Day#%d]=========================================================%n",day);
+
+			
+			//start new day... start new counters
+			totalDelivered=0;
+			totalFailed=0;
+			totalReceived=0;
+			totalInDepository = 0;
+			assignToCarrier(2);						   //this will assign the shippmets in repo from prev days before start receiving new ones
+                        HOUR:
+        		for (int hour=0;hour<24;hour++) {
+                        count++;
+                        curr_hour = hour;
+			int carrierAtShift=0;
+			if (hour>=8 && hour <16) {
+				carrierAtShift=morningCarriers;
+                                carrierShift = morningCarriers;
+			}
+			else if (hour>=16&& hour<24) {
+				carrierAtShift=eveningCarriers;
+                                carrierShift = morningCarriers;
+			}
+			else if(hour>=0 && hour<8) {
+				carrierAtShift=nightCarriers;
+                                carrierShift = morningCarriers;
+			}
+			System.out.println();
+			System.out.println();
+			System.out.printf("___________________________________________[Day#%d][%02d:00][%s%03d]_________________________________________________%n",day,hour,"Carriers#:",carrierAtShift);
+			System.out.printf("%-15s  |    %-18s  |  %-25s  | %-5s   | %-3s   | %-12s\n","ID","\tType","\t Status"," Time","Day","Days Elapsed");
+			System.out.printf("_________________________________________________________________________________________________________________________\n",day);
+			if(rnd.nextBoolean()) {
+				generateShipments(rnd.nextInt(hourlyLimit)+1,hour,day,2);    //receive random number of shipments at random hour
+			}
+			deliver(hour);
+                        if(hour == HOUR) break HOUR;		//	try {
+				//System.out.println("Press Enter to Continue...");
+				//System.in.read();
+		//	} catch (IOException e) {
+		//	}
+		
+		}
+		printUpdates();		             //print hourly updates	
+		cleanDepository();
+		dailyCounters();
+		printDailyReport(day); //print the Daily Report
+		dailyCleanUp();
+		if(day == DAY) break DAY;
+		}
+		 numberOfFailedPhase2=totalFailed;
+                 phase1Average = cumulativeShipments.size()/count;
+	}
 	
 	
 	
@@ -438,6 +515,15 @@ public class ShippingCompany {
 			}
 			if(shipment.getStatus()==Status.IN_DEPOSITORY || shipment.getStatus()==Status.DELIVERY_FAILED ) {
 				totalInDepository++;
+			}
+                        if(shipment.getStatus()==Status.EXPIRED ) {
+				totalExpired++;
+			}
+                        if(shipment.getStatus()==Status.RETURNED_TO_SENDER ) {
+				totalReturnedToSender++;
+			}
+                        if(shipment.getStatus()==Status.OUT_FOR_DELIVERY) {
+				totalOutForDelivery++;
 			}
 		}
 	}
