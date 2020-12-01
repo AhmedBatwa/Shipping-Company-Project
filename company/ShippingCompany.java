@@ -22,6 +22,8 @@ public class ShippingCompany {
 	protected static ArrayList<Receiver> receivers= new ArrayList<>();
 	protected static ArrayList<Shipment> cumulativeShipments= new ArrayList<>();
 	protected static Queue<Shipment> updatedShipments = new LinkedList<>();
+	protected static ArrayList<String> reports=new ArrayList<>();
+	
 	
 	
 	
@@ -448,6 +450,7 @@ public class ShippingCompany {
 		cumluativeFailed = 0;
 		cumluativeRecieved=0;
 		cumluativeDelivered=0;
+		reports.clear();
 	}
 	
 	
@@ -544,27 +547,39 @@ public class ShippingCompany {
 	
 	
 	private static void printDailyReport(int day) {
+		String report="";
+		
 		
 		System.out.printf("===================================================[Day#%d Report]=======================================================\n",day);
+		report+=String.format("===================================================[Day#%d Report]=======================================================\n",day);
 		System.out.println("Today's Recieved Shipments :\t"+totalReceived);
+		report+=String.format("Today's Recieved Shipments :\t"+totalReceived+"\n");
 		System.out.println("Today's Delivered Shipments :\t"+totalDelivered);
+		report+=String.format("Today's Delivered Shipments :\t"+totalDelivered+"\n");
 		System.out.println("Today's Failed Shipments :\t"+totalFailed);
+		report+=String.format("Today's Failed Shipments :\t"+totalFailed+"\n");
 		System.out.println("Currently in depository:"+ (shipments.size()-totalDelivered));
+		report+=String.format("Currently in depository:"+ (shipments.size()-totalDelivered)+"\n");
 		System.out.println("Shipments not handled today:"+ (shipments.size()-totalDelivered-totalFailed));
+		report+=String.format("Shipments not handled today:"+(shipments.size()-totalDelivered-totalFailed)+"\n");
 		System.out.println("cumulative Shipments :\t"+cumulativeShipments.size());
+		report+=String.format("cumulative Shipments :\t"+cumulativeShipments.size()+"\n");
 		System.out.printf("_________________________________________________________________________________________________________________________\n",day);
+		report+=String.format("_________________________________________________________________________________________________________________________\n",day);
 		System.out.printf("%-15s  |    %-18s  |  %-25s  | %-5s   | %-3s   | %-12s\n","ID","\tType","\t Status"," Time","Day","Days Elapsed");
+		report+=String.format("%-15s  |    %-18s  |  %-25s  | %-5s   | %-3s   | %-12s\n","ID","\tType","\t Status"," Time","Day","Days Elapsed");
 		System.out.printf("_________________________________________________________________________________________________________________________\n",day);
-
+		report+=String.format("_________________________________________________________________________________________________________________________\n",day);
 
 		for(Shipment shipment:shipments) {
 			System.out.println(shipment);
+			report+=String.format(shipment.toString()+"\n");
+			
 		}
 
 		System.out.println("==================================================[End of Report]======================================================= ");
-
-		
-		
+		report+=String.format("==================================================[End of Report]======================================================= \n");
+		reports.add(report);
 	}
 	
 	
@@ -1084,7 +1099,13 @@ public class ShippingCompany {
 
 	
 	//===============================================================================================================================================================
-
+public static String printReports(int day) {
+	
+	
+	
+	
+	return reports.get(day-1);
+}
 	
 	
 	

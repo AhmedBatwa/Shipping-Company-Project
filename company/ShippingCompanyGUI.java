@@ -832,7 +832,7 @@ public class ShippingCompanyGUI extends javax.swing.JFrame {
                 String value = this.ph1_hour.getItemAt(this.ph1_hour.getSelectedIndex());
                 if(!value.equalsIgnoreCase("Full Day"))
                     hour_ph1 = Integer.parseInt(value);
-                ob.simulatePhase1_DailyHourly(numberOfCarriers,numberOfDays,hourlyLimit, day_ph1, hour_ph1);                    
+                this.jTextArea_ph1.setText(ShippingCompany.printReports(day_ph1));                
             }
             this.received.setText(String.valueOf(ShippingCompany.cumluativeRecieved));
             this.delivered.setText(String.valueOf(ShippingCompany.cumluativeDelivered));
@@ -886,7 +886,7 @@ public class ShippingCompanyGUI extends javax.swing.JFrame {
                 String value = this.ph2_hour.getItemAt(this.ph2_hour.getSelectedIndex());
                 if(!value.equalsIgnoreCase("Full Day"))
                     hour_ph2 = Integer.parseInt(value);
-                ob.simulatePhase2_DailyHourly(numberOfCarriers,numberOfDays,hourlyLimit, day_ph2, hour_ph2);                    
+                this.jTextArea_ph2.setText(ShippingCompany.printReports(day_ph2));                    
             }
             this.received2.setText(String.valueOf(ShippingCompany.cumluativeRecieved));
             this.delivered2.setText(String.valueOf(ShippingCompany.cumluativeDelivered));
