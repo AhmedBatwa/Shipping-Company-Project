@@ -5,7 +5,7 @@ import company.Carrier;
 import receiver.Receiver;
 import sender.Sender;
 
-public abstract class  Shipment {
+public abstract class  Shipment implements Cloneable{
 	
 	private Sender sender;
 	private Carrier carrier;
@@ -33,6 +33,14 @@ public abstract class  Shipment {
 		this(sender, receiver);
 		this.prefferedDeliveryTime = prefferedDeliveryTime;
 	}
+	
+	public Object clone() 
+	{ 
+		try{return super.clone();}catch (CloneNotSupportedException e) {}
+		return this;
+	} 
+	
+	
 	
 	// Setters
 	public void setSender(Sender sender) {this.sender = sender;}

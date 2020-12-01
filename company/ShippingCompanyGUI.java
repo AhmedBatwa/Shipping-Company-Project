@@ -24,14 +24,28 @@ public class ShippingCompanyGUI extends javax.swing.JFrame {
     /**
      * Creates new form ShippingCompanyGUI
      */
+	
+
     public ShippingCompanyGUI() {
     	setResizable(false);
         initComponents();
-        
-        
-
     }
 
+    int d1 = 0;
+    int d2 = 0;
+    static int cf1;
+    static int cd1;    
+    static int cr1;
+    
+    static int cf2;
+    static int cd2;    
+    static int cr2;
+
+	static ArrayList<ArrayList<String>> hr1=new ArrayList<>();
+	static ArrayList<ArrayList<String>> hr2=new ArrayList<>();
+	int d3;
+	int d4;
+	
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -40,6 +54,7 @@ public class ShippingCompanyGUI extends javax.swing.JFrame {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
+
 
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
@@ -121,6 +136,8 @@ public class ShippingCompanyGUI extends javax.swing.JFrame {
         jLabel26 = new javax.swing.JLabel();
         improved_pec = new javax.swing.JLabel();
 
+        
+        
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(0, 51, 51));
@@ -824,6 +841,10 @@ public class ShippingCompanyGUI extends javax.swing.JFrame {
             if(this.ph1_type.getItemAt(this.ph1_type.getSelectedIndex()).equalsIgnoreCase("Full Report")){
                 System.out.println("=====================================================[Phase#1]========================================================= ");
                 ob.simulatePhase1(numberOfCarriers,numberOfDays,hourlyLimit);
+                if(d3 == 0) {
+                	hr1=ShippingCompany.getHourReports1();
+                	d3=1;
+                }
                 System.out.println("=======================================================[End]=========================================================== ");                
             }
             else{
@@ -832,11 +853,25 @@ public class ShippingCompanyGUI extends javax.swing.JFrame {
                 String value = this.ph1_hour.getItemAt(this.ph1_hour.getSelectedIndex());
                 if(!value.equalsIgnoreCase("Full Day"))
                     hour_ph1 = Integer.parseInt(value);
-                this.jTextArea_ph1.setText(ShippingCompany.printReports(day_ph1));                
+                if(hour_ph1 == -1)
+                	this.jTextArea_ph1.setText(ShippingCompany.printReports(day_ph1,1));
+                else 
+                {
+                	this.jTextArea_ph1.setText(hr1.get(day_ph1-1).get(hour_ph1));
+                }
+                //ob.simulatePhase1_DailyHourly(numberOfCarriers,numberOfDays,hourlyLimit, day_ph1, hour_ph1);
+                
             }
-            this.received.setText(String.valueOf(ShippingCompany.cumluativeRecieved));
-            this.delivered.setText(String.valueOf(ShippingCompany.cumluativeDelivered));
-            this.failed.setText(String.valueOf(ShippingCompany.cumluativeFailed));
+            if(d1 ==0)
+            {	
+            	cr1= ShippingCompany.cumluativeRecieved1;
+            	cd1= ShippingCompany.cumluativeDelivered1;
+            	cf1= ShippingCompany.cumluativeFailed1;
+            	d1 = 1;
+            }
+            this.received.setText(String.valueOf(cr1));
+            this.delivered.setText(String.valueOf(cd1));
+            this.failed.setText(String.valueOf(cf1));
 //            this.in_depo.setText(String.valueOf(ShippingCompany.shipments.size()+ShippingCompany.totalReceived));
             this.cumulative.setText(String.valueOf(ShippingCompany.cumulativeShipments.size()));
 //            this.no_handled.setText(String.valueOf(ShippingCompany.shipments.size()));
@@ -875,9 +910,13 @@ public class ShippingCompanyGUI extends javax.swing.JFrame {
             int numberOfDays = Integer.parseInt(this.days.getText());
             int hourlyLimit = Integer.parseInt(this.shipments.getText());
             ShippingCompany ob = new ShippingCompany();
-            if(this.ph1_type.getItemAt(this.ph1_type.getSelectedIndex()).equalsIgnoreCase("Full Report")){
+            if(this.ph2_type.getItemAt(this.ph2_type.getSelectedIndex()).equalsIgnoreCase("Full Report")){
                 System.out.println("=====================================================[Phase#2]========================================================= ");
                 ob.simulatePhase2(numberOfCarriers,numberOfDays,hourlyLimit);
+                if(d4 == 0) {
+                	hr2=ShippingCompany.getHourReports2();
+                	d4=1;
+                }
                 System.out.println("=======================================================[End]=========================================================== ");                
             }
             else{
@@ -886,11 +925,24 @@ public class ShippingCompanyGUI extends javax.swing.JFrame {
                 String value = this.ph2_hour.getItemAt(this.ph2_hour.getSelectedIndex());
                 if(!value.equalsIgnoreCase("Full Day"))
                     hour_ph2 = Integer.parseInt(value);
-                this.jTextArea_ph2.setText(ShippingCompany.printReports(day_ph2));                    
+//                ob.simulatePhase2_DailyHourly(numberOfCarriers,numberOfDays,hourlyLimit, day_ph2, hour_ph2);   
+                if(hour_ph2 == -1)
+                	this.jTextArea_ph2.setText(ShippingCompany.printReports(day_ph2,2));
+                else 
+                {
+                	this.jTextArea_ph2.setText(hr2.get(day_ph2-1).get(hour_ph2));
+                }
             }
-            this.received2.setText(String.valueOf(ShippingCompany.cumluativeRecieved));
-            this.delivered2.setText(String.valueOf(ShippingCompany.cumluativeDelivered));
-            this.failed2.setText(String.valueOf(ShippingCompany.cumluativeFailed));
+            if(d2 ==0)
+            {	
+            	cr2= ShippingCompany.cumluativeRecieved2;
+            	cd2= ShippingCompany.cumluativeDelivered2;
+            	cf2= ShippingCompany.cumluativeFailed2;
+            	d2 = 1;
+            }
+            this.received2.setText(String.valueOf(cr2));
+            this.delivered2.setText(String.valueOf(cd2));
+            this.failed2.setText(String.valueOf(cf2));
 //            this.in_depo2.setText(String.valueOf(ShippingCompany.shipments.size()+ShippingCompany.totalFailed));
             this.cumulative2.setText(String.valueOf(ShippingCompany.cumulativeShipments.size()));
 //            this.no_handled2.setText(String.valueOf(ShippingCompany.shipments.size()-ShippingCompany.totalDelivered));
