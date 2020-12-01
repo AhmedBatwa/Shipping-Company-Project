@@ -293,7 +293,7 @@ public class ShippingCompanyGUI extends javax.swing.JFrame {
         received.setFont(new java.awt.Font("Leelawadee UI", 0, 12));
 
         jLabel12.setFont(new java.awt.Font("Leelawadee UI", 0, 14)); // NOI18N
-        jLabel12.setText("Cumulative Total Shipments:");
+        jLabel12.setText("Currently :");
 
         delivered.setFont(new java.awt.Font("Leelawadee UI", 0, 12)); // NOI18N
         delivered.addActionListener(new java.awt.event.ActionListener() {
@@ -834,9 +834,9 @@ public class ShippingCompanyGUI extends javax.swing.JFrame {
                     hour_ph1 = Integer.parseInt(value);
                 ob.simulatePhase1_DailyHourly(numberOfCarriers,numberOfDays,hourlyLimit, day_ph1, hour_ph1);                    
             }
-            this.received.setText(String.valueOf(ShippingCompany.totalReceived));
-            this.delivered.setText(String.valueOf(ShippingCompany.totalDelivered));
-            this.failed.setText(String.valueOf(ShippingCompany.totalFailed));
+            this.received.setText(String.valueOf(ShippingCompany.cumluativeRecieved));
+            this.delivered.setText(String.valueOf(ShippingCompany.cumluativeDelivered));
+            this.failed.setText(String.valueOf(ShippingCompany.cumluativeFailed));
 //            this.in_depo.setText(String.valueOf(ShippingCompany.shipments.size()+ShippingCompany.totalReceived));
             this.cumulative.setText(String.valueOf(ShippingCompany.cumulativeShipments.size()));
 //            this.no_handled.setText(String.valueOf(ShippingCompany.shipments.size()));
@@ -888,9 +888,9 @@ public class ShippingCompanyGUI extends javax.swing.JFrame {
                     hour_ph2 = Integer.parseInt(value);
                 ob.simulatePhase2_DailyHourly(numberOfCarriers,numberOfDays,hourlyLimit, day_ph2, hour_ph2);                    
             }
-            this.received2.setText(String.valueOf(ShippingCompany.totalReceived));
-            this.delivered2.setText(String.valueOf(ShippingCompany.totalDelivered));
-            this.failed2.setText(String.valueOf(ShippingCompany.totalFailed));
+            this.received2.setText(String.valueOf(ShippingCompany.cumluativeRecieved));
+            this.delivered2.setText(String.valueOf(ShippingCompany.cumluativeDelivered));
+            this.failed2.setText(String.valueOf(ShippingCompany.cumluativeFailed));
 //            this.in_depo2.setText(String.valueOf(ShippingCompany.shipments.size()+ShippingCompany.totalFailed));
             this.cumulative2.setText(String.valueOf(ShippingCompany.cumulativeShipments.size()));
 //            this.no_handled2.setText(String.valueOf(ShippingCompany.shipments.size()-ShippingCompany.totalDelivered));
@@ -959,9 +959,9 @@ public class ShippingCompanyGUI extends javax.swing.JFrame {
         this.received.setText("");
         this.delivered.setText("");
         this.failed.setText("");
-        this.in_depo.setText("");
+   //     this.in_depo.setText("");
         this.cumulative.setText("");
-        this.no_handled.setText("");
+    //    this.no_handled.setText("");
         this.avg_shipment_per_hour.setText("");
 
         this.current_day.setText("");
@@ -974,9 +974,9 @@ public class ShippingCompanyGUI extends javax.swing.JFrame {
         this.received2.setText("");
         this.delivered2.setText("");
         this.failed2.setText("");
-        this.in_depo2.setText("");
+  //      this.in_depo2.setText("");
         this.cumulative2.setText("");
-        this.no_handled2.setText("");
+  //      this.no_handled2.setText("");
         this.avg_shipment_per_hour2.setText("");
 
         this.current_day2.setText("");

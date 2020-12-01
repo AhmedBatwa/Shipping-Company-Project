@@ -44,6 +44,9 @@ public class ShippingCompany {
 	protected static int curr_day;
 	protected static int curr_hour;
 	protected static int carrierShift;
+	protected static int cumluativeFailed;
+	protected static int cumluativeRecieved;
+	protected static int cumluativeDelivered;
 	
         
         protected static int phase1Average;
@@ -106,7 +109,7 @@ public class ShippingCompany {
 	
 	
 	
-	
+	//new
 	
 	
 	
@@ -204,6 +207,7 @@ public class ShippingCompany {
 		dailyCleanUp();
 //		historyTracking();
 		}
+		
 		numberOfFailedPhase1=totalFailed;
                 phase1Average = cumulativeShipments.size()/count;
 	}
@@ -441,6 +445,9 @@ public class ShippingCompany {
 		senders.clear();
 		shipments.clear();
 		receivers.clear();
+		cumluativeFailed = 0;
+		cumluativeRecieved=0;
+		cumluativeDelivered=0;
 	}
 	
 	
@@ -526,6 +533,9 @@ public class ShippingCompany {
 				totalOutForDelivery++;
 			}
 		}
+		cumluativeFailed += totalFailed;
+		cumluativeDelivered += totalDelivered;
+		cumluativeRecieved += totalReceived;
 	}
 	
 	
