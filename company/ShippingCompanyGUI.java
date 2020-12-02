@@ -636,9 +636,6 @@ public class ShippingCompanyGUI extends javax.swing.JFrame {
 
     private void ph1_generateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ph1_generateActionPerformed
         // TODO add your handling code here:
-    	d1=0;
-    	d2=0;
-    	d3=0;
         this.jTextArea_ph1.setText("");
         JTextAreaOutputStream out = new JTextAreaOutputStream (this.jTextArea_ph1);
         System.setOut (new PrintStream (out));
@@ -711,9 +708,6 @@ public class ShippingCompanyGUI extends javax.swing.JFrame {
 
     private void ph2_generateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ph2_generateActionPerformed
         // TODO add your handling code here:
-    	d1=0;
-    	d2=0;
-    	d3=0;
         this.jTextArea_ph2.setText("");
         JTextAreaOutputStream out = new JTextAreaOutputStream (this.jTextArea_ph2);
         System.setOut (new PrintStream (out));
