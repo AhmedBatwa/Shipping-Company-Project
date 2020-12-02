@@ -17,6 +17,12 @@ import javax.swing.GroupLayout.Alignment;
 import javax.swing.GroupLayout;
 import javax.swing.LayoutStyle.ComponentPlacement;
 import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.Rectangle;
+import java.awt.GridBagLayout;
+import java.awt.GridBagConstraints;
+import java.awt.Insets;
+import java.awt.ComponentOrientation;
 
 
 public class ShippingCompanyGUI extends javax.swing.JFrame {
@@ -27,7 +33,8 @@ public class ShippingCompanyGUI extends javax.swing.JFrame {
 	
 
     public ShippingCompanyGUI() {
-    	setResizable(false);
+    	
+    	
         initComponents();
     }
 
@@ -55,9 +62,9 @@ public class ShippingCompanyGUI extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-
-        jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
+        
+        
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         jPanel2 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         carriers = new javax.swing.JTextField();
@@ -65,6 +72,124 @@ public class ShippingCompanyGUI extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         shipments = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
+        
+                jPanel2.setBackground(new java.awt.Color(204, 204, 255));
+                
+                        jLabel2.setFont(new java.awt.Font("Leelawadee UI", 0, 14)); // NOI18N
+                        jLabel2.setText("Enter Number of Carriers");
+                        
+                                carriers.setFont(new java.awt.Font("Leelawadee UI", 0, 14)); // NOI18N
+                                carriers.addActionListener(new java.awt.event.ActionListener() {
+                                    public void actionPerformed(java.awt.event.ActionEvent evt) {
+                                        carriersActionPerformed(evt);
+                                    }
+                                });
+                                carriers.addKeyListener(new java.awt.event.KeyAdapter() {
+                                    public void keyPressed(java.awt.event.KeyEvent evt) {
+                                        validateKey(evt);
+                                    }
+                                });
+                                
+                                        days.setFont(new java.awt.Font("Leelawadee UI", 0, 14)); // NOI18N
+                                        days.addCaretListener(new javax.swing.event.CaretListener() {
+                                            public void caretUpdate(javax.swing.event.CaretEvent evt) {
+                                                daysCaretUpdate(evt);
+                                            }
+                                        });
+                                        days.addActionListener(new java.awt.event.ActionListener() {
+                                            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                                                daysActionPerformed(evt);
+                                            }
+                                        });
+                                        days.addKeyListener(new java.awt.event.KeyAdapter() {
+                                            public void keyPressed(java.awt.event.KeyEvent evt) {
+                                                validateKey(evt);
+                                            }
+                                        });
+                                        
+                                                jLabel3.setFont(new java.awt.Font("Leelawadee UI", 0, 14)); // NOI18N
+                                                jLabel3.setText("Enter Number of Days");
+                                                
+                                                        shipments.setFont(new java.awt.Font("Leelawadee UI", 0, 14)); // NOI18N
+                                                        shipments.addActionListener(new java.awt.event.ActionListener() {
+                                                            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                                                                shipmentsActionPerformed(evt);
+                                                            }
+                                                        });
+                                                        shipments.addKeyListener(new java.awt.event.KeyAdapter() {
+                                                            public void keyPressed(java.awt.event.KeyEvent evt) {
+                                                                validateKey(evt);
+                                                            }
+                                                        });
+                                                                
+                                                                    	
+                                                                        jPanel1 = new javax.swing.JPanel();
+                                                                        jLabel1 = new javax.swing.JLabel();
+                                                                        
+                                                                                jPanel1.setBackground(new java.awt.Color(0, 51, 51));
+                                                                                
+                                                                                        jLabel1.setFont(new java.awt.Font("Haettenschweiler", 0, 36)); // NOI18N
+                                                                                        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+                                                                                        jLabel1.setText("Shipping Company Interface");
+                                                                                        
+                                                                                                javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+                                                                                                jPanel1.setLayout(jPanel1Layout);
+                                                                                                jPanel1Layout.setHorizontalGroup(
+                                                                                                    jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                                                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                                                                                        .addGap(38, 38, 38)
+                                                                                                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 344, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                                                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                                                                                );
+                                                                                                jPanel1Layout.setVerticalGroup(
+                                                                                                    jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                                                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                                                                                        .addContainerGap()
+                                                                                                        .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                                                                        .addContainerGap())
+                                                                                                );
+                                                        
+                                                                jLabel4.setFont(new java.awt.Font("Leelawadee UI", 0, 14)); // NOI18N
+                                                                jLabel4.setText("Limit of generated shipments/hour");
+                                                                
+                                                                        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+                                                                        jPanel2.setLayout(jPanel2Layout);
+                                                                        jPanel2Layout.setHorizontalGroup(
+                                                                            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                                                                .addGap(37, 37, 37)
+                                                                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                                                    .addComponent(jLabel2)
+                                                                                    .addComponent(carriers, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                                                .addGap(60, 60, 60)
+                                                                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                                                    .addComponent(jLabel3)
+                                                                                    .addComponent(days, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                                                .addGap(60, 60, 60)
+                                                                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                                                    .addComponent(jLabel4)
+                                                                                    .addComponent(shipments, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                                                .addContainerGap(383, Short.MAX_VALUE))
+                                                                        );
+                                                                        jPanel2Layout.setVerticalGroup(
+                                                                            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                                                                .addGap(15, 15, 15)
+                                                                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                                                                    .addGroup(jPanel2Layout.createSequentialGroup()
+                                                                                        .addComponent(jLabel4)
+                                                                                        .addGap(2, 2, 2)
+                                                                                        .addComponent(shipments, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                                                    .addGroup(jPanel2Layout.createSequentialGroup()
+                                                                                        .addComponent(jLabel3)
+                                                                                        .addGap(2, 2, 2)
+                                                                                        .addComponent(days, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                                                    .addGroup(jPanel2Layout.createSequentialGroup()
+                                                                                        .addComponent(jLabel2)
+                                                                                        .addGap(2, 2, 2)
+                                                                                        .addComponent(carriers, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                                                                .addContainerGap(17, Short.MAX_VALUE))
+                                                                        );
         jPanel3 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextArea_ph1 = new javax.swing.JTextArea();
@@ -80,15 +205,12 @@ public class ShippingCompanyGUI extends javax.swing.JFrame {
         avg_shipment_per_hour = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
         received = new javax.swing.JTextField();
-        jLabel12 = new javax.swing.JLabel();
         delivered = new javax.swing.JTextField();
         delivered.setForeground(new Color(154, 205, 50));
         jLabel14 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
         failed = new javax.swing.JTextField();
         failed.setForeground(Color.RED);
-        cumulative = new javax.swing.JTextField();
-        jLabel18 = new javax.swing.JLabel();
         jLabel19 = new javax.swing.JLabel();
         jLabel20 = new javax.swing.JLabel();
         current_day = new javax.swing.JTextField();
@@ -111,15 +233,12 @@ public class ShippingCompanyGUI extends javax.swing.JFrame {
         avg_shipment_per_hour2 = new javax.swing.JTextField();
         jLabel59 = new javax.swing.JLabel();
         received2 = new javax.swing.JTextField();
-        jLabel60 = new javax.swing.JLabel();
         delivered2 = new javax.swing.JTextField();
         delivered2.setForeground(new Color(154, 205, 50));
         jLabel62 = new javax.swing.JLabel();
         jLabel63 = new javax.swing.JLabel();
         failed2 = new javax.swing.JTextField();
         failed2.setForeground(Color.RED);
-        cumulative2 = new javax.swing.JTextField();
-        jLabel66 = new javax.swing.JLabel();
         jLabel67 = new javax.swing.JLabel();
         jLabel68 = new javax.swing.JLabel();
         current_day2 = new javax.swing.JTextField();
@@ -135,672 +254,510 @@ public class ShippingCompanyGUI extends javax.swing.JFrame {
         ph2_summary = new javax.swing.JLabel();
         jLabel26 = new javax.swing.JLabel();
         improved_pec = new javax.swing.JLabel();
-
         
-        
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
-        jPanel1.setBackground(new java.awt.Color(0, 51, 51));
-
-        jLabel1.setFont(new java.awt.Font("Haettenschweiler", 0, 36)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("Shipping Company Interface");
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(38, 38, 38)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 344, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
-        );
-
-        jPanel2.setBackground(new java.awt.Color(204, 204, 255));
-
-        jLabel2.setFont(new java.awt.Font("Leelawadee UI", 0, 14)); // NOI18N
-        jLabel2.setText("Enter Number of Carriers");
-
-        carriers.setFont(new java.awt.Font("Leelawadee UI", 0, 14)); // NOI18N
-        carriers.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                carriersActionPerformed(evt);
-            }
-        });
-        carriers.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                validateKey(evt);
-            }
-        });
-
-        days.setFont(new java.awt.Font("Leelawadee UI", 0, 14)); // NOI18N
-        days.addCaretListener(new javax.swing.event.CaretListener() {
-            public void caretUpdate(javax.swing.event.CaretEvent evt) {
-                daysCaretUpdate(evt);
-            }
-        });
-        days.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                daysActionPerformed(evt);
-            }
-        });
-        days.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                validateKey(evt);
-            }
-        });
-
-        jLabel3.setFont(new java.awt.Font("Leelawadee UI", 0, 14)); // NOI18N
-        jLabel3.setText("Enter Number of Days");
-
-        shipments.setFont(new java.awt.Font("Leelawadee UI", 0, 14)); // NOI18N
-        shipments.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                shipmentsActionPerformed(evt);
-            }
-        });
-        shipments.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                validateKey(evt);
-            }
-        });
-
-        jLabel4.setFont(new java.awt.Font("Leelawadee UI", 0, 14)); // NOI18N
-        jLabel4.setText("Limit of generated shipments/hour");
-
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(37, 37, 37)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel2)
-                    .addComponent(carriers, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(60, 60, 60)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel3)
-                    .addComponent(days, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(60, 60, 60)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel4)
-                    .addComponent(shipments, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(383, Short.MAX_VALUE))
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(15, 15, 15)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jLabel4)
-                        .addGap(2, 2, 2)
-                        .addComponent(shipments, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jLabel3)
-                        .addGap(2, 2, 2)
-                        .addComponent(days, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jLabel2)
-                        .addGap(2, 2, 2)
-                        .addComponent(carriers, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(17, Short.MAX_VALUE))
-        );
-
-        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
-
-        jTextArea_ph1.setEditable(false);
-        jTextArea_ph1.setColumns(20);
-        jTextArea_ph1.setRows(5);
-        jTextArea_ph1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(102, 102, 102), 1, true));
-        jTextArea_ph1.setFocusable(false);
-        jTextArea_ph1.setRequestFocusEnabled(false);
-        jTextArea_ph1.setVerifyInputWhenFocusTarget(false);
-        jScrollPane1.setViewportView(jTextArea_ph1);
-
-        jLabel5.setFont(new java.awt.Font("Leelawadee UI", 0, 18)); // NOI18N
-        jLabel5.setText("Details of Phases");
-
-        jPanel5.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(153, 153, 153), 1, true));
-
-        ph1_type.setFont(new java.awt.Font("Leelawadee UI", 0, 12)); // NOI18N
-        ph1_type.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Full Report", "Day/Hourly Report" }));
-        ph1_type.addItemListener(new java.awt.event.ItemListener() {
-            public void itemStateChanged(java.awt.event.ItemEvent evt) {
-                ph1_typeItemStateChanged(evt);
-            }
-        });
-
-        jLabel7.setFont(new java.awt.Font("Leelawadee UI", 0, 14)); // NOI18N
-        jLabel7.setText("Type:");
-
-        jLabel8.setFont(new java.awt.Font("Leelawadee UI", 0, 14)); // NOI18N
-        jLabel8.setText("Day");
-
-        jLabel9.setFont(new java.awt.Font("Leelawadee UI", 0, 14)); // NOI18N
-        jLabel9.setText("Hour");
-
-        ph1_hour.setFont(new java.awt.Font("Leelawadee UI", 0, 12)); // NOI18N
-        ph1_hour.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Full Day", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "00" }));
-        ph1_hour.setEnabled(false);
-
-        ph1_generate.setFont(new java.awt.Font("Leelawadee UI", 0, 12)); // NOI18N
-        ph1_generate.setText("Generate Report");
-        ph1_generate.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ph1_generateActionPerformed(evt);
-            }
-        });
-
-        jLabel10.setFont(new java.awt.Font("Leelawadee UI", 0, 14)); // NOI18N
-        jLabel10.setText("Statistics: Average Shipment per hour:");
-
-        avg_shipment_per_hour.setFont(new java.awt.Font("Leelawadee UI", 0, 12)); // NOI18N
-
-        jLabel11.setFont(new java.awt.Font("Leelawadee UI", 0, 14)); // NOI18N
-        jLabel11.setText("Received:");
-
-        received.setFont(new java.awt.Font("Leelawadee UI", 0, 12));
-
-        jLabel12.setFont(new java.awt.Font("Leelawadee UI", 0, 14)); // NOI18N
-        jLabel12.setText("Currently :");
-
-        delivered.setFont(new java.awt.Font("Leelawadee UI", 0, 12)); // NOI18N
-        delivered.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                deliveredActionPerformed(evt);
-            }
-        });
-
-        jLabel14.setFont(new java.awt.Font("Leelawadee UI", 0, 14)); // NOI18N
-        jLabel14.setText("Delivered:");
-
-        jLabel15.setFont(new java.awt.Font("Leelawadee UI", 0, 14)); // NOI18N
-        jLabel15.setText("Failed:");
-
-        failed.setFont(new java.awt.Font("Leelawadee UI", 0, 12));
-
-        cumulative.setFont(new java.awt.Font("Leelawadee UI", 0, 12)); // NOI18N
-
-        jLabel18.setFont(new java.awt.Font("Leelawadee UI", 0, 14)); // NOI18N
-        jLabel18.setText("Statistics: Average Shipment per hour:");
-
-        jLabel19.setFont(new java.awt.Font("Leelawadee UI", 0, 14)); // NOI18N
-        jLabel19.setText("Current Day:");
-
-        jLabel20.setFont(new java.awt.Font("Leelawadee UI", 0, 14)); // NOI18N
-        jLabel20.setText("Current Hour:");
-
-        current_day.setFont(new java.awt.Font("Leelawadee UI", 0, 12)); // NOI18N
-
-        jLabel21.setFont(new java.awt.Font("Leelawadee UI", 0, 14)); // NOI18N
-        jLabel21.setText("Working Carriers:");
-
-        current_hour.setFont(new java.awt.Font("Leelawadee UI", 0, 12)); // NOI18N
-        current_hour.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                current_hourActionPerformed(evt);
-            }
-        });
-
-        working_carrier.setFont(new java.awt.Font("Leelawadee UI", 0, 12)); // NOI18N
-
-        jLabel37.setFont(new java.awt.Font("Leelawadee UI", 0, 18)); // NOI18N
-        jLabel37.setText("Phase 1:");
-
-        ph1_day.setFont(new java.awt.Font("Leelawadee UI", 0, 12)); // NOI18N
-        ph1_day.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Full Day", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "00" }));
-        ph1_day.setEnabled(false);
-
-        ph1_generate1.setFont(new java.awt.Font("Leelawadee UI", 0, 12)); // NOI18N
-        ph1_generate1.setText("Reset");
-        ph1_generate1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ph1_generate1ActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
-        jPanel5Layout.setHorizontalGroup(
-        	jPanel5Layout.createParallelGroup(Alignment.LEADING)
-        		.addGroup(jPanel5Layout.createSequentialGroup()
-        			.addGap(18)
-        			.addGroup(jPanel5Layout.createParallelGroup(Alignment.TRAILING)
-        				.addGroup(jPanel5Layout.createSequentialGroup()
-        					.addGroup(jPanel5Layout.createParallelGroup(Alignment.LEADING, false)
-        						.addGroup(jPanel5Layout.createSequentialGroup()
-        							.addGroup(jPanel5Layout.createParallelGroup(Alignment.LEADING)
-        								.addComponent(jLabel10)
-        								.addGroup(jPanel5Layout.createSequentialGroup()
-        									.addGroup(jPanel5Layout.createParallelGroup(Alignment.LEADING)
-        										.addGroup(jPanel5Layout.createSequentialGroup()
-        											.addComponent(jLabel11)
-        											.addGap(18)
-        											.addComponent(received, GroupLayout.PREFERRED_SIZE, 56, GroupLayout.PREFERRED_SIZE))
-        										.addComponent(jLabel12))
-        									.addPreferredGap(ComponentPlacement.UNRELATED)
-        									.addGroup(jPanel5Layout.createParallelGroup(Alignment.LEADING)
-        										.addComponent(cumulative, 64, 64, 64)
-        										.addComponent(jLabel14))))
-        							.addGap(23))
-        						.addGroup(jPanel5Layout.createSequentialGroup()
-        							.addComponent(jLabel19)
-        							.addPreferredGap(ComponentPlacement.UNRELATED)
-        							.addComponent(current_day, GroupLayout.PREFERRED_SIZE, 60, GroupLayout.PREFERRED_SIZE)
-        							.addPreferredGap(ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
-        							.addComponent(jLabel20)
-        							.addPreferredGap(ComponentPlacement.RELATED)))
-        					.addGroup(jPanel5Layout.createParallelGroup(Alignment.LEADING, false)
-        						.addComponent(current_hour, GroupLayout.DEFAULT_SIZE, 60, Short.MAX_VALUE)
-        						.addComponent(avg_shipment_per_hour)
-        						.addComponent(delivered))
-        					.addGap(56)
-        					.addGroup(jPanel5Layout.createParallelGroup(Alignment.TRAILING)
-        						.addGroup(jPanel5Layout.createSequentialGroup()
-        							.addComponent(jLabel15)
-        							.addGap(34))
-        						.addComponent(jLabel21))
-        					.addPreferredGap(ComponentPlacement.RELATED)
-        					.addGroup(jPanel5Layout.createParallelGroup(Alignment.LEADING)
-        						.addComponent(failed, 64, 64, 64)
-        						.addComponent(working_carrier, 64, 64, 64))
-        					.addGap(21))
-        				.addComponent(jLabel18)
-        				.addGroup(jPanel5Layout.createSequentialGroup()
-        					.addGroup(jPanel5Layout.createParallelGroup(Alignment.LEADING)
-        						.addGroup(jPanel5Layout.createSequentialGroup()
-        							.addComponent(jLabel7)
-        							.addPreferredGap(ComponentPlacement.UNRELATED)
-        							.addComponent(ph1_type, GroupLayout.PREFERRED_SIZE, 102, GroupLayout.PREFERRED_SIZE)
-        							.addGap(30)
-        							.addComponent(jLabel8)
-        							.addGap(6)
-        							.addComponent(ph1_day, GroupLayout.PREFERRED_SIZE, 69, GroupLayout.PREFERRED_SIZE)
-        							.addGap(18)
-        							.addComponent(jLabel9)
-        							.addPreferredGap(ComponentPlacement.UNRELATED)
-        							.addComponent(ph1_hour, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
-        						.addComponent(jLabel37))
-        					.addPreferredGap(ComponentPlacement.RELATED, 53, Short.MAX_VALUE)
-        					.addGroup(jPanel5Layout.createParallelGroup(Alignment.LEADING, false)
-        						.addComponent(ph1_generate, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        						.addComponent(ph1_generate1, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        					.addGap(19))))
-        );
-        jPanel5Layout.setVerticalGroup(
-        	jPanel5Layout.createParallelGroup(Alignment.LEADING)
-        		.addGroup(jPanel5Layout.createSequentialGroup()
-        			.addGap(10)
-        			.addGroup(jPanel5Layout.createParallelGroup(Alignment.BASELINE)
-        				.addComponent(jLabel37)
-        				.addComponent(ph1_generate1))
-        			.addGap(18)
-        			.addGroup(jPanel5Layout.createParallelGroup(Alignment.BASELINE)
-        				.addComponent(ph1_type, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-        				.addComponent(jLabel7)
-        				.addComponent(jLabel8)
-        				.addComponent(ph1_hour, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-        				.addComponent(jLabel9)
-        				.addComponent(ph1_generate)
-        				.addComponent(ph1_day, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
-        			.addPreferredGap(ComponentPlacement.RELATED)
-        			.addGroup(jPanel5Layout.createParallelGroup(Alignment.BASELINE)
-        				.addComponent(jLabel10)
-        				.addComponent(avg_shipment_per_hour, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
-        			.addGap(10)
-        			.addGroup(jPanel5Layout.createParallelGroup(Alignment.BASELINE)
-        				.addComponent(jLabel11)
-        				.addComponent(received, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-        				.addComponent(jLabel14)
-        				.addComponent(delivered, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-        				.addComponent(jLabel15)
-        				.addComponent(failed, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
-        			.addPreferredGap(ComponentPlacement.RELATED)
-        			.addGroup(jPanel5Layout.createParallelGroup(Alignment.BASELINE)
-        				.addComponent(jLabel12)
-        				.addComponent(cumulative, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
-        			.addGap(39)
-        			.addComponent(jLabel18)
-        			.addPreferredGap(ComponentPlacement.RELATED)
-        			.addGroup(jPanel5Layout.createParallelGroup(Alignment.BASELINE)
-        				.addComponent(jLabel19)
-        				.addComponent(current_day, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-        				.addComponent(jLabel20)
-        				.addComponent(current_hour, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-        				.addComponent(jLabel21)
-        				.addComponent(working_carrier, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
-        			.addContainerGap(22, Short.MAX_VALUE))
-        );
-        jPanel5.setLayout(jPanel5Layout);
-
-        jTextArea_ph2.setEditable(false);
-        jTextArea_ph2.setColumns(20);
-        jTextArea_ph2.setRows(5);
-        jTextArea_ph2.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(102, 102, 102), 1, true));
-        jTextArea_ph2.setFocusable(false);
-        jTextArea_ph2.setRequestFocusEnabled(false);
-        jTextArea_ph2.setVerifyInputWhenFocusTarget(false);
-        jScrollPane2.setViewportView(jTextArea_ph2);
-
-        jPanel7.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(153, 153, 153), 1, true));
-
-        ph2_type.setFont(new java.awt.Font("Leelawadee UI", 0, 12)); // NOI18N
-        ph2_type.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Full Report", "Day/Hourly Report" }));
-        ph2_type.addItemListener(new java.awt.event.ItemListener() {
-            public void itemStateChanged(java.awt.event.ItemEvent evt) {
-                ph2_typeItemStateChanged(evt);
-            }
-        });
-
-        jLabel55.setFont(new java.awt.Font("Leelawadee UI", 0, 14)); // NOI18N
-        jLabel55.setText("Type:");
-
-        jLabel56.setFont(new java.awt.Font("Leelawadee UI", 0, 14)); // NOI18N
-        jLabel56.setText("Day");
-
-        jLabel57.setFont(new java.awt.Font("Leelawadee UI", 0, 14)); // NOI18N
-        jLabel57.setText("Hour");
-
-        ph2_hour.setFont(new java.awt.Font("Leelawadee UI", 0, 12)); // NOI18N
-        ph2_hour.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Full Day", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "00" }));
-        ph2_hour.setEnabled(false);
-
-        ph2_generate.setFont(new java.awt.Font("Leelawadee UI", 0, 12)); // NOI18N
-        ph2_generate.setText("Generate Report");
-        ph2_generate.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ph2_generateActionPerformed(evt);
-            }
-        });
-
-        jLabel58.setFont(new java.awt.Font("Leelawadee UI", 0, 14)); // NOI18N
-        jLabel58.setText("Statistics: Average Shipment per hour:");
-
-        avg_shipment_per_hour2.setFont(new java.awt.Font("Leelawadee UI", 0, 12)); // NOI18N
-
-        jLabel59.setFont(new java.awt.Font("Leelawadee UI", 0, 14)); // NOI18N
-        jLabel59.setText("Received");
-
-        received2.setFont(new java.awt.Font("Leelawadee UI", 0, 12));
-
-        jLabel60.setFont(new java.awt.Font("Leelawadee UI", 0, 14)); // NOI18N
-        jLabel60.setText("Cumulative Total Shipments:");
-
-        delivered2.setFont(new java.awt.Font("Leelawadee UI", 0, 12)); // NOI18N
-        delivered2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                delivered2ActionPerformed(evt);
-            }
-        });
-
-        jLabel62.setFont(new java.awt.Font("Leelawadee UI", 0, 14)); // NOI18N
-        jLabel62.setText("Delivered:");
-
-        jLabel63.setFont(new java.awt.Font("Leelawadee UI", 0, 14)); // NOI18N
-        jLabel63.setText("Failed:");
-
-        failed2.setFont(new java.awt.Font("Leelawadee UI", 0, 12));
-
-        cumulative2.setFont(new java.awt.Font("Leelawadee UI", 0, 12)); // NOI18N
-
-        jLabel66.setFont(new java.awt.Font("Leelawadee UI", 0, 14)); // NOI18N
-        jLabel66.setText("Statistics: Average Shipment per hour:");
-
-        jLabel67.setFont(new java.awt.Font("Leelawadee UI", 0, 14)); // NOI18N
-        jLabel67.setText("Current Day:");
-
-        jLabel68.setFont(new java.awt.Font("Leelawadee UI", 0, 14)); // NOI18N
-        jLabel68.setText("Current Hour:");
-
-        current_day2.setFont(new java.awt.Font("Leelawadee UI", 0, 12)); // NOI18N
-
-        jLabel69.setFont(new java.awt.Font("Leelawadee UI", 0, 14)); // NOI18N
-        jLabel69.setText("Working Carriers:");
-
-        current_hour2.setFont(new java.awt.Font("Leelawadee UI", 0, 12)); // NOI18N
-        current_hour2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                current_hour2ActionPerformed(evt);
-            }
-        });
-
-        working_carrier2.setFont(new java.awt.Font("Leelawadee UI", 0, 12)); // NOI18N
-
-        jLabel70.setFont(new java.awt.Font("Leelawadee UI", 0, 18)); // NOI18N
-        jLabel70.setText("Phase 2:");
-
-        ph2_day.setFont(new java.awt.Font("Leelawadee UI", 0, 12)); // NOI18N
-        ph2_day.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Full Day", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "00" }));
-        ph2_day.setEnabled(false);
-
-        ph2_generate1.setFont(new java.awt.Font("Leelawadee UI", 0, 12)); // NOI18N
-        ph2_generate1.setText("Reset");
-        ph2_generate1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ph2_generate1ActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
-        jPanel7Layout.setHorizontalGroup(
-        	jPanel7Layout.createParallelGroup(Alignment.LEADING)
-        		.addGroup(jPanel7Layout.createSequentialGroup()
-        			.addGap(18)
-        			.addGroup(jPanel7Layout.createParallelGroup(Alignment.TRAILING)
-        				.addGroup(jPanel7Layout.createSequentialGroup()
-        					.addGroup(jPanel7Layout.createParallelGroup(Alignment.LEADING, false)
-        						.addGroup(jPanel7Layout.createSequentialGroup()
-        							.addGroup(jPanel7Layout.createParallelGroup(Alignment.LEADING)
-        								.addComponent(jLabel58)
-        								.addGroup(jPanel7Layout.createSequentialGroup()
-        									.addGroup(jPanel7Layout.createParallelGroup(Alignment.LEADING)
-        										.addGroup(jPanel7Layout.createSequentialGroup()
-        											.addComponent(jLabel59)
-        											.addGap(18)
-        											.addComponent(received2, GroupLayout.PREFERRED_SIZE, 53, GroupLayout.PREFERRED_SIZE))
-        										.addComponent(jLabel60))
-        									.addGroup(jPanel7Layout.createParallelGroup(Alignment.LEADING)
-        										.addGroup(jPanel7Layout.createSequentialGroup()
-        											.addGap(18)
-        											.addComponent(jLabel62))
-        										.addGroup(jPanel7Layout.createSequentialGroup()
-        											.addPreferredGap(ComponentPlacement.UNRELATED)
-        											.addComponent(cumulative2, GroupLayout.PREFERRED_SIZE, 74, GroupLayout.PREFERRED_SIZE)))))
-        							.addGap(19))
-        						.addGroup(jPanel7Layout.createSequentialGroup()
-        							.addComponent(jLabel67)
-        							.addPreferredGap(ComponentPlacement.UNRELATED)
-        							.addComponent(current_day2, GroupLayout.PREFERRED_SIZE, 60, GroupLayout.PREFERRED_SIZE)
-        							.addPreferredGap(ComponentPlacement.RELATED, 45, Short.MAX_VALUE)
-        							.addComponent(jLabel68)
-        							.addPreferredGap(ComponentPlacement.RELATED)))
-        					.addGroup(jPanel7Layout.createParallelGroup(Alignment.LEADING, false)
-        						.addComponent(current_hour2, GroupLayout.DEFAULT_SIZE, 60, Short.MAX_VALUE)
-        						.addComponent(avg_shipment_per_hour2)
-        						.addComponent(delivered2))
-        					.addGap(56)
-        					.addGroup(jPanel7Layout.createParallelGroup(Alignment.TRAILING)
-        						.addGroup(jPanel7Layout.createSequentialGroup()
-        							.addComponent(jLabel63)
-        							.addGap(34))
-        						.addComponent(jLabel69))
-        					.addPreferredGap(ComponentPlacement.RELATED)
-        					.addGroup(jPanel7Layout.createParallelGroup(Alignment.LEADING)
-        						.addComponent(failed2, 57, 57, 57)
-        						.addComponent(working_carrier2, 57, 57, 57))
-        					.addGap(21))
-        				.addComponent(jLabel66)
-        				.addGroup(jPanel7Layout.createSequentialGroup()
-        					.addGroup(jPanel7Layout.createParallelGroup(Alignment.LEADING)
-        						.addGroup(jPanel7Layout.createSequentialGroup()
-        							.addComponent(jLabel55)
-        							.addPreferredGap(ComponentPlacement.UNRELATED)
-        							.addComponent(ph2_type, GroupLayout.PREFERRED_SIZE, 102, GroupLayout.PREFERRED_SIZE)
-        							.addGap(30)
-        							.addComponent(jLabel56)
-        							.addGap(6)
-        							.addComponent(ph2_day, GroupLayout.PREFERRED_SIZE, 69, GroupLayout.PREFERRED_SIZE)
-        							.addGap(14)
-        							.addComponent(jLabel57)
-        							.addPreferredGap(ComponentPlacement.UNRELATED)
-        							.addComponent(ph2_hour, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
-        						.addComponent(jLabel70))
-        					.addPreferredGap(ComponentPlacement.RELATED, 53, Short.MAX_VALUE)
-        					.addGroup(jPanel7Layout.createParallelGroup(Alignment.LEADING, false)
-        						.addComponent(ph2_generate, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        						.addComponent(ph2_generate1, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        					.addGap(19))))
-        );
-        jPanel7Layout.setVerticalGroup(
-        	jPanel7Layout.createParallelGroup(Alignment.LEADING)
-        		.addGroup(jPanel7Layout.createSequentialGroup()
-        			.addGap(10)
-        			.addGroup(jPanel7Layout.createParallelGroup(Alignment.BASELINE)
-        				.addComponent(jLabel70)
-        				.addComponent(ph2_generate1))
-        			.addGap(18)
-        			.addGroup(jPanel7Layout.createParallelGroup(Alignment.BASELINE)
-        				.addComponent(ph2_type, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-        				.addComponent(jLabel55)
-        				.addComponent(jLabel56)
-        				.addComponent(ph2_hour, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-        				.addComponent(jLabel57)
-        				.addComponent(ph2_generate)
-        				.addComponent(ph2_day, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
-        			.addPreferredGap(ComponentPlacement.RELATED)
-        			.addGroup(jPanel7Layout.createParallelGroup(Alignment.BASELINE)
-        				.addComponent(jLabel58)
-        				.addComponent(avg_shipment_per_hour2, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
-        			.addGap(10)
-        			.addGroup(jPanel7Layout.createParallelGroup(Alignment.BASELINE)
-        				.addComponent(jLabel59)
-        				.addComponent(received2, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-        				.addComponent(jLabel62)
-        				.addComponent(delivered2, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-        				.addComponent(jLabel63)
-        				.addComponent(failed2, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
-        			.addPreferredGap(ComponentPlacement.UNRELATED)
-        			.addGroup(jPanel7Layout.createParallelGroup(Alignment.BASELINE)
-        				.addComponent(jLabel60)
-        				.addComponent(cumulative2, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
-        			.addGap(39)
-        			.addComponent(jLabel66)
-        			.addPreferredGap(ComponentPlacement.RELATED)
-        			.addGroup(jPanel7Layout.createParallelGroup(Alignment.BASELINE)
-        				.addComponent(jLabel67)
-        				.addComponent(current_day2, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-        				.addComponent(jLabel68)
-        				.addComponent(current_hour2, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-        				.addComponent(jLabel69)
-        				.addComponent(working_carrier2, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
-        			.addContainerGap(22, Short.MAX_VALUE))
-        );
-        jPanel7.setLayout(jPanel7Layout);
-
-        jLabel22.setFont(new java.awt.Font("Leelawadee UI", 0, 14)); // NOI18N
-        jLabel22.setText("Phase 1 Summary: ");
-
-        ph1_summary.setFont(new java.awt.Font("Leelawadee UI", 0, 14)); // NOI18N
-        ph1_summary.setText("Phase 1 Summary: ");
-
-        jLabel24.setFont(new java.awt.Font("Leelawadee UI", 0, 14)); // NOI18N
-        jLabel24.setText("Phase 2 Summary: ");
-
-        ph2_summary.setFont(new java.awt.Font("Leelawadee UI", 0, 14)); // NOI18N
-        ph2_summary.setText("Phase 1 Summary: ");
-
-        jLabel26.setFont(new java.awt.Font("Leelawadee UI", 0, 14)); // NOI18N
-        jLabel26.setText("Improved % :");
-
-        improved_pec.setFont(new java.awt.Font("Leelawadee UI", 0, 14)); // NOI18N
-        improved_pec.setText("%");
-
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(15, 15, 15)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(jLabel5)
-                        .addGap(40, 1102, Short.MAX_VALUE))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jScrollPane1)
-                                    .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED))
-                            .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addComponent(jLabel22)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(ph1_summary)
-                                .addGap(380, 380, 380)))
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addComponent(jLabel24)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(ph2_summary)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabel26)
-                                .addGap(18, 18, 18)
-                                .addComponent(improved_pec, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(jScrollPane2)
-                                .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-        );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addGap(0, 15, Short.MAX_VALUE)
-                .addComponent(jLabel5)
-                .addGap(9, 9, 9)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel22)
-                        .addComponent(ph1_summary)
-                        .addComponent(jLabel24)
-                        .addComponent(ph2_summary))
-                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel26)
-                        .addComponent(improved_pec)))
-                .addGap(6, 6, 6))
-        );
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(6, 6, 6)
-                .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
+                jPanel3.setBackground(new java.awt.Color(255, 255, 255));
+                
+                        jTextArea_ph1.setEditable(false);
+                        jTextArea_ph1.setColumns(20);
+                        jTextArea_ph1.setRows(5);
+                        jTextArea_ph1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(102, 102, 102), 1, true));
+                        jTextArea_ph1.setFocusable(false);
+                        jTextArea_ph1.setRequestFocusEnabled(false);
+                        jTextArea_ph1.setVerifyInputWhenFocusTarget(false);
+                        jScrollPane1.setViewportView(jTextArea_ph1);
+                        
+                                jLabel5.setFont(new java.awt.Font("Leelawadee UI", 0, 18)); // NOI18N
+                                jLabel5.setText("Details of Phases");
+                                
+                                        jPanel5.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(153, 153, 153), 1, true));
+                                        
+                                                ph1_type.setFont(new java.awt.Font("Leelawadee UI", 0, 12)); // NOI18N
+                                                ph1_type.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Full Report", "Day/Hourly Report" }));
+                                                ph1_type.addItemListener(new java.awt.event.ItemListener() {
+                                                    public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                                                        ph1_typeItemStateChanged(evt);
+                                                    }
+                                                });
+                                                
+                                                        jLabel7.setFont(new java.awt.Font("Leelawadee UI", 0, 14)); // NOI18N
+                                                        jLabel7.setText("Type:");
+                                                        
+                                                                jLabel8.setFont(new java.awt.Font("Leelawadee UI", 0, 14)); // NOI18N
+                                                                jLabel8.setText("Day");
+                                                                
+                                                                        jLabel9.setFont(new java.awt.Font("Leelawadee UI", 0, 14)); // NOI18N
+                                                                        jLabel9.setText("Hour");
+                                                                        
+                                                                                ph1_hour.setFont(new java.awt.Font("Leelawadee UI", 0, 12)); // NOI18N
+                                                                                ph1_hour.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Full Day", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "00" }));
+                                                                                ph1_hour.setEnabled(false);
+                                                                                
+                                                                                        ph1_generate.setFont(new java.awt.Font("Leelawadee UI", 0, 12)); // NOI18N
+                                                                                        ph1_generate.setText("Generate Report");
+                                                                                        ph1_generate.addActionListener(new java.awt.event.ActionListener() {
+                                                                                            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                                                                                                ph1_generateActionPerformed(evt);
+                                                                                            }
+                                                                                        });
+                                                                                        
+                                                                                                jLabel10.setFont(new java.awt.Font("Leelawadee UI", 0, 14)); // NOI18N
+                                                                                                jLabel10.setText("Statistics: Average Shipment per hour:");
+                                                                                                
+                                                                                                        avg_shipment_per_hour.setFont(new java.awt.Font("Leelawadee UI", 0, 12)); // NOI18N
+                                                                                                        
+                                                                                                                jLabel11.setFont(new java.awt.Font("Leelawadee UI", 0, 14)); // NOI18N
+                                                                                                                jLabel11.setText("Cumulative Received:");
+                                                                                                                
+                                                                                                                        received.setFont(new java.awt.Font("Leelawadee UI", 0, 12));
+                                                                                                                        
+                                                                                                                                delivered.setFont(new java.awt.Font("Leelawadee UI", 0, 12)); // NOI18N
+                                                                                                                                delivered.addActionListener(new java.awt.event.ActionListener() {
+                                                                                                                                    public void actionPerformed(java.awt.event.ActionEvent evt) {
+                                                                                                                                        deliveredActionPerformed(evt);
+                                                                                                                                    }
+                                                                                                                                });
+                                                                                                                                
+                                                                                                                                        jLabel14.setFont(new java.awt.Font("Leelawadee UI", 0, 14)); // NOI18N
+                                                                                                                                        jLabel14.setText("Cumulative Delivered:");
+                                                                                                                                        
+                                                                                                                                                jLabel15.setFont(new java.awt.Font("Leelawadee UI", 0, 14)); // NOI18N
+                                                                                                                                                jLabel15.setText("Cumulative Failed:");
+                                                                                                                                                
+                                                                                                                                                        failed.setFont(new java.awt.Font("Leelawadee UI", 0, 12));
+                                                                                                                                                        
+                                                                                                                                                                jLabel19.setFont(new java.awt.Font("Leelawadee UI", 0, 14)); // NOI18N
+                                                                                                                                                                jLabel19.setText("Current Day:");
+                                                                                                                                                                
+                                                                                                                                                                        jLabel20.setFont(new java.awt.Font("Leelawadee UI", 0, 14)); // NOI18N
+                                                                                                                                                                        jLabel20.setText("Current Hour:");
+                                                                                                                                                                        
+                                                                                                                                                                                current_day.setFont(new java.awt.Font("Leelawadee UI", 0, 12)); // NOI18N
+                                                                                                                                                                                
+                                                                                                                                                                                        jLabel21.setFont(new java.awt.Font("Leelawadee UI", 0, 14)); // NOI18N
+                                                                                                                                                                                        jLabel21.setText("Working Carriers:");
+                                                                                                                                                                                        
+                                                                                                                                                                                                current_hour.setFont(new java.awt.Font("Leelawadee UI", 0, 12)); // NOI18N
+                                                                                                                                                                                                current_hour.addActionListener(new java.awt.event.ActionListener() {
+                                                                                                                                                                                                    public void actionPerformed(java.awt.event.ActionEvent evt) {
+                                                                                                                                                                                                        current_hourActionPerformed(evt);
+                                                                                                                                                                                                    }
+                                                                                                                                                                                                });
+                                                                                                                                                                                                
+                                                                                                                                                                                                        working_carrier.setFont(new java.awt.Font("Leelawadee UI", 0, 12)); // NOI18N
+                                                                                                                                                                                                        
+                                                                                                                                                                                                                jLabel37.setFont(new java.awt.Font("Leelawadee UI", 0, 18)); // NOI18N
+                                                                                                                                                                                                                jLabel37.setText("Phase 1:");
+                                                                                                                                                                                                                
+                                                                                                                                                                                                                        ph1_day.setFont(new java.awt.Font("Leelawadee UI", 0, 12)); // NOI18N
+                                                                                                                                                                                                                        ph1_day.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Full Day", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "00" }));
+                                                                                                                                                                                                                        ph1_day.setEnabled(false);
+                                                                                                                                                                                                                        
+                                                                                                                                                                                                                                ph1_generate1.setFont(new java.awt.Font("Leelawadee UI", 0, 12)); // NOI18N
+                                                                                                                                                                                                                                ph1_generate1.setText("Reset");
+                                                                                                                                                                                                                                ph1_generate1.addActionListener(new java.awt.event.ActionListener() {
+                                                                                                                                                                                                                                    public void actionPerformed(java.awt.event.ActionEvent evt) {
+                                                                                                                                                                                                                                        ph1_generate1ActionPerformed(evt);
+                                                                                                                                                                                                                                    }
+                                                                                                                                                                                                                                });
+                                                                                                                                                                                                                                
+                                                                                                                                                                                                                                        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
+                                                                                                                                                                                                                                        jPanel5Layout.setHorizontalGroup(
+                                                                                                                                                                                                                                        	jPanel5Layout.createParallelGroup(Alignment.LEADING)
+                                                                                                                                                                                                                                        		.addGroup(jPanel5Layout.createSequentialGroup()
+                                                                                                                                                                                                                                        			.addGap(18)
+                                                                                                                                                                                                                                        			.addGroup(jPanel5Layout.createParallelGroup(Alignment.TRAILING)
+                                                                                                                                                                                                                                        				.addGroup(jPanel5Layout.createSequentialGroup()
+                                                                                                                                                                                                                                        					.addGroup(jPanel5Layout.createParallelGroup(Alignment.LEADING, false)
+                                                                                                                                                                                                                                        						.addGroup(jPanel5Layout.createSequentialGroup()
+                                                                                                                                                                                                                                        							.addGroup(jPanel5Layout.createParallelGroup(Alignment.LEADING)
+                                                                                                                                                                                                                                        								.addComponent(jLabel10)
+                                                                                                                                                                                                                                        								.addGroup(jPanel5Layout.createSequentialGroup()
+                                                                                                                                                                                                                                        									.addComponent(jLabel11)
+                                                                                                                                                                                                                                        									.addGap(18)
+                                                                                                                                                                                                                                        									.addComponent(received, GroupLayout.PREFERRED_SIZE, 56, GroupLayout.PREFERRED_SIZE)
+                                                                                                                                                                                                                                        									.addPreferredGap(ComponentPlacement.UNRELATED)
+                                                                                                                                                                                                                                        									.addComponent(jLabel14)))
+                                                                                                                                                                                                                                        							.addGap(23))
+                                                                                                                                                                                                                                        						.addGroup(jPanel5Layout.createSequentialGroup()
+                                                                                                                                                                                                                                        							.addComponent(jLabel19)
+                                                                                                                                                                                                                                        							.addPreferredGap(ComponentPlacement.UNRELATED)
+                                                                                                                                                                                                                                        							.addComponent(current_day, GroupLayout.PREFERRED_SIZE, 60, GroupLayout.PREFERRED_SIZE)
+                                                                                                                                                                                                                                        							.addPreferredGap(ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
+                                                                                                                                                                                                                                        							.addComponent(jLabel20)
+                                                                                                                                                                                                                                        							.addPreferredGap(ComponentPlacement.RELATED)))
+                                                                                                                                                                                                                                        					.addGroup(jPanel5Layout.createParallelGroup(Alignment.LEADING, false)
+                                                                                                                                                                                                                                        						.addComponent(current_hour, GroupLayout.DEFAULT_SIZE, 60, Short.MAX_VALUE)
+                                                                                                                                                                                                                                        						.addComponent(avg_shipment_per_hour)
+                                                                                                                                                                                                                                        						.addComponent(delivered))
+                                                                                                                                                                                                                                        					.addGap(56)
+                                                                                                                                                                                                                                        					.addGroup(jPanel5Layout.createParallelGroup(Alignment.TRAILING)
+                                                                                                                                                                                                                                        						.addGroup(jPanel5Layout.createSequentialGroup()
+                                                                                                                                                                                                                                        							.addComponent(jLabel15)
+                                                                                                                                                                                                                                        							.addGap(34))
+                                                                                                                                                                                                                                        						.addComponent(jLabel21))
+                                                                                                                                                                                                                                        					.addPreferredGap(ComponentPlacement.RELATED)
+                                                                                                                                                                                                                                        					.addGroup(jPanel5Layout.createParallelGroup(Alignment.LEADING)
+                                                                                                                                                                                                                                        						.addComponent(failed, 64, 64, 64)
+                                                                                                                                                                                                                                        						.addComponent(working_carrier, 64, 64, 64))
+                                                                                                                                                                                                                                        					.addGap(21))
+                                                                                                                                                                                                                                        				.addGroup(jPanel5Layout.createSequentialGroup()
+                                                                                                                                                                                                                                        					.addGroup(jPanel5Layout.createParallelGroup(Alignment.LEADING)
+                                                                                                                                                                                                                                        						.addGroup(jPanel5Layout.createSequentialGroup()
+                                                                                                                                                                                                                                        							.addComponent(jLabel7)
+                                                                                                                                                                                                                                        							.addPreferredGap(ComponentPlacement.UNRELATED)
+                                                                                                                                                                                                                                        							.addComponent(ph1_type, GroupLayout.PREFERRED_SIZE, 102, GroupLayout.PREFERRED_SIZE)
+                                                                                                                                                                                                                                        							.addGap(30)
+                                                                                                                                                                                                                                        							.addComponent(jLabel8)
+                                                                                                                                                                                                                                        							.addGap(6)
+                                                                                                                                                                                                                                        							.addComponent(ph1_day, GroupLayout.PREFERRED_SIZE, 69, GroupLayout.PREFERRED_SIZE)
+                                                                                                                                                                                                                                        							.addGap(18)
+                                                                                                                                                                                                                                        							.addComponent(jLabel9)
+                                                                                                                                                                                                                                        							.addPreferredGap(ComponentPlacement.UNRELATED)
+                                                                                                                                                                                                                                        							.addComponent(ph1_hour, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+                                                                                                                                                                                                                                        						.addComponent(jLabel37))
+                                                                                                                                                                                                                                        					.addPreferredGap(ComponentPlacement.RELATED, 53, Short.MAX_VALUE)
+                                                                                                                                                                                                                                        					.addGroup(jPanel5Layout.createParallelGroup(Alignment.LEADING, false)
+                                                                                                                                                                                                                                        						.addComponent(ph1_generate, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                                                                                                                                                                                                        						.addComponent(ph1_generate1, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                                                                                                                                                                                                                        					.addGap(19))))
+                                                                                                                                                                                                                                        );
+                                                                                                                                                                                                                                        jPanel5Layout.setVerticalGroup(
+                                                                                                                                                                                                                                        	jPanel5Layout.createParallelGroup(Alignment.LEADING)
+                                                                                                                                                                                                                                        		.addGroup(jPanel5Layout.createSequentialGroup()
+                                                                                                                                                                                                                                        			.addGap(10)
+                                                                                                                                                                                                                                        			.addGroup(jPanel5Layout.createParallelGroup(Alignment.BASELINE)
+                                                                                                                                                                                                                                        				.addComponent(jLabel37)
+                                                                                                                                                                                                                                        				.addComponent(ph1_generate1))
+                                                                                                                                                                                                                                        			.addGap(18)
+                                                                                                                                                                                                                                        			.addGroup(jPanel5Layout.createParallelGroup(Alignment.BASELINE)
+                                                                                                                                                                                                                                        				.addComponent(ph1_type, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                                                                                                                                                                                                                                        				.addComponent(jLabel7)
+                                                                                                                                                                                                                                        				.addComponent(jLabel8)
+                                                                                                                                                                                                                                        				.addComponent(ph1_hour, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                                                                                                                                                                                                                                        				.addComponent(jLabel9)
+                                                                                                                                                                                                                                        				.addComponent(ph1_generate)
+                                                                                                                                                                                                                                        				.addComponent(ph1_day, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+                                                                                                                                                                                                                                        			.addPreferredGap(ComponentPlacement.RELATED)
+                                                                                                                                                                                                                                        			.addGroup(jPanel5Layout.createParallelGroup(Alignment.BASELINE)
+                                                                                                                                                                                                                                        				.addComponent(jLabel10)
+                                                                                                                                                                                                                                        				.addComponent(avg_shipment_per_hour, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+                                                                                                                                                                                                                                        			.addGap(10)
+                                                                                                                                                                                                                                        			.addGroup(jPanel5Layout.createParallelGroup(Alignment.BASELINE)
+                                                                                                                                                                                                                                        				.addComponent(jLabel11)
+                                                                                                                                                                                                                                        				.addComponent(received, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                                                                                                                                                                                                                                        				.addComponent(jLabel14)
+                                                                                                                                                                                                                                        				.addComponent(delivered, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                                                                                                                                                                                                                                        				.addComponent(jLabel15)
+                                                                                                                                                                                                                                        				.addComponent(failed, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+                                                                                                                                                                                                                                        			.addGap(93)
+                                                                                                                                                                                                                                        			.addGroup(jPanel5Layout.createParallelGroup(Alignment.BASELINE)
+                                                                                                                                                                                                                                        				.addComponent(jLabel19)
+                                                                                                                                                                                                                                        				.addComponent(current_day, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                                                                                                                                                                                                                                        				.addComponent(jLabel20)
+                                                                                                                                                                                                                                        				.addComponent(current_hour, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                                                                                                                                                                                                                                        				.addComponent(jLabel21)
+                                                                                                                                                                                                                                        				.addComponent(working_carrier, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+                                                                                                                                                                                                                                        			.addContainerGap(27, Short.MAX_VALUE))
+                                                                                                                                                                                                                                        );
+                                                                                                                                                                                                                                        jPanel5.setLayout(jPanel5Layout);
+                                                                                                                                                                                                                                        
+                                                                                                                                                                                                                                                jTextArea_ph2.setEditable(false);
+                                                                                                                                                                                                                                                jTextArea_ph2.setColumns(20);
+                                                                                                                                                                                                                                                jTextArea_ph2.setRows(5);
+                                                                                                                                                                                                                                                jTextArea_ph2.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(102, 102, 102), 1, true));
+                                                                                                                                                                                                                                                jTextArea_ph2.setFocusable(false);
+                                                                                                                                                                                                                                                jTextArea_ph2.setRequestFocusEnabled(false);
+                                                                                                                                                                                                                                                jTextArea_ph2.setVerifyInputWhenFocusTarget(false);
+                                                                                                                                                                                                                                                jScrollPane2.setViewportView(jTextArea_ph2);
+                                                                                                                                                                                                                                                
+                                                                                                                                                                                                                                                        jPanel7.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(153, 153, 153), 1, true));
+                                                                                                                                                                                                                                                        
+                                                                                                                                                                                                                                                                ph2_type.setFont(new java.awt.Font("Leelawadee UI", 0, 12)); // NOI18N
+                                                                                                                                                                                                                                                                ph2_type.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Full Report", "Day/Hourly Report" }));
+                                                                                                                                                                                                                                                                ph2_type.addItemListener(new java.awt.event.ItemListener() {
+                                                                                                                                                                                                                                                                    public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                                                                                                                                                                                                                                                                        ph2_typeItemStateChanged(evt);
+                                                                                                                                                                                                                                                                    }
+                                                                                                                                                                                                                                                                });
+                                                                                                                                                                                                                                                                
+                                                                                                                                                                                                                                                                        jLabel55.setFont(new java.awt.Font("Leelawadee UI", 0, 14)); // NOI18N
+                                                                                                                                                                                                                                                                        jLabel55.setText("Type:");
+                                                                                                                                                                                                                                                                        
+                                                                                                                                                                                                                                                                                jLabel56.setFont(new java.awt.Font("Leelawadee UI", 0, 14)); // NOI18N
+                                                                                                                                                                                                                                                                                jLabel56.setText("Day");
+                                                                                                                                                                                                                                                                                
+                                                                                                                                                                                                                                                                                        jLabel57.setFont(new java.awt.Font("Leelawadee UI", 0, 14)); // NOI18N
+                                                                                                                                                                                                                                                                                        jLabel57.setText("Hour");
+                                                                                                                                                                                                                                                                                        
+                                                                                                                                                                                                                                                                                                ph2_hour.setFont(new java.awt.Font("Leelawadee UI", 0, 12)); // NOI18N
+                                                                                                                                                                                                                                                                                                ph2_hour.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Full Day", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "00" }));
+                                                                                                                                                                                                                                                                                                ph2_hour.setEnabled(false);
+                                                                                                                                                                                                                                                                                                
+                                                                                                                                                                                                                                                                                                        ph2_generate.setFont(new java.awt.Font("Leelawadee UI", 0, 12)); // NOI18N
+                                                                                                                                                                                                                                                                                                        ph2_generate.setText("Generate Report");
+                                                                                                                                                                                                                                                                                                        ph2_generate.addActionListener(new java.awt.event.ActionListener() {
+                                                                                                                                                                                                                                                                                                            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                                                                                                                                                                                                                                                                                                                ph2_generateActionPerformed(evt);
+                                                                                                                                                                                                                                                                                                            }
+                                                                                                                                                                                                                                                                                                        });
+                                                                                                                                                                                                                                                                                                        
+                                                                                                                                                                                                                                                                                                                jLabel58.setFont(new java.awt.Font("Leelawadee UI", 0, 14)); // NOI18N
+                                                                                                                                                                                                                                                                                                                jLabel58.setText("Statistics: Average Shipment per hour:");
+                                                                                                                                                                                                                                                                                                                
+                                                                                                                                                                                                                                                                                                                        avg_shipment_per_hour2.setFont(new java.awt.Font("Leelawadee UI", 0, 12)); // NOI18N
+                                                                                                                                                                                                                                                                                                                        
+                                                                                                                                                                                                                                                                                                                                jLabel59.setFont(new java.awt.Font("Leelawadee UI", 0, 14)); // NOI18N
+                                                                                                                                                                                                                                                                                                                                jLabel59.setText("Cumulative Received");
+                                                                                                                                                                                                                                                                                                                                
+                                                                                                                                                                                                                                                                                                                                        received2.setFont(new java.awt.Font("Leelawadee UI", 0, 12));
+                                                                                                                                                                                                                                                                                                                                        
+                                                                                                                                                                                                                                                                                                                                                delivered2.setFont(new java.awt.Font("Leelawadee UI", 0, 12)); // NOI18N
+                                                                                                                                                                                                                                                                                                                                                delivered2.addActionListener(new java.awt.event.ActionListener() {
+                                                                                                                                                                                                                                                                                                                                                    public void actionPerformed(java.awt.event.ActionEvent evt) {
+                                                                                                                                                                                                                                                                                                                                                        delivered2ActionPerformed(evt);
+                                                                                                                                                                                                                                                                                                                                                    }
+                                                                                                                                                                                                                                                                                                                                                });
+                                                                                                                                                                                                                                                                                                                                                
+                                                                                                                                                                                                                                                                                                                                                        jLabel62.setFont(new java.awt.Font("Leelawadee UI", 0, 14)); // NOI18N
+                                                                                                                                                                                                                                                                                                                                                        jLabel62.setText("Cumulative Delivered:");
+                                                                                                                                                                                                                                                                                                                                                        
+                                                                                                                                                                                                                                                                                                                                                                jLabel63.setFont(new java.awt.Font("Leelawadee UI", 0, 14)); // NOI18N
+                                                                                                                                                                                                                                                                                                                                                                jLabel63.setText("Cumulative Failed:");
+                                                                                                                                                                                                                                                                                                                                                                
+                                                                                                                                                                                                                                                                                                                                                                        failed2.setFont(new java.awt.Font("Leelawadee UI", 0, 12));
+                                                                                                                                                                                                                                                                                                                                                                        
+                                                                                                                                                                                                                                                                                                                                                                                jLabel67.setFont(new java.awt.Font("Leelawadee UI", 0, 14)); // NOI18N
+                                                                                                                                                                                                                                                                                                                                                                                jLabel67.setText("Current Day:");
+                                                                                                                                                                                                                                                                                                                                                                                
+                                                                                                                                                                                                                                                                                                                                                                                        jLabel68.setFont(new java.awt.Font("Leelawadee UI", 0, 14)); // NOI18N
+                                                                                                                                                                                                                                                                                                                                                                                        jLabel68.setText("Current Hour:");
+                                                                                                                                                                                                                                                                                                                                                                                        
+                                                                                                                                                                                                                                                                                                                                                                                                current_day2.setFont(new java.awt.Font("Leelawadee UI", 0, 12)); // NOI18N
+                                                                                                                                                                                                                                                                                                                                                                                                
+                                                                                                                                                                                                                                                                                                                                                                                                        jLabel69.setFont(new java.awt.Font("Leelawadee UI", 0, 14)); // NOI18N
+                                                                                                                                                                                                                                                                                                                                                                                                        jLabel69.setText("Working Carriers:");
+                                                                                                                                                                                                                                                                                                                                                                                                        
+                                                                                                                                                                                                                                                                                                                                                                                                                current_hour2.setFont(new java.awt.Font("Leelawadee UI", 0, 12)); // NOI18N
+                                                                                                                                                                                                                                                                                                                                                                                                                current_hour2.addActionListener(new java.awt.event.ActionListener() {
+                                                                                                                                                                                                                                                                                                                                                                                                                    public void actionPerformed(java.awt.event.ActionEvent evt) {
+                                                                                                                                                                                                                                                                                                                                                                                                                        current_hour2ActionPerformed(evt);
+                                                                                                                                                                                                                                                                                                                                                                                                                    }
+                                                                                                                                                                                                                                                                                                                                                                                                                });
+                                                                                                                                                                                                                                                                                                                                                                                                                
+                                                                                                                                                                                                                                                                                                                                                                                                                        working_carrier2.setFont(new java.awt.Font("Leelawadee UI", 0, 12)); // NOI18N
+                                                                                                                                                                                                                                                                                                                                                                                                                        
+                                                                                                                                                                                                                                                                                                                                                                                                                                jLabel70.setFont(new java.awt.Font("Leelawadee UI", 0, 18)); // NOI18N
+                                                                                                                                                                                                                                                                                                                                                                                                                                jLabel70.setText("Phase 2:");
+                                                                                                                                                                                                                                                                                                                                                                                                                                
+                                                                                                                                                                                                                                                                                                                                                                                                                                        ph2_day.setFont(new java.awt.Font("Leelawadee UI", 0, 12)); // NOI18N
+                                                                                                                                                                                                                                                                                                                                                                                                                                        ph2_day.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Full Day", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "00" }));
+                                                                                                                                                                                                                                                                                                                                                                                                                                        ph2_day.setEnabled(false);
+                                                                                                                                                                                                                                                                                                                                                                                                                                        
+                                                                                                                                                                                                                                                                                                                                                                                                                                                ph2_generate1.setFont(new java.awt.Font("Leelawadee UI", 0, 12)); // NOI18N
+                                                                                                                                                                                                                                                                                                                                                                                                                                                ph2_generate1.setText("Reset");
+                                                                                                                                                                                                                                                                                                                                                                                                                                                ph2_generate1.addActionListener(new java.awt.event.ActionListener() {
+                                                                                                                                                                                                                                                                                                                                                                                                                                                    public void actionPerformed(java.awt.event.ActionEvent evt) {
+                                                                                                                                                                                                                                                                                                                                                                                                                                                        ph2_generate1ActionPerformed(evt);
+                                                                                                                                                                                                                                                                                                                                                                                                                                                    }
+                                                                                                                                                                                                                                                                                                                                                                                                                                                });
+                                                                                                                                                                                                                                                                                                                                                                                                                                                
+                                                                                                                                                                                                                                                                                                                                                                                                                                                        javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
+                                                                                                                                                                                                                                                                                                                                                                                                                                                        jPanel7Layout.setHorizontalGroup(
+                                                                                                                                                                                                                                                                                                                                                                                                                                                        	jPanel7Layout.createParallelGroup(Alignment.LEADING)
+                                                                                                                                                                                                                                                                                                                                                                                                                                                        		.addGroup(jPanel7Layout.createSequentialGroup()
+                                                                                                                                                                                                                                                                                                                                                                                                                                                        			.addGap(18)
+                                                                                                                                                                                                                                                                                                                                                                                                                                                        			.addGroup(jPanel7Layout.createParallelGroup(Alignment.TRAILING)
+                                                                                                                                                                                                                                                                                                                                                                                                                                                        				.addGroup(jPanel7Layout.createSequentialGroup()
+                                                                                                                                                                                                                                                                                                                                                                                                                                                        					.addGroup(jPanel7Layout.createParallelGroup(Alignment.LEADING, false)
+                                                                                                                                                                                                                                                                                                                                                                                                                                                        						.addGroup(jPanel7Layout.createSequentialGroup()
+                                                                                                                                                                                                                                                                                                                                                                                                                                                        							.addGroup(jPanel7Layout.createParallelGroup(Alignment.LEADING)
+                                                                                                                                                                                                                                                                                                                                                                                                                                                        								.addComponent(jLabel58)
+                                                                                                                                                                                                                                                                                                                                                                                                                                                        								.addGroup(jPanel7Layout.createSequentialGroup()
+                                                                                                                                                                                                                                                                                                                                                                                                                                                        									.addComponent(jLabel59)
+                                                                                                                                                                                                                                                                                                                                                                                                                                                        									.addGap(18)
+                                                                                                                                                                                                                                                                                                                                                                                                                                                        									.addComponent(received2, GroupLayout.PREFERRED_SIZE, 53, GroupLayout.PREFERRED_SIZE)
+                                                                                                                                                                                                                                                                                                                                                                                                                                                        									.addGap(68)
+                                                                                                                                                                                                                                                                                                                                                                                                                                                        									.addComponent(jLabel62)))
+                                                                                                                                                                                                                                                                                                                                                                                                                                                        							.addGap(19))
+                                                                                                                                                                                                                                                                                                                                                                                                                                                        						.addGroup(jPanel7Layout.createSequentialGroup()
+                                                                                                                                                                                                                                                                                                                                                                                                                                                        							.addComponent(jLabel67)
+                                                                                                                                                                                                                                                                                                                                                                                                                                                        							.addPreferredGap(ComponentPlacement.UNRELATED)
+                                                                                                                                                                                                                                                                                                                                                                                                                                                        							.addComponent(current_day2, GroupLayout.PREFERRED_SIZE, 60, GroupLayout.PREFERRED_SIZE)
+                                                                                                                                                                                                                                                                                                                                                                                                                                                        							.addPreferredGap(ComponentPlacement.RELATED, 45, Short.MAX_VALUE)
+                                                                                                                                                                                                                                                                                                                                                                                                                                                        							.addComponent(jLabel68)
+                                                                                                                                                                                                                                                                                                                                                                                                                                                        							.addPreferredGap(ComponentPlacement.RELATED)))
+                                                                                                                                                                                                                                                                                                                                                                                                                                                        					.addGroup(jPanel7Layout.createParallelGroup(Alignment.LEADING, false)
+                                                                                                                                                                                                                                                                                                                                                                                                                                                        						.addComponent(current_hour2, GroupLayout.DEFAULT_SIZE, 60, Short.MAX_VALUE)
+                                                                                                                                                                                                                                                                                                                                                                                                                                                        						.addComponent(avg_shipment_per_hour2)
+                                                                                                                                                                                                                                                                                                                                                                                                                                                        						.addComponent(delivered2))
+                                                                                                                                                                                                                                                                                                                                                                                                                                                        					.addGap(56)
+                                                                                                                                                                                                                                                                                                                                                                                                                                                        					.addGroup(jPanel7Layout.createParallelGroup(Alignment.TRAILING)
+                                                                                                                                                                                                                                                                                                                                                                                                                                                        						.addGroup(jPanel7Layout.createSequentialGroup()
+                                                                                                                                                                                                                                                                                                                                                                                                                                                        							.addComponent(jLabel63)
+                                                                                                                                                                                                                                                                                                                                                                                                                                                        							.addGap(34))
+                                                                                                                                                                                                                                                                                                                                                                                                                                                        						.addComponent(jLabel69))
+                                                                                                                                                                                                                                                                                                                                                                                                                                                        					.addPreferredGap(ComponentPlacement.RELATED)
+                                                                                                                                                                                                                                                                                                                                                                                                                                                        					.addGroup(jPanel7Layout.createParallelGroup(Alignment.LEADING)
+                                                                                                                                                                                                                                                                                                                                                                                                                                                        						.addComponent(failed2, 57, 57, 57)
+                                                                                                                                                                                                                                                                                                                                                                                                                                                        						.addComponent(working_carrier2, 57, 57, 57))
+                                                                                                                                                                                                                                                                                                                                                                                                                                                        					.addGap(21))
+                                                                                                                                                                                                                                                                                                                                                                                                                                                        				.addGroup(jPanel7Layout.createSequentialGroup()
+                                                                                                                                                                                                                                                                                                                                                                                                                                                        					.addGroup(jPanel7Layout.createParallelGroup(Alignment.LEADING)
+                                                                                                                                                                                                                                                                                                                                                                                                                                                        						.addGroup(jPanel7Layout.createSequentialGroup()
+                                                                                                                                                                                                                                                                                                                                                                                                                                                        							.addComponent(jLabel55)
+                                                                                                                                                                                                                                                                                                                                                                                                                                                        							.addPreferredGap(ComponentPlacement.UNRELATED)
+                                                                                                                                                                                                                                                                                                                                                                                                                                                        							.addComponent(ph2_type, GroupLayout.PREFERRED_SIZE, 102, GroupLayout.PREFERRED_SIZE)
+                                                                                                                                                                                                                                                                                                                                                                                                                                                        							.addGap(30)
+                                                                                                                                                                                                                                                                                                                                                                                                                                                        							.addComponent(jLabel56)
+                                                                                                                                                                                                                                                                                                                                                                                                                                                        							.addGap(6)
+                                                                                                                                                                                                                                                                                                                                                                                                                                                        							.addComponent(ph2_day, GroupLayout.PREFERRED_SIZE, 69, GroupLayout.PREFERRED_SIZE)
+                                                                                                                                                                                                                                                                                                                                                                                                                                                        							.addGap(14)
+                                                                                                                                                                                                                                                                                                                                                                                                                                                        							.addComponent(jLabel57)
+                                                                                                                                                                                                                                                                                                                                                                                                                                                        							.addPreferredGap(ComponentPlacement.UNRELATED)
+                                                                                                                                                                                                                                                                                                                                                                                                                                                        							.addComponent(ph2_hour, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+                                                                                                                                                                                                                                                                                                                                                                                                                                                        						.addComponent(jLabel70))
+                                                                                                                                                                                                                                                                                                                                                                                                                                                        					.addPreferredGap(ComponentPlacement.RELATED, 53, Short.MAX_VALUE)
+                                                                                                                                                                                                                                                                                                                                                                                                                                                        					.addGroup(jPanel7Layout.createParallelGroup(Alignment.LEADING, false)
+                                                                                                                                                                                                                                                                                                                                                                                                                                                        						.addComponent(ph2_generate, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                                                                                                                                                                                                                                                                                                                                                                                                                        						.addComponent(ph2_generate1, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                                                                                                                                                                                                                                                                                                                                                                                                                                        					.addGap(19))))
+                                                                                                                                                                                                                                                                                                                                                                                                                                                        );
+                                                                                                                                                                                                                                                                                                                                                                                                                                                        jPanel7Layout.setVerticalGroup(
+                                                                                                                                                                                                                                                                                                                                                                                                                                                        	jPanel7Layout.createParallelGroup(Alignment.LEADING)
+                                                                                                                                                                                                                                                                                                                                                                                                                                                        		.addGroup(jPanel7Layout.createSequentialGroup()
+                                                                                                                                                                                                                                                                                                                                                                                                                                                        			.addGap(10)
+                                                                                                                                                                                                                                                                                                                                                                                                                                                        			.addGroup(jPanel7Layout.createParallelGroup(Alignment.BASELINE)
+                                                                                                                                                                                                                                                                                                                                                                                                                                                        				.addComponent(jLabel70)
+                                                                                                                                                                                                                                                                                                                                                                                                                                                        				.addComponent(ph2_generate1))
+                                                                                                                                                                                                                                                                                                                                                                                                                                                        			.addGap(18)
+                                                                                                                                                                                                                                                                                                                                                                                                                                                        			.addGroup(jPanel7Layout.createParallelGroup(Alignment.BASELINE)
+                                                                                                                                                                                                                                                                                                                                                                                                                                                        				.addComponent(ph2_type, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                                                                                                                                                                                                                                                                                                                                                                                                                                                        				.addComponent(jLabel55)
+                                                                                                                                                                                                                                                                                                                                                                                                                                                        				.addComponent(jLabel56)
+                                                                                                                                                                                                                                                                                                                                                                                                                                                        				.addComponent(ph2_hour, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                                                                                                                                                                                                                                                                                                                                                                                                                                                        				.addComponent(jLabel57)
+                                                                                                                                                                                                                                                                                                                                                                                                                                                        				.addComponent(ph2_generate)
+                                                                                                                                                                                                                                                                                                                                                                                                                                                        				.addComponent(ph2_day, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+                                                                                                                                                                                                                                                                                                                                                                                                                                                        			.addPreferredGap(ComponentPlacement.RELATED)
+                                                                                                                                                                                                                                                                                                                                                                                                                                                        			.addGroup(jPanel7Layout.createParallelGroup(Alignment.BASELINE)
+                                                                                                                                                                                                                                                                                                                                                                                                                                                        				.addComponent(jLabel58)
+                                                                                                                                                                                                                                                                                                                                                                                                                                                        				.addComponent(avg_shipment_per_hour2, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+                                                                                                                                                                                                                                                                                                                                                                                                                                                        			.addGap(10)
+                                                                                                                                                                                                                                                                                                                                                                                                                                                        			.addGroup(jPanel7Layout.createParallelGroup(Alignment.BASELINE)
+                                                                                                                                                                                                                                                                                                                                                                                                                                                        				.addComponent(jLabel59)
+                                                                                                                                                                                                                                                                                                                                                                                                                                                        				.addComponent(received2, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                                                                                                                                                                                                                                                                                                                                                                                                                                                        				.addComponent(jLabel62)
+                                                                                                                                                                                                                                                                                                                                                                                                                                                        				.addComponent(delivered2, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                                                                                                                                                                                                                                                                                                                                                                                                                                                        				.addComponent(jLabel63)
+                                                                                                                                                                                                                                                                                                                                                                                                                                                        				.addComponent(failed2, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+                                                                                                                                                                                                                                                                                                                                                                                                                                                        			.addGap(98)
+                                                                                                                                                                                                                                                                                                                                                                                                                                                        			.addGroup(jPanel7Layout.createParallelGroup(Alignment.BASELINE)
+                                                                                                                                                                                                                                                                                                                                                                                                                                                        				.addComponent(jLabel67)
+                                                                                                                                                                                                                                                                                                                                                                                                                                                        				.addComponent(current_day2, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                                                                                                                                                                                                                                                                                                                                                                                                                                                        				.addComponent(jLabel68)
+                                                                                                                                                                                                                                                                                                                                                                                                                                                        				.addComponent(current_hour2, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                                                                                                                                                                                                                                                                                                                                                                                                                                                        				.addComponent(jLabel69)
+                                                                                                                                                                                                                                                                                                                                                                                                                                                        				.addComponent(working_carrier2, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+                                                                                                                                                                                                                                                                                                                                                                                                                                                        			.addContainerGap(22, Short.MAX_VALUE))
+                                                                                                                                                                                                                                                                                                                                                                                                                                                        );
+                                                                                                                                                                                                                                                                                                                                                                                                                                                        jPanel7.setLayout(jPanel7Layout);
+                                                                                                                                                                                                                                                                                                                                                                                                                                                        
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                jLabel22.setFont(new java.awt.Font("Leelawadee UI", 0, 14)); // NOI18N
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                jLabel22.setText("Phase 1 Summary: ");
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                        ph1_summary.setFont(new java.awt.Font("Leelawadee UI", 0, 14)); // NOI18N
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                        ph1_summary.setText("Phase 1 Summary: ");
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                        
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                jLabel24.setFont(new java.awt.Font("Leelawadee UI", 0, 14)); // NOI18N
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                jLabel24.setText("Phase 2 Summary: ");
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        ph2_summary.setFont(new java.awt.Font("Leelawadee UI", 0, 14)); // NOI18N
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        ph2_summary.setText("Phase 1 Summary: ");
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                jLabel26.setFont(new java.awt.Font("Leelawadee UI", 0, 14)); // NOI18N
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                jLabel26.setText("Improved % :");
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        improved_pec.setFont(new java.awt.Font("Leelawadee UI", 0, 14)); // NOI18N
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        improved_pec.setText("%");
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                jPanel3.setLayout(jPanel3Layout);
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                jPanel3Layout.setHorizontalGroup(
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    .addGroup(jPanel3Layout.createSequentialGroup()
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        .addGap(15, 15, 15)
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                .addComponent(jLabel5)
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                .addGap(40, 1102, Short.MAX_VALUE))
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    .addGroup(jPanel3Layout.createSequentialGroup()
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            .addComponent(jScrollPane1)
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED))
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    .addGroup(jPanel3Layout.createSequentialGroup()
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        .addComponent(jLabel22)
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        .addComponent(ph1_summary)
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        .addGap(380, 380, 380)))
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    .addGroup(jPanel3Layout.createSequentialGroup()
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        .addComponent(jLabel24)
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        .addComponent(ph2_summary)
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        .addComponent(jLabel26)
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        .addGap(18, 18, 18)
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        .addComponent(improved_pec, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        .addComponent(jScrollPane2)
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                );
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                jPanel3Layout.setVerticalGroup(
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        .addGap(0, 15, Short.MAX_VALUE)
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        .addComponent(jLabel5)
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        .addGap(9, 9, 9)
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                .addComponent(jLabel22)
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                .addComponent(ph1_summary)
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                .addComponent(jLabel24)
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                .addComponent(ph2_summary))
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                .addComponent(jLabel26)
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                .addComponent(improved_pec)))
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        .addGap(6, 6, 6))
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                );
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                GroupLayout groupLayout = new GroupLayout(getContentPane());
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                groupLayout.setHorizontalGroup(
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                	groupLayout.createParallelGroup(Alignment.LEADING)
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                		.addComponent(jPanel1, GroupLayout.PREFERRED_SIZE, 1554, GroupLayout.PREFERRED_SIZE)
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                		.addComponent(jPanel2, GroupLayout.PREFERRED_SIZE, 1554, GroupLayout.PREFERRED_SIZE)
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                		.addComponent(jPanel3, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                );
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                groupLayout.setVerticalGroup(
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                	groupLayout.createParallelGroup(Alignment.LEADING)
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                		.addGroup(groupLayout.createSequentialGroup()
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                			.addComponent(jPanel1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                			.addGap(5)
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                			.addComponent(jPanel2, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                			.addGap(5)
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                			.addComponent(jPanel3, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                );
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                getContentPane().setLayout(groupLayout);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -873,7 +830,7 @@ public class ShippingCompanyGUI extends javax.swing.JFrame {
             this.delivered.setText(String.valueOf(cd1));
             this.failed.setText(String.valueOf(cf1));
 //            this.in_depo.setText(String.valueOf(ShippingCompany.shipments.size()+ShippingCompany.totalReceived));
-            this.cumulative.setText(String.valueOf(ShippingCompany.cumulativeShipments.size()));
+           // this.cumulative.setText(String.valueOf(ShippingCompany.cumulativeShipments.size()));
 //            this.no_handled.setText(String.valueOf(ShippingCompany.shipments.size()));
             this.avg_shipment_per_hour.setText(String.valueOf(ShippingCompany.phase1Average));
             
@@ -944,7 +901,7 @@ public class ShippingCompanyGUI extends javax.swing.JFrame {
             this.delivered2.setText(String.valueOf(cd2));
             this.failed2.setText(String.valueOf(cf2));
 //            this.in_depo2.setText(String.valueOf(ShippingCompany.shipments.size()+ShippingCompany.totalFailed));
-            this.cumulative2.setText(String.valueOf(ShippingCompany.cumulativeShipments.size()));
+         //   this.cumulative2.setText(String.valueOf(ShippingCompany.cumulativeShipments.size()));
 //            this.no_handled2.setText(String.valueOf(ShippingCompany.shipments.size()-ShippingCompany.totalDelivered));
             this.avg_shipment_per_hour2.setText(String.valueOf(ShippingCompany.phase2Average));
         
@@ -1012,7 +969,7 @@ public class ShippingCompanyGUI extends javax.swing.JFrame {
         this.delivered.setText("");
         this.failed.setText("");
    //     this.in_depo.setText("");
-        this.cumulative.setText("");
+     //   this.cumulative.setText("");
     //    this.no_handled.setText("");
         this.avg_shipment_per_hour.setText("");
 
@@ -1027,7 +984,7 @@ public class ShippingCompanyGUI extends javax.swing.JFrame {
         this.delivered2.setText("");
         this.failed2.setText("");
   //      this.in_depo2.setText("");
-        this.cumulative2.setText("");
+  //      this.cumulative2.setText("");
   //      this.no_handled2.setText("");
         this.avg_shipment_per_hour2.setText("");
 
@@ -1044,6 +1001,7 @@ public class ShippingCompanyGUI extends javax.swing.JFrame {
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         * 
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
@@ -1082,8 +1040,6 @@ public class ShippingCompanyGUI extends javax.swing.JFrame {
     private javax.swing.JTextField avg_shipment_per_hour;
     private javax.swing.JTextField avg_shipment_per_hour2;
     private javax.swing.JTextField carriers;
-    private javax.swing.JTextField cumulative;
-    private javax.swing.JTextField cumulative2;
     private javax.swing.JTextField current_day;
     private javax.swing.JTextField current_day2;
     private javax.swing.JTextField current_hour;
@@ -1097,10 +1053,8 @@ public class ShippingCompanyGUI extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
-    private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
@@ -1117,10 +1071,8 @@ public class ShippingCompanyGUI extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel57;
     private javax.swing.JLabel jLabel58;
     private javax.swing.JLabel jLabel59;
-    private javax.swing.JLabel jLabel60;
     private javax.swing.JLabel jLabel62;
     private javax.swing.JLabel jLabel63;
-    private javax.swing.JLabel jLabel66;
     private javax.swing.JLabel jLabel67;
     private javax.swing.JLabel jLabel68;
     private javax.swing.JLabel jLabel69;
@@ -1154,5 +1106,5 @@ public class ShippingCompanyGUI extends javax.swing.JFrame {
     private javax.swing.JTextField shipments;
     private javax.swing.JTextField working_carrier;
     private javax.swing.JTextField working_carrier2;
-    // End of variables declaration//GEN-END:variables
+    
 }
