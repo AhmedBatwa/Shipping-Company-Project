@@ -232,7 +232,7 @@ public class ShippingCompanyGUI extends javax.swing.JFrame {
         jLabel14 = new javax.swing.JLabel();
         jLabel14.setBounds(232, 120, 133, 20);
         jLabel15 = new javax.swing.JLabel();
-        jLabel15.setBounds(504, 120, 111, 20);
+        jLabel15.setBounds(458, 120, 191, 20);
         failed = new javax.swing.JTextField();
         failed.setBounds(653, 120, 64, 22);
         failed.setForeground(Color.RED);
@@ -285,7 +285,7 @@ public class ShippingCompanyGUI extends javax.swing.JFrame {
         jLabel62 = new javax.swing.JLabel();
         jLabel62.setBounds(284, 120, 133, 20);
         jLabel63 = new javax.swing.JLabel();
-        jLabel63.setBounds(552, 120, 111, 20);
+        jLabel63.setBounds(506, 120, 191, 20);
         failed2 = new javax.swing.JTextField();
         failed2.setBounds(701, 120, 57, 22);
         failed2.setForeground(Color.RED);
@@ -375,7 +375,7 @@ public class ShippingCompanyGUI extends javax.swing.JFrame {
                                                                                                                                         jLabel14.setText("Cumulative Delivered:");
                                                                                                                                         
                                                                                                                                                 jLabel15.setFont(new java.awt.Font("Leelawadee UI", 0, 14)); // NOI18N
-                                                                                                                                                jLabel15.setText("Cumulative Failed:");
+                                                                                                                                                jLabel15.setText("Cumulative Failed Attempts:");
                                                                                                                                                 
                                                                                                                                                         failed.setFont(new java.awt.Font("Leelawadee UI", 0, 12));
                                                                                                                                                         
@@ -475,7 +475,7 @@ public class ShippingCompanyGUI extends javax.swing.JFrame {
                                                                                                                                                                                                                                                                                                                                                         jLabel62.setText("Cumulative Delivered:");
                                                                                                                                                                                                                                                                                                                                                         
                                                                                                                                                                                                                                                                                                                                                                 jLabel63.setFont(new java.awt.Font("Leelawadee UI", 0, 14)); // NOI18N
-                                                                                                                                                                                                                                                                                                                                                                jLabel63.setText("Cumulative Failed:");
+                                                                                                                                                                                                                                                                                                                                                                jLabel63.setText("Cumulative Failed Attempts:");
                                                                                                                                                                                                                                                                                                                                                                 
                                                                                                                                                                                                                                                                                                                                                                         failed2.setFont(new java.awt.Font("Leelawadee UI", 0, 12));
                                                                                                                                                                                                                                                                                                                                                                         
