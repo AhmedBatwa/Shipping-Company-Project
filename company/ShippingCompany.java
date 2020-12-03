@@ -20,7 +20,8 @@ public class ShippingCompany {
 	protected static ArrayList<Shipment> shipments= new ArrayList<>();
 	protected static ArrayList<Sender> senders = new ArrayList<>();
 	protected static ArrayList<Receiver> receivers= new ArrayList<>();
-	protected static ArrayList<Shipment> cumulativeShipments= new ArrayList<>();
+	protected static ArrayList<Shipment> cumulativeShipments1= new ArrayList<>();
+	protected static ArrayList<Shipment> cumulativeShipments2= new ArrayList<>();
 	protected static Queue<Shipment> updatedShipments = new LinkedList<>();
 	protected static ArrayList<String> reports1=new ArrayList<>();
 	protected static ArrayList<String> reports2=new ArrayList<>();
@@ -186,13 +187,13 @@ public class ShippingCompany {
 				deliver(day, hour, 1);          
 				printUpdates(day, hour, 1);//print hourly updates	
 		}
-		cleanDepository();
+		cleanDepository(day);
 		dailyCounters(1);
 		printDailyReport(day,1); //print the Daily Report
 		dailyCleanUp();
 		}
 		numberOfFailedPhase1=totalFailed;
-                phase1Average = cumulativeShipments.size()/count;
+                phase1Average = cumulativeShipments1.size()/count;
 	}
   	
 	
@@ -251,13 +252,13 @@ public class ShippingCompany {
 				deliver(day,hour,2);    
 				printUpdates(day,hour,2);
 			}
-			cleanDepository();
+			cleanDepository(day);
 			dailyCounters(2);
 			printDailyReport(day,2); //print the Daily Report
 			dailyCleanUp();
 		}
 		 numberOfFailedPhase2=totalFailed;
-         phase2Average = cumulativeShipments.size()/count;
+         phase2Average = cumulativeShipments2.size()/count;
 	}
 	
 	
@@ -273,7 +274,7 @@ public class ShippingCompany {
 		 * clear all data related to previously simulated phase
 		 */
 		Shipment.resetShipmentsCounter();
-		cumulativeShipments.clear();
+	//	cumulativeShipments.clear();
 		carriers.clear();
 		senders.clear();
 		shipments.clear();
@@ -321,13 +322,13 @@ public class ShippingCompany {
 		
 	}
 	
-	public static void cleanDepository() {
+	public static void cleanDepository(int day) {
 		for(Shipment shipment:shipments) {
 			if (shipment.getDaysElapsed()>2) {
-				shipment.setStatus(Status.RETURNED_TO_SENDER,0);
+				shipment.setStatus(Status.RETURNED_TO_SENDER,23,0,day);
 			}
 			if (shipment instanceof Food) {
-					shipment.setStatus(Status.EXPIRED,23);				//setFood as expired, and add it to totalFailed
+					shipment.setStatus(Status.EXPIRED,23,0,day);				//setFood as expired, and add it to totalFailed
 			}
 		}
 	}
@@ -391,8 +392,15 @@ public class ShippingCompany {
 		report+=String.format("Currently in depository:"+ (shipments.size()-totalDelivered)+"\n");
 		System.out.println("Shipments not handled today:"+ (shipments.size()-totalDelivered-totalFailed));
 		report+=String.format("Shipments not handled today:"+(shipments.size()-totalDelivered-totalFailed)+"\n");
-		System.out.println("cumulative Shipments :\t"+cumulativeShipments.size());
-		report+=String.format("cumulative Shipments :\t"+cumulativeShipments.size()+"\n");
+		if (phase==1) {
+		System.out.println("cumulative Shipments :\t"+cumulativeShipments1.size());
+		
+		report+=String.format("cumulative Shipments :\t"+cumulativeShipments1.size()+"\n");
+		}
+		else if (phase==2) {
+			System.out.println("cumulative Shipments :\t"+cumulativeShipments2.size());
+			report+=String.format("cumulative Shipments :\t"+cumulativeShipments2.size()+"\n");
+		}
 		System.out.printf("_________________________________________________________________________________________________________________________\n",day);
 		report+=String.format("_________________________________________________________________________________________________________________________\n",day);
 		System.out.printf("%-15s  |    %-18s  |  %-25s  | %-5s   | %-3s   | %-12s\n","ID","\tType","\t Status"," Time","Day","Days Elapsed");
@@ -498,7 +506,12 @@ public class ShippingCompany {
 
 		
 		shipments.add(shipment);
-		cumulativeShipments.add(shipment);
+		if (simulatedPhase==1) {
+		cumulativeShipments1.add(shipment);
+		}
+		else if (simulatedPhase==2) {
+			cumulativeShipments2.add(shipment);
+			}
 		receivers.add(receiver);
 		senders.add(sender);
 		receiver.addShipment(shipment);
@@ -539,7 +552,7 @@ public class ShippingCompany {
 			
 			for (Carrier carrier : carriers) {
 				if(carrier.assignShipment(shipment,hour,1)) {
-					shipment.setStatus(Status.OUT_FOR_DELIVERY,hour);
+					shipment.setStatus(Status.OUT_FOR_DELIVERY,hour,0,day);
 					updatedShipments.add((Shipment)shipment.clone());
 					return;
 				}
@@ -571,7 +584,7 @@ public class ShippingCompany {
 			
 		for (Carrier carrier : carriers) {
 			if(carrier.assignShipment(shipment,hour,2)) {
-				shipment.setStatus(Status.OUT_FOR_DELIVERY,hour);
+				shipment.setStatus(Status.OUT_FOR_DELIVERY,hour,0,day);
 				updatedShipments.add((Shipment)shipment.clone());
 				return;
 			}
@@ -626,14 +639,14 @@ public class ShippingCompany {
 					
 					//dropping the normal shipment to the depository
 					shipment.getCarrier().dropShipment(shipment);
-					shipment.setStatus(Status.RETURNED_TO_DEPOSITORY,hour);
+					shipment.setStatus(Status.RETURNED_TO_DEPOSITORY,hour,0,day);
 					updatedShipments.add(shipment);
 					
 
 					
 					//assigning the undelayble shipment to the carrier 
 					shipment.getCarrier().assignShipment((Shipment)undelayableShipment,hour,2);
-					((Shipment)undelayableShipment).setStatus(Status.OUT_FOR_DELIVERY,hour);
+					((Shipment)undelayableShipment).setStatus(Status.OUT_FOR_DELIVERY,hour,0,day);
 					updatedShipments.add((Shipment)shipment.clone());
 
 					
@@ -824,28 +837,38 @@ public class ShippingCompany {
 		
 		
 		for(Carrier carrier : carriers) {
-			for(Shipment shipment:carrier.deliver(hour)) {
+			for(Shipment shipment:carrier.deliver(hour,day)) {
 				updatedShipments.add((Shipment)shipment.clone());
 			}
 		}
 	}
-	public static String historyTracking(int trackingNum) {
+	public static String historyTracking(int trackingNum,int phase) {
 		String text;
-		text= cumulativeShipments.get(trackingNum-1).trackShipment(1);
+		if (phase==1) {
+			text= cumulativeShipments1.get(trackingNum-1).trackShipment(1);
+			
+		}
+		else if (phase==2) {
+			text= cumulativeShipments2.get(trackingNum-1).trackShipment(1);
+			
+		}
+		else {
+			text="";
+		}
 		return text;
 	}
 	
-	public static void historyTracking() {
-		Scanner in = new Scanner(System.in);
-		int input = 0;
-		while(true) {
-			System.out.print("Enter number of shipment to track OR 0 to continue or exit: ");
-			try{input = in.nextInt();}
-			catch(InputMismatchException e) {System.out.println("Please enter a valid value");}
-			if(input == 0) {return;}
-			else {cumulativeShipments.get(input-1).trackShipment();}
-		}
-	}
+//	public static void historyTracking(int phase) {
+//		Scanner in = new Scanner(System.in);
+//		int input = 0;
+//		while(true) {
+//			System.out.print("Enter number of shipment to track OR 0 to continue or exit: ");
+//			try{input = in.nextInt();}
+//			catch(InputMismatchException e) {System.out.println("Please enter a valid value");}
+//			if(input == 0) {return;}
+//			else {cumulativeShipments.get(input-1).trackShipment();}
+//		}
+//	}
 	
 
 	

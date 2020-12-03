@@ -57,7 +57,7 @@ public int[] getWorkingHours() {
 
 
 
-public ArrayList<Shipment> deliver(int hour) {
+public ArrayList<Shipment> deliver(int hour,int day) {
 	
 	/*
 	 * loops over the assigned shipments and calls .deliver method
@@ -77,7 +77,7 @@ public ArrayList<Shipment> deliver(int hour) {
 		
 		if(assignedShipments[hour][i]!=null) {
 			
-		if(assignedShipments[hour][i].deliver(hour, i*20)) {
+		if(assignedShipments[hour][i].deliver(hour,i*20,day)) {
 			hourlyDelivered++;
 		}else {
 			hourlyFailed++;

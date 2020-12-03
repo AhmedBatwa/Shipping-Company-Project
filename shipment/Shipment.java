@@ -65,7 +65,7 @@ public abstract class  Shipment implements Cloneable{
 	public void setStatus(Status status,int hour, int min) {
 		this.status = status;
 		setLastUpdateTime(hour, min);
-		history.add(new History(status, hour, min,this.daysElapsed));
+		history.add(new History(status, hour, min));
 		}
 	public void setLastUpdateTime(int hour, int min) {
 		lastUpdateTime = String.format("%02d:%02d", hour,min);
@@ -122,12 +122,22 @@ public abstract class  Shipment implements Cloneable{
 	}
 	
 	// Action methods
-	public boolean deliver(int hour,int min) {
+	
+//	public boolean deliver(int hour,int min) {
+//		if(receiver.receive(this) == true) {
+//			setStatus(Status.DELIVERED, hour, min);
+//			return true;
+//		}
+//		setStatus(Status.DELIVERY_FAILED, hour, min);
+//		return false;
+//	}
+	//for gui requires day
+	public boolean deliver(int hour,int min,int day) {
 		if(receiver.receive(this) == true) {
-			setStatus(Status.DELIVERED, hour, min);
+			setStatus(Status.DELIVERED, hour, min,day);
 			return true;
 		}
-		setStatus(Status.DELIVERY_FAILED, hour, min);
+		setStatus(Status.DELIVERY_FAILED, hour, min,day);
 		return false;
 	}
 	public int getDaysElapsed() {
