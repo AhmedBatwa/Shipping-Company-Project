@@ -829,7 +829,11 @@ public class ShippingCompany {
 			}
 		}
 	}
-	
+	public static String historyTracking(int trackingNum) {
+		String text;
+		text= cumulativeShipments.get(trackingNum-1).trackShipment(1);
+		return text;
+	}
 	
 	public static void historyTracking() {
 		Scanner in = new Scanner(System.in);

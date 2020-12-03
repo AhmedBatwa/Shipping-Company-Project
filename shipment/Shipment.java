@@ -57,7 +57,7 @@ public abstract class  Shipment implements Cloneable{
 	
 	public void setStatus(int day,Status status,int hour) {setStatus(status, hour,0,day);}
 	
-	public void setStatus(Status status,int hour, int min,int day) {
+	public void setStatus(Status status,int hour, int min, int day) {
 		this.status = status;
 		setLastUpdateTime(hour, min);
 		history.add(new History(status, hour, min,day));
@@ -65,7 +65,7 @@ public abstract class  Shipment implements Cloneable{
 	public void setStatus(Status status,int hour, int min) {
 		this.status = status;
 		setLastUpdateTime(hour, min);
-		history.add(new History(status, hour, min));
+		history.add(new History(status, hour, min,this.daysElapsed));
 		}
 	public void setLastUpdateTime(int hour, int min) {
 		lastUpdateTime = String.format("%02d:%02d", hour,min);
@@ -104,6 +104,13 @@ public abstract class  Shipment implements Cloneable{
 					Integer.toString(getID()), getClass().getSimpleName(), getStatus(), getLastUpdateTime(),getHistory().get(0).getDay(),this.getDaysElapsed());}
 
 	// Prints all the actions that the shipment have gone through
+	public String trackShipment(int a) {
+		String text = String.format("Shipment ID: %d\t|\tShipment Type: %s\t|\tCurrent Status: %s\n", getID(), this.getClass().getSimpleName(), getStatus());
+		for(History h : history) {
+			text+=h.toString()+"\n";
+	}
+		return text;
+	}
 	public void trackShipment() {
 		System.out.println("\n===================================================[SHIPMENT HISTORY]=======================================================\n");
 		String text = String.format("Shipment ID: %d\t|\tShipment Type: %s\t|\tCurrent Status: %s", getID(), this.getClass().getSimpleName(), getStatus());

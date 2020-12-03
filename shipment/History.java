@@ -22,6 +22,6 @@ public class History {
 		this.day=day;
 	}
 	public String toString() {
-		return String.format("Updated: [%02d:%02d] | Status: %-22s", time[0], time[1], status);
+		return String.format("Updated: [%02d:%02d][Day#%d] | Status: %-22s", time[0], time[1], day, status);
 	}
 }
