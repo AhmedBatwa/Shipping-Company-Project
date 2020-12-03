@@ -62,53 +62,53 @@ public class ShippingCompany {
     protected static int phase1Average;
 	protected static int phase2Average;
 	
-//	public static void main(String args[]) {
-//		/* 
-//		 * ask the user for number of shipmments , employee
-//		 * simulate phase1();
-//		 * simulate phase2();
-//		 */
-//		//YOU MAY TRACK THE SHIPMENT FULL HISTORY USING shipment.track();		
-//		System.out.println("=====================================================[Shipping Company]========================================================= ");
-//
-//		int numberOfCarriers=0;
-//		int numberOfDays=0;
-//		int hourlyLimit=0;
-////		ask number of shipments , days ,hourlyLimit
-//		
-//		Scanner scanner = new Scanner(System.in);
-//		while(numberOfCarriers<1 || numberOfDays <1 || hourlyLimit<1) {
-//			 			 
-//			try {
-//		System.out.println("Enter Number of Carriers : ");
-//		numberOfCarriers= scanner.nextInt();
-//		System.out.println("Enter Number of Days : ");
-//		numberOfDays= scanner.nextInt();
-//		System.out.println("Enter Number of limit of generated shipments per hour : ");
-//		hourlyLimit= scanner.nextInt();
-//			}catch(InputMismatchException e) {
-//				System.out.println("Sorry... You Must Enter Valid Number!");
-//				scanner.next();
-//			}
-//		}
-//		
-//		
-//		
-//		
-//		
-//		System.out.println("=====================================================[Phase#1]========================================================= ");
-//		simulatePhase1(numberOfCarriers,numberOfDays,hourlyLimit);
-//		System.out.println("=======================================================[End]=========================================================== ");
-//		System.out.println("=====================================================[Phase#2]========================================================= ");
-//		simulatePhase2(numberOfCarriers,numberOfDays,hourlyLimit);
-//		System.out.println("=======================================================[End]=========================================================== ");
-//		System.out.println(numberOfFailedPhase1);
-//		System.out.println(numberOfFailedPhase2);
-//		System.out.println("Percentage of Improvement: "+ ((1-(double)numberOfFailedPhase2/(numberOfFailedPhase1+numberOfFailedPhase2)))*100);
-//			
-//	}
-//	
-//	
+	public static void main(String args[]) {
+		/* 
+		 * ask the user for number of shipmments , employee
+		 * simulate phase1();
+		 * simulate phase2();
+		 */
+		//YOU MAY TRACK THE SHIPMENT FULL HISTORY USING shipment.track();		
+		System.out.println("=====================================================[Shipping Company]========================================================= ");
+
+		int numberOfCarriers=0;
+		int numberOfDays=0;
+		int hourlyLimit=0;
+//		ask number of shipments , days ,hourlyLimit
+		
+		Scanner scanner = new Scanner(System.in);
+		while(numberOfCarriers<1 || numberOfDays <1 || hourlyLimit<1) {
+			 			 
+			try {
+		System.out.println("Enter Number of Carriers : ");
+		numberOfCarriers= scanner.nextInt();
+		System.out.println("Enter Number of Days : ");
+		numberOfDays= scanner.nextInt();
+		System.out.println("Enter Number of limit of generated shipments per hour : ");
+		hourlyLimit= scanner.nextInt();
+			}catch(InputMismatchException e) {
+				System.out.println("Sorry... You Must Enter Valid Number!");
+				scanner.next();
+			}
+		}
+		
+		
+		
+		
+		
+		System.out.println("=====================================================[Phase#1]========================================================= ");
+		simulatePhase1(numberOfCarriers,numberOfDays,hourlyLimit);
+		System.out.println("=======================================================[End]=========================================================== ");
+		System.out.println("=====================================================[Phase#2]========================================================= ");
+		simulatePhase2(numberOfCarriers,numberOfDays,hourlyLimit);
+		System.out.println("=======================================================[End]=========================================================== ");
+		System.out.println(numberOfFailedPhase1);
+		System.out.println(numberOfFailedPhase2);
+		System.out.println("Percentage of Improvement: "+ ((1-(double)numberOfFailedPhase2/(numberOfFailedPhase1+numberOfFailedPhase2)))*100);
+			
+	}
+	
+	
 	
 	
 	

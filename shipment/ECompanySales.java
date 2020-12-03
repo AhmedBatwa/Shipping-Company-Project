@@ -8,8 +8,4 @@ public class ECompanySales extends Shipment{
 		super(sender, receiver);
 		super.setPrefferedDeliveryTime(new int[] {0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0});
 	}
-	
-	// Print
-//	public String toString() {return String.format("%-15s |  %-22s |  %-27s | [%-5s] | [%-1d]",
-//			super.toString(), getClass().getSimpleName(), getStatus(), getLastUpdateTime(),getHistory().get(0).getDay());}
 }
