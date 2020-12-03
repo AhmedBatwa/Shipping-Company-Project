@@ -54,11 +54,11 @@ public class ShippingCompany {
 	protected static int cumluativeFailed1;
 	protected static int cumluativeRecieved1;
 	protected static int cumluativeDelivered1;
-	
+	protected static int cumluativeDepo1;
 	protected static int cumluativeFailed2;
 	protected static int cumluativeRecieved2;
 	protected static int cumluativeDelivered2;
-        
+	protected static int cumluativeDepo2;        
     protected static int phase1Average;
 	protected static int phase2Average;
 	
@@ -364,10 +364,12 @@ public class ShippingCompany {
 			cumluativeFailed1 += totalFailed;
 			cumluativeDelivered1 += totalDelivered;
 			cumluativeRecieved1 += totalReceived;
+			cumluativeDepo1 = totalFailed + (shipments.size()-totalDelivered-totalFailed);
 		}else if (phase == 2) {
 			cumluativeFailed2 += totalFailed;
 			cumluativeDelivered2 += totalDelivered;
 			cumluativeRecieved2 += totalReceived;
+			cumluativeDepo2 = totalFailed + (shipments.size()-totalDelivered-totalFailed);
 		}
 	}
 	
