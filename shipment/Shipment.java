@@ -99,13 +99,12 @@ public abstract class  Shipment implements Cloneable{
 	}
 	
 	// Print
-
 	public String toString() {return String.format("#%-15s |  %-22s |  %-27s | [%-5s] | [%03d] | [%1d]",
 					Integer.toString(getID()), getClass().getSimpleName(), getStatus(), getLastUpdateTime(),getHistory().get(0).getDay(),this.getDaysElapsed());}
 
 	// Prints all the actions that the shipment have gone through
 	public String trackShipment(int a) {
-		String text = String.format("Shipment ID: %d\t|\tShipment Type: %s\t|\tCurrent Status: %s\n", getID(), this.getClass().getSimpleName(), getStatus());
+		String text = String.format("Shipment ID: %d\t|\tShipment Type: %s\t|\tCurrent Status: %s\n\n", getID(), this.getClass().getSimpleName(), getStatus());
 		for(History h : history) {
 			text+=h.toString()+"\n";
 	}
@@ -143,6 +142,7 @@ public abstract class  Shipment implements Cloneable{
 	public int getDaysElapsed() {
 		return daysElapsed;
 	}
+		
 	public void incrementDays() {
 		daysElapsed++;
 	}

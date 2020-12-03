@@ -324,11 +324,11 @@ public class ShippingCompany {
 	
 	public static void cleanDepository(int day) {
 		for(Shipment shipment:shipments) {
-			if (shipment.getDaysElapsed()>2) {
-				shipment.setStatus(Status.RETURNED_TO_SENDER,23,0,day);
-			}
-			if (shipment instanceof Food) {
+			if (shipment instanceof Food && shipment.getStatus() != Status.DELIVERED) {
 					shipment.setStatus(Status.EXPIRED,23,0,day);				//setFood as expired, and add it to totalFailed
+			}
+			else if (shipment.getDaysElapsed()>2) {
+				shipment.setStatus(Status.RETURNED_TO_SENDER,23,0,day);
 			}
 		}
 	}
@@ -451,7 +451,7 @@ public class ShippingCompany {
 		else if(phase == 2) {hourReports2.get(day-1).add(report);}
 	}
 	
-	
+	// 16
 	
 	
 	

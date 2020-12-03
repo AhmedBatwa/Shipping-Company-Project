@@ -28,6 +28,4 @@ public class OfficialPapers extends Shipment implements Undelayable{
 		}
 		setPrefferedDeliveryTime(PrefferedDeliveryTime);
 	}
-	
-
 }

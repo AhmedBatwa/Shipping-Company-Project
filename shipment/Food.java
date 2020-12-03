@@ -25,8 +25,5 @@ public class Food extends Shipment implements Undelayable{
 		}
 		setPrefferedDeliveryTime(PrefferedDeliveryTime);
 	}
-	
-
-
 }
 	

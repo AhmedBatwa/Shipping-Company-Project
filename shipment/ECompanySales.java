@@ -12,5 +12,4 @@ public class ECompanySales extends Shipment{
 	// Print
 //	public String toString() {return String.format("%-15s |  %-22s |  %-27s | [%-5s] | [%-1d]",
 //			super.toString(), getClass().getSimpleName(), getStatus(), getLastUpdateTime(),getHistory().get(0).getDay());}
-
 }
