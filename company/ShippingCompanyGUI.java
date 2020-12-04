@@ -903,6 +903,11 @@ public class ShippingCompanyGUI extends javax.swing.JFrame {
         this.delivered.setText("");
         this.failed.setText("");
         isRunning1=false;
+        this.ph1_day.setSelectedIndex(-1);
+        this.ph1_hour.setSelectedIndex(-1);
+        ph1_type.setSelectedIndex(0);
+        this.ph1_day.setEnabled(false);
+        this.ph1_hour.setEnabled(false);
         d1=0; hr1.clear(); cumulativeShipments1.clear();
    //     this.in_depo.setText("");
      //   this.cumulative.setText("");
@@ -920,6 +925,11 @@ public class ShippingCompanyGUI extends javax.swing.JFrame {
         this.delivered2.setText("");
         this.failed2.setText("");
         isRunning2=false;
+        ph2_type.setSelectedIndex(0);
+        this.ph2_day.setEnabled(false);
+        this.ph2_hour.setEnabled(false);
+        this.ph2_day.setSelectedIndex(-1);
+        this.ph2_hour.setSelectedIndex(-1);
         d2=0; hr2.clear();cumulativeShipments2.clear();
   //      this.in_depo2.setText("");
   //      this.cumulative2.setText("");
