@@ -16,6 +16,9 @@ import javax.swing.JTextField;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.GroupLayout;
 import javax.swing.LayoutStyle.ComponentPlacement;
+
+import shipment.Shipment;
+
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Rectangle;
@@ -55,9 +58,13 @@ public class ShippingCompanyGUI extends javax.swing.JFrame {
     static int cf2;
     static int cd2;    
     static int cr2;
+    boolean isRunning1;
+    boolean isRunning2;
 
 	static ArrayList<ArrayList<String>> hr1=new ArrayList<>();
 	static ArrayList<ArrayList<String>> hr2=new ArrayList<>();
+	protected static ArrayList<Shipment> cumulativeShipments1= new ArrayList<>();
+	protected static ArrayList<Shipment> cumulativeShipments2= new ArrayList<>();
 	int d3;
 	int d4;
 	
@@ -715,7 +722,10 @@ public class ShippingCompanyGUI extends javax.swing.JFrame {
             ShippingCompany ob = new ShippingCompany();
             if(this.ph1_type.getItemAt(this.ph1_type.getSelectedIndex()).equalsIgnoreCase("Full Report")){
                 System.out.println("=====================================================[Phase#1]========================================================= ");
+                if(!isRunning1) {
                 ob.simulatePhase1(numberOfCarriers,numberOfDays,hourlyLimit);
+                isRunning1=true;
+                }
                 if(d3 == 0) {
                 	hr1=ShippingCompany.getHourReports1();
                 	d3=1;
@@ -739,6 +749,7 @@ public class ShippingCompanyGUI extends javax.swing.JFrame {
             }
             if(d1 ==0)
             {	
+            	cumulativeShipments1=ShippingCompany.cumulativeShipments1;
             	cr1= ShippingCompany.cumluativeRecieved1;
             	cd1= ShippingCompany.cumluativeDelivered1;
             	cf1= ShippingCompany.cumluativeFailed1;
@@ -788,7 +799,10 @@ public class ShippingCompanyGUI extends javax.swing.JFrame {
             ShippingCompany ob = new ShippingCompany();
             if(this.ph2_type.getItemAt(this.ph2_type.getSelectedIndex()).equalsIgnoreCase("Full Report")){
                 System.out.println("=====================================================[Phase#2]========================================================= ");
+                if(!isRunning2) {
                 ob.simulatePhase2(numberOfCarriers,numberOfDays,hourlyLimit);
+                isRunning2=true;
+                }
                 if(d4 == 0) {
                 	hr2=ShippingCompany.getHourReports2();
                 	d4=1;
@@ -811,6 +825,7 @@ public class ShippingCompanyGUI extends javax.swing.JFrame {
             }
             if(d2 ==0)
             {	
+            	cumulativeShipments2=ShippingCompany.cumulativeShipments2;
             	cr2= ShippingCompany.cumluativeRecieved2;
             	cd2= ShippingCompany.cumluativeDelivered2;
             	cf2= ShippingCompany.cumluativeFailed2;
@@ -887,6 +902,8 @@ public class ShippingCompanyGUI extends javax.swing.JFrame {
         this.received.setText("");
         this.delivered.setText("");
         this.failed.setText("");
+        isRunning1=false;
+        d1=0; hr1.clear(); cumulativeShipments1.clear();
    //     this.in_depo.setText("");
      //   this.cumulative.setText("");
     //    this.no_handled.setText("");
@@ -902,6 +919,8 @@ public class ShippingCompanyGUI extends javax.swing.JFrame {
         this.received2.setText("");
         this.delivered2.setText("");
         this.failed2.setText("");
+        isRunning2=false;
+        d2=0; hr2.clear();cumulativeShipments2.clear();
   //      this.in_depo2.setText("");
   //      this.cumulative2.setText("");
   //      this.no_handled2.setText("");
@@ -915,6 +934,30 @@ public class ShippingCompanyGUI extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
+    
+    
+    
+    public static String historyTracking(int trackingNum,int phase) {
+		String text;
+		if (phase==1) {
+			text= cumulativeShipments1.get(trackingNum-1).trackShipment(1);
+			
+		}
+		else if (phase==2) {
+			text= cumulativeShipments2.get(trackingNum-1).trackShipment(1);
+			
+		}
+		else {
+			text="";
+		}
+		return text;
+	}
+    
+    
+    
+    
+    
+    
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
